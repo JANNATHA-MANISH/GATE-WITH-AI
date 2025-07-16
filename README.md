@@ -1,3 +1,4 @@
+
 <!-- Leave this space for an embedded video link or GIF later -->
 <!-- Example: <p align="center"><a href="YOUR_DEMO_VIDEO_LINK_HERE" target="_blank"><img src="./docs/demo_thumbnail.png" alt="Demo Video" width="600"/></a></p> -->
 <div align="center">
@@ -5,64 +6,57 @@
 </div>
 <br>
 
-# 🎓 GATE-AI-Prep-Assistant
+# 🎓 GATE AI Prep Assistant
 
 Hey everyone! 👋  
-Welcome to **GATE AI Prep Assistant** — a self-contained, offline-first web app designed to help with GATE (Computer Science) preparation! 😄  
+Welcome to **GATE AI Prep Assistant** — a cool little web app I made to help with GATE (Computer Science) prep! 😄  
 It’s super simple, works entirely in your browser, and uses **Google’s Gemini AI** to give you explanations and generate practice questions on the fly. 🎯
+
+> 💬 **Join the Discord Community!**  
+> Got questions, suggestions, or just want to chat with other GATE aspirants? Join our Discord server!  
+> 👉 **[Click here to join the server](https://discord.gg/p76DTBvh)**
 
 ---
 
-<div align="center">
-  <h3>💬 Join the Community on Discord!</h3>
-  <p>Have questions, suggestions, or just want to discuss GATE prep with others? Join our Discord server!</p>
-  <a href="https://discord.gg/p76DTBvh" target="_blank">
-    <img src="https://img.shields.io/discord/12345?label=Discord&logo=discord&logoColor=white&style=for-the-badge&color=5865F2" alt="Discord Shield"/>
-  </a>
-</div>
+<p style="background-color:#fef3c7; color: #92400e; padding:15px; border-left:4px solid #f59e0b;">
+  <strong>Branch Note:</strong> This tool is currently tailored <strong>exclusively for Computer Science (CSE)</strong>. If you're from another branch (like ECE, ME, EE, etc.) and want a version for your syllabus, please drop a message in our Discord! We can develop it together.
+</p>
 
 ---
 
 ## ⚡ What It Does (In Simple Words)
 
-- ✅ **Track Your Progress:** A complete, interactive checklist for the GATE CS syllabus. Mark topics as done, in-progress, or not started.
-- 🧠 **AI-Powered Explanations:** Don't understand a concept? Click the **✨ Explain** button next to any subtopic for a detailed, AI-generated explanation.
-- ❓ **Unlimited Practice Questions:** Generate MCQs with **3 difficulty levels** for any subtopic using the **🎯 Practice** button. The AI provides detailed explanations for every answer.
-- 📊 **Visualize Your Performance:** See beautiful charts for your overall progress, section-wise completion, and question accuracy.
-- 🌗 **Themes:** Switch between a comfortable dark mode and a clean light mode.
-- 🎯 **Personalized Plan:** Get a personalized timeline and subject weightage info based on your target exam year.
-- 🔐 **100% Private & Offline:** Your data is saved **only in your browser**. No logins, no servers. It works perfectly offline after the first load.
+- ✅ **Track Your Progress:** Check off topics and subtopics as you complete them.
+- 🧠 **AI Explanations:** Get detailed, easy-to-understand explanations for any subtopic with a single click.
+- ❓ **AI Practice Questions:** Generate unlimited MCQs with three difficulty levels (Easy, Moderate, Hard) and get detailed, step-by-step solutions.
+- 📊 **See Your Performance:** Visualize your syllabus coverage and question accuracy with interactive charts.
+- 📚 **Resource Management:** Add your own YouTube or web links to each topic to keep your study materials organized.
 
 ---
 
-## 🚀 How to Use (It's Super Easy!)
+## 🚀 How to Use (It's SUPER Easy Now!)
 
 No coding or complex setup needed!
 
-### 1. Get the App
+### 1. Download the App
 - Click the green **`< > Code`** button at the top of this page.
 - Select **`Download ZIP`**.
-- Unzip the downloaded file.
+- Unzip the file on your computer. You'll get a file named `index.html`.
 
 ### 2. Open the App
-- Open the unzipped folder.
-- **Double-click the `index.html` file.** It will open in your default web browser (like Chrome, Firefox, or Edge). That's it!
+- Just **double-click the `index.html` file** to open it in your browser (like Chrome, Firefox, or Edge). That's it!
 
-### 3. Set Up the AI (Optional, but Recommended!)
-To use the "Explain" and "Practice" features, you need a free Google Gemini API key.
+### 3. Get Your Free Gemini API Key
+To unlock the AI features, you need a free key from Google. It takes less than a minute!
+- Go to [**Google AI Studio**](https://aistudio.google.com/app/apikey).
+- Sign in with your Google account.
+- Click **`Create API key in new project`**.
+- Copy the key that appears.
 
-- **Get Your Free Key:**
-  1. Go to [**Google AI Studio**](https://aistudio.google.com/apikey).
-  2. Sign in with your Google account.
-  3. Click **`Create API key in new project`**.
-  4. Copy the key that's generated.
-
-- **Add the Key to the App:**
-  1. In the app (which you opened in your browser), click the **🔑 (key) icon** in the top-right corner.
-  2. A pop-up will appear. **Paste your API key** into the input box.
-  3. Click **`Save`**.
-
-You're all set! The AI features are now enabled.
+### 4. Add the Key to the App
+- In the app, click the **🔑 (key) icon** in the top-right corner.
+- A box will pop up. Paste your Gemini API key there and click **Save**.
+- **That's it!** The AI features are now unlocked. 🔓
 
 ---
 
@@ -73,8 +67,14 @@ You're all set! The AI features are now enabled.
   1. Copy or share the <code>index.html</code> file to your phone (via WhatsApp, Telegram, or any file sharing app).<br>
   2. Open it using <strong>Chrome or any browser</strong> on your phone.<br>
   3. <strong>Tap “Add to Home Screen”</strong> in your browser's menu to make it work just like a real app!<br>
-  4. That’s it – now it’s with you <strong>24/7</strong> like a personal study buddy 📱📚
+  4. Now it’s with you <strong>24/7</strong> like a personal study buddy. 📱📚
 </p>
+
+---
+
+## 🖥️ Running the App
+
+Simply double-click the `index.html` file. That's all! The app runs completely in your browser. Once you've set your API key, your progress and data are saved locally, so you don't need an internet connection just to view your syllabus.
 
 ---
 
@@ -82,32 +82,41 @@ You're all set! The AI features are now enabled.
 
 ### 📚 Your GATE Prep
 - This is your main dashboard. Track your progress with checkboxes.
-- Use the **✨ Explain** or **🎯 Practice** buttons next to each subtopic for AI help.
+- Use the **✨ Explain** or **🎯 Practice** buttons for AI help on any subtopic.
 
 ### 📈 Progress Analytics
-- See detailed charts of your MCQ accuracy, topic completion, and overall study timeline.
+- See beautiful charts of your syllabus completion, study timeline, and question accuracy by subject.
 
 ### 📊 All About GATE
-- Find general info like subject weightage, a recommended study flow, exam patterns, and important dates.
+- Find the official subject weightage, a recommended study flow, exam pattern details, and a timeline based on your target year.
+
+---
+
+## 🛠️ Extra Features
+
+- 👤 **User Profile:** Set your name and target year by clicking the profile icon.
+- 🔁 **Local Storage:** All your progress and data are saved automatically in your browser — no login needed!
 
 ---
 
 ## 📁 Repo Info
 
 **Name:** `GATE-AI-Prep-Assistant`  
-**Purpose:** A smart, offline, AI-powered preparation tool for GATE CS students.  
-**Built by:** A fellow student with love 💛 and way too much coffee ☕  
-**Note:** It’s simple, not perfect — so feel free to suggest improvements on Discord or GitHub!
+**Purpose:** A smart, simple, and free tool for GATE CS preparation, powered by AI.  
+**Built by:** A fellow student with a passion for coding 💛 and lots of coffee ☕.  
+**Note:** This is a personal project built for the community. It’s simple, not perfect — so feel free to suggest improvements or contribute!
 
 ---
 
 ## 💬 Wanna Contribute, Suggest a Stream, or Just Say Hi?
 
-I’d love to connect!  
-If you're from **another engineering stream** (like ECE, ME, EE) and want a version for your subjects, let me know on Discord! I'll do my best to create one for you. 😄  
-Feel free to reach out anytime here:
+I’d love to connect! As mentioned, this is a CSE-only version for now, but I'm happy to collaborate on versions for other streams.
 
-👉 **[Connect with me on LinkedIn](https://www.linkedin.com/in/manish-jannatha-a21903261/)**  
+Feel free to reach out anytime:
+
+👉 **[Join our Discord](https://discord.gg/p76DTBvh)**  
+👉 **[Contact me on LinkedIn](https://www.linkedin.com/in/manish-jannatha-a21903261/)**  
+> Just a friend offering happy support. If you request it, I’ll release versions for other streams one by one!
 
 ---
 
