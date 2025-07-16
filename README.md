@@ -13,8 +13,13 @@ Welcome to **GATE AI Prep Assistant** — a cool little web app I made to help w
 It’s super simple, works entirely in your browser, and uses **Google’s Gemini AI** to give you explanations and generate practice questions on the fly. 🎯
 
 > 💬 **Join the Discord Community!**  
-> Got questions, suggestions, or just want to chat with other GATE aspirants? Join our Discord server!  
-> 👉 **[Click here to join the server](https://discord.gg/p76DTBvh)**
+<div align="center">
+
+**Got questions, suggestions, or just want to chat with other GATE aspirants?**
+
+[![Join our Discord Community](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/p76DTBvh)
+
+</div>
 
 ---
 
