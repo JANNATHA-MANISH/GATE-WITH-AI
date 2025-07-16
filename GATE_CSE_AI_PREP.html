@@ -1,0 +1,3562 @@
+
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GATE Preparation</title> <!-- Title will be updated by JS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for enhanced theming */
+        :root {
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+            --card-bg: #ffffff;
+            --header-bg-start: #667eea;
+            --header-bg-end: #764ba2;
+            --section-header-bg: #f1f5f9;
+            --section-header-hover-bg: #e2e8f0;
+            --section-completed-bg: #dcfce7;
+            --section-completed-text: #166534;
+            --section-partial-bg: #fef3c7;
+            --section-partial-text: #92400e;
+            --syllabus-item-bg: #ffffff;
+            --syllabus-item-hover-bg: #f8fafc;
+            --border-color: #e2e8f0;
+            --checkbox-border: #94a3b8;
+            --chart-title-color: #374151;
+            --chart-legend-color: #374151;
+            --nav-button-color: #64748b;
+            --nav-button-hover-bg: #f1f5f9;
+            --nav-button-active-bg: #667eea;
+            --nav-button-active-color: #ffffff;
+            --chart-details-bg: #f8fafc;
+            --chart-details-border: #e2e8f0;
+            --congratulations-modal-bg: #ffffff;
+            --congratulations-text: #1e293b;
+            --login-modal-bg: #ffffff;
+            --login-text-color: #1e293b;
+            --input-border-color: #cbd5e1;
+            --input-focus-border-color: var(--nav-button-active-bg);
+
+            --accent-green: #10b981;
+            --accent-yellow: #f59e0b;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --accent-pink: #ec4899;
+            --accent-orange: #f97316;
+            --accent-red: #ef4444;
+            --accent-teal: #14b8a6;
+            --accent-indigo: #6366f1;
+            --accent-cyan: #06b6d4;
+            --accent-emerald: #059669;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+        }
+
+        /* Enhanced Dark Mode styles */
+        body.dark-mode {
+            --bg-color: #0f172a;
+            --text-color: #e2e8f0;
+            --card-bg: #1e293b;
+            --header-bg-start: #475569;
+            --header-bg-end: #334155;
+            --section-header-bg: #334155;
+            --section-header-hover-bg: #475569;
+            --section-completed-bg: #065f46;
+            --section-completed-text: #d1fae5;
+            --section-partial-bg: #78350f;
+            --section-partial-text: #fef3c7;
+            --syllabus-item-bg: #1e293b;
+            --syllabus-item-hover-bg: #334155;
+            --border-color: #475569;
+            --checkbox-border: #64748b;
+            --chart-title-color: #f1f5f9;
+            --chart-legend-color: #f1f5f9;
+            --nav-button-color: #cbd5e1;
+            --nav-button-hover-bg: #334155;
+            --nav-button-active-bg: #667eea;
+            --nav-button-active-color: #ffffff;
+            --chart-details-bg: #1e293b;
+            --chart-details-border: #475569;
+            --congratulations-modal-bg: #1e293b;
+            --congratulations-text: #e2e8f0;
+            --login-modal-bg: #1e293b;
+            --login-text-color: #e2e8f0;
+            --input-border-color: #475569;
+            --input-focus-border-color: var(--nav-button-active-bg);
+
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            min-height: 100vh;
+        }
+        html.modal-open,
+        body.modal-open { 
+            overflow: hidden !important;
+        }
+
+        .main-wrapper {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                padding: 2rem;
+            }
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .card {
+                padding: 2rem;
+                margin-bottom: 2rem;
+                border-radius: 20px;
+            }
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-xl);
+            transform: translateY(-2px);
+        }
+        .card .section-header { 
+             background-color: var(--card-bg) !important; 
+             border-radius: 12px;
+             padding: 1rem 1.5rem; 
+        }
+        .card .section-header:hover {
+            background-color: var(--section-header-hover-bg) !important;
+        }
+        .card .section-header h2 {
+            color: var(--chart-title-color); 
+        }
+
+
+        .header {
+            background: linear-gradient(135deg, var(--header-bg-start) 0%, var(--header-bg-end) 100%);
+            color: #ffffff;
+            padding: 2rem 1rem 4rem 1rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: visible;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .header {
+                padding: 3rem 2rem 5rem 2rem;
+                margin-bottom: 2rem;
+                border-bottom-left-radius: 30px;
+                border-bottom-right-radius: 30px;
+            }
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 0;
+        }
+
+        @media (min-width: 768px) {
+            .header h1 {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+            }
+            
+            .header p {
+                font-size: 1.5rem;
+            }
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--chart-title-color);
+            margin-bottom: 1.5rem;
+            transition: color 0.3s ease;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 1.75rem;
+                text-align: left;
+            }
+        }
+        .card .section-header .section-title { 
+            margin-bottom: 0;
+            text-align: left;
+        }
+
+
+        .nav-buttons {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            background-color: var(--card-bg);
+            padding: 6px;
+            border-radius: 50px;
+            box-shadow: var(--shadow-xl);
+            z-index: 100;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+            flex-direction: row;
+            width: auto;
+            max-width: 90%;
+        }
+
+        @media (max-width: 767px) {
+            .nav-buttons {
+                bottom: -25px;
+                flex-direction: column;
+                border-radius: 20px;
+                width: 280px;
+                gap: 4px;
+                padding: 8px;
+            }
+        }
+
+        .nav-button {
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--nav-button-color);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            white-space: nowrap;
+            border: none;
+            background: none;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        @media (min-width: 768px) {
+            .nav-button {
+                padding: 12px 24px;
+                font-size: 0.95rem;
+                min-width: 150px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .nav-button {
+                border-radius: 15px;
+                width: 100%;
+                margin: 0;
+            }
+        }
+
+        .nav-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-button:hover::before {
+            left: 100%;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-1px);
+            background-color: var(--nav-button-hover-bg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-button.active {
+            background: linear-gradient(135deg, var(--nav-button-active-bg) 0%, var(--header-bg-end) 100%);
+            color: var(--nav-button-active-color);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            transform: translateY(0);
+        }
+
+        .syllabus-section-container {
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        @media (min-width: 768px) {
+            .syllabus-section-container {
+                margin-bottom: 2rem;
+                border-radius: 16px;
+            }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            padding: 1rem;
+            background-color: var(--section-header-bg);
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .section-header {
+                padding: 1.5rem;
+                border-radius: 16px;
+                flex-wrap: nowrap;
+                gap: 0;
+            }
+        }
+
+        .section-header:hover {
+            background-color: var(--section-header-hover-bg);
+            transform: translateX(3px);
+            border-color: var(--nav-button-active-bg);
+            box-shadow: var(--shadow-md);
+        }
+
+        @media (min-width: 768px) {
+            .section-header:hover {
+                transform: translateX(6px);
+            }
+        }
+
+        .section-header.math-section { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); color: white; }
+        .section-header.math-section:hover { background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); }
+        .section-header.digital-section { background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; }
+        .section-header.digital-section:hover { background: linear-gradient(135deg, #0d9488 0%, #047857 100%); }
+        .section-header.computer-org-section { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); color: white; }
+        .section-header.computer-org-section:hover { background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%); }
+        .section-header.programming-section { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; }
+        .section-header.programming-section:hover { background: linear-gradient(135deg, #d97706 0%, #b45309 100%); }
+        .section-header.algorithms-section { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: white; }
+        .section-header.algorithms-section:hover { background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); }
+        .section-header.theory-section { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); color: white; }
+        .section-header.theory-section:hover { background: linear-gradient(135deg, #db2777 0%, #be185d 100%); }
+        .section-header.compiler-section { background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%); color: white; }
+        .section-header.compiler-section:hover { background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%); }
+        .section-header.os-section { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: white; }
+        .section-header.os-section:hover { background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%); }
+        .section-header.database-section { background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); color: white; }
+        .section-header.database-section:hover { background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%); }
+        .section-header.network-section { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); color: white; }
+        .section-header.network-section:hover { background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%); }
+        .section-header.aptitude-section { background: linear-gradient(135deg, #84cc16 0%, #65a30d 100%); color: white; }
+        .section-header.aptitude-section:hover { background: linear-gradient(135deg, #65a30d 0%, #4d7c0f 100%); }
+
+        .card .section-header:not([class*="-section"]) {
+            background: var(--card-bg); 
+        }
+        .card .section-header:not([class*="-section"]):hover {
+            background: var(--section-header-hover-bg); 
+        }
+         .card .section-header:not([class*="-section"]) h3,
+         .card .section-header:not([class*="-section"]) .section-title {
+            color: var(--chart-title-color) !important; 
+        }
+
+
+        .section-header h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0;
+            transition: all 0.3s ease;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        @media (min-width: 768px) {
+            .section-header h3 {
+                font-size: 1.3rem;
+                min-width: auto;
+            }
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-right: 0.75rem;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            backdrop-filter: blur(10px);
+        }
+
+        @media (min-width: 768px) {
+            .section-number {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                margin-right: 1rem;
+            }
+        }
+
+        .toggle-section svg, .toggle-subtopics svg, .toggle-card-content svg {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            color: rgba(255, 255, 255, 0.8); 
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+        }
+        
+        body:not(.dark-mode) .syllabus-item .toggle-subtopics svg {
+            color: var(--text-color); 
+        }
+        body:not(.dark-mode) .card .section-header:not([class*="-section"]) .toggle-card-content svg {
+             color: var(--text-color);
+        }
+        body.dark-mode .syllabus-item .toggle-subtopics svg,
+        body.dark-mode .card .section-header:not([class*="-section"]) .toggle-card-content svg {
+             color: var(--text-color); 
+        }
+
+
+        @media (min-width: 768px) {
+            .toggle-section svg, .toggle-subtopics svg, .toggle-card-content svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+
+        .toggle-section svg.rotate-180, .toggle-subtopics svg.rotate-180, .toggle-card-content svg.rotate-180 {
+            transform: rotate(180deg);
+        }
+
+        .section-topics-list, .card-content-collapsible {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            padding-left: 1rem;
+            border-left: 4px solid var(--border-color);
+            margin-top: 1rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.3) 100%);
+            border-radius: 0 0 12px 12px;
+        }
+         .card-content-collapsible { 
+            background: var(--card-bg); 
+            border-left: none; 
+            padding-left: 0;
+        }
+
+
+        @media (min-width: 768px) {
+            .section-topics-list, .card-content-collapsible {
+                padding-left: 1.5rem;
+                border-radius: 0 0 16px 16px;
+            }
+            .card-content-collapsible { padding-left: 0; }
+        }
+
+        body.dark-mode .section-topics-list {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 100%);
+        }
+        body.dark-mode .card-content-collapsible {
+            background: var(--card-bg); 
+        }
+
+
+        .section-topics-list.expanded, .card-content-collapsible.expanded {
+            max-height: 7000px; 
+            padding: 1rem;
+        }
+        .card-content-collapsible.expanded {
+             padding-top: 1.5rem; 
+        }
+
+
+        @media (min-width: 768px) {
+            .section-topics-list.expanded, .card-content-collapsible.expanded {
+                padding: 1.5rem;
+            }
+             .card-content-collapsible.expanded {
+                 padding-top: 2rem;
+             }
+        }
+
+        .syllabus-item {
+            cursor: default; 
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+            background-color: var(--syllabus-item-bg);
+            box-shadow: var(--shadow-sm);
+            border: 2px solid var(--border-color);
+        }
+
+        @media (min-width: 768px) {
+            .syllabus-item {
+                padding: 1.5rem;
+                border-radius: 12px;
+                margin-bottom: 1rem;
+            }
+        }
+
+        .syllabus-item:hover { 
+            background-color: var(--syllabus-item-hover-bg);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--nav-button-active-bg);
+        }
+
+        .responsive-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .responsive-grid {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .responsive-grid.two-col {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .chart-container {
+            position: relative;
+            height: 280px;
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+                padding: 1.5rem;
+                border-radius: 16px;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+
+        .progress-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+        }
+        .card .section-header:not([class*="-section"]) .progress-indicator {
+            color: var(--text-color); 
+        }
+
+
+        @media (min-width: 768px) {
+            .progress-indicator {
+                gap: 0.75rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        .progress-bar {
+            width: 60px;
+            height: 6px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .card .section-header:not([class*="-section"]) .progress-bar {
+            background-color: var(--border-color); 
+        }
+
+
+        @media (min-width: 768px) {
+            .progress-bar {
+                width: 80px;
+                height: 8px;
+                border-radius: 4px;
+            }
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981 0%, #f59e0b 50%, #10b981 100%);
+            transition: width 0.5s ease;
+            border-radius: inherit;
+        }
+
+        .study-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .study-stats {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .stat-card {
+                padding: 1.5rem;
+                border-radius: 16px;
+            }
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--nav-button-active-bg);
+        }
+
+        @media (min-width: 768px) {
+            .stat-card:hover {
+                transform: translateY(-4px);
+            }
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--nav-button-active-bg) 0%, var(--header-bg-end) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-color);
+            opacity: 0.8;
+            font-weight: 500;
+        }
+
+        @media (min-width: 768px) {
+            .stat-label {
+                font-size: 1rem;
+            }
+        }
+
+        .page {
+            width: 100%;
+            display: none; 
+            overflow-x: hidden; 
+            z-index: 1; 
+        }
+
+        .page.active {
+            display: block; 
+            position: relative; 
+            z-index: 10; 
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            cursor: pointer;
+            color: white;
+            font-size: 1.2rem;
+            padding: 0.75rem;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (min-width: 768px) {
+            .theme-toggle {
+                top: 1.5rem;
+                right: 1.5rem;
+                font-size: 1.5rem;
+                padding: 1rem;
+                width: 48px;
+                height: 48px;
+            }
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(180deg) scale(1.1);
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 1rem 0;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        @media (min-width: 768px) {
+            .table-container {
+                border-radius: 16px;
+            }
+        }
+
+        .weightage-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            min-width: 600px;
+        }
+
+        @media (min-width: 768px) {
+            .weightage-table {
+                font-size: 1rem;
+                min-width: auto;
+            }
+        }
+
+        .weightage-table th {
+            background: linear-gradient(135deg, var(--nav-button-active-bg) 0%, var(--header-bg-end) 100%);
+            color: white;
+            font-weight: 600;
+            padding: 1rem 0.75rem;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        @media (min-width: 768px) {
+            .weightage-table th {
+                padding: 1.5rem 1rem;
+                font-size: 1.1rem;
+            }
+        }
+
+        .weightage-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .weightage-table td {
+                padding: 1rem;
+            }
+        }
+
+        .weightage-table tbody tr {
+            transition: all 0.3s ease;
+        }
+
+        .weightage-table tbody tr:hover {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            transform: scale(1.01);
+        }
+
+        @media (min-width: 768px) {
+            .weightage-table tbody tr:hover {
+                transform: scale(1.02);
+            }
+        }
+
+        .weightage-table tbody tr:nth-child(even) {
+            background-color: rgba(0,0,0,0.02);
+        }
+
+        body.dark-mode .weightage-table tbody tr:nth-child(even) {
+            background-color: rgba(255,255,255,0.05);
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--border-color);
+            flex-direction: row;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .timeline-item {
+                margin-bottom: 2rem;
+                padding: 1.5rem;
+                border-radius: 16px;
+            }
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--nav-button-active-bg);
+        }
+
+        @media (min-width: 768px) {
+            .timeline-item:hover {
+                transform: translateY(-4px);
+            }
+        }
+
+        .timeline-icon {
+            font-size: 2rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 768px) {
+            .timeline-icon {
+                font-size: 2.5rem;
+            }
+        }
+
+        .timeline-text {
+            font-size: 1rem;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .timeline-text {
+                font-size: 1.1rem;
+            }
+        }
+
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--checkbox-border);
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 768px) {
+            .checkbox {
+                width: 24px;
+                height: 24px;
+                border-radius: 8px;
+                margin-right: 1rem;
+            }
+        }
+
+        .checkbox:hover {
+            transform: scale(1.1);
+            border-color: var(--accent-green);
+        }
+        
+        .syllabus-item.completed > .syllabus-item-header .checkbox,
+        .sub-topic-item.completed .checkbox {
+            background-color: var(--accent-green);
+            border-color: var(--accent-green);
+            animation: check-bounce 0.5s ease;
+        }
+
+        .syllabus-item.partially-completed > .syllabus-item-header .checkbox,
+        .sub-topic-item.partial .checkbox { 
+            background-color: var(--accent-yellow);
+            border-color: var(--accent-yellow);
+        }
+
+        @keyframes check-bounce {
+            0% { transform: scale(0.8); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .checkbox svg {
+            display: none;
+            color: #ffffff;
+            width: 12px;
+            height: 12px;
+        }
+
+        @media (min-width: 768px) {
+            .checkbox svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        .syllabus-item.completed > .syllabus-item-header .checkbox svg,
+        .syllabus-item.partially-completed > .syllabus-item-header .checkbox svg,
+        .sub-topic-item.completed .checkbox svg,
+        .sub-topic-item.partial .checkbox svg { 
+            display: block;
+        }
+
+        .llm-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin-left: 0.5rem;
+            flex-shrink: 0;
+            flex-wrap: wrap;
+        }
+
+        @media (min-width: 768px) {
+            .llm-buttons {
+                margin-left: 1rem;
+                flex-wrap: nowrap;
+            }
+        }
+
+        .llm-button {
+            padding: 0.3rem 0.6rem;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            border: 1px solid var(--nav-button-active-bg);
+            background-color: var(--nav-button-active-bg);
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            white-space: nowrap;
+        }
+
+        @media (min-width: 768px) {
+            .llm-button {
+                padding: 0.4rem 0.8rem;
+                border-radius: 20px;
+                font-size: 0.8rem;
+            }
+        }
+
+        .llm-button:hover:not(:disabled) {
+            background-color: var(--header-bg-end);
+            border-color: var(--header-bg-end);
+            transform: translateY(-1px);
+        }
+
+        .llm-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            background-color: var(--nav-button-color);
+            border-color: var(--nav-button-color);
+        }
+
+        .llm-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            padding: 1rem;
+        }
+
+        .llm-modal-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .llm-modal {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            max-width: 90%;
+            width: 100%;
+            max-width: 750px; 
+            transform: translateY(-20px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+            max-height: 90vh; 
+            overflow: hidden; 
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .llm-modal {
+                padding: 2rem;
+                border-radius: 16px;
+            }
+        }
+
+        .llm-modal-overlay.show .llm-modal {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .llm-modal-close {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            cursor: pointer;
+            color: var(--text-color);
+            transition: color 0.2s ease;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            z-index: 10; 
+        }
+
+        @media (min-width: 768px) {
+            .llm-modal-close {
+                top: 1rem;
+                right: 1rem;
+                font-size: 1.5rem;
+                width: 36px;
+                height: 36px;
+            }
+        }
+
+        .llm-modal-close:hover {
+            color: var(--nav-button-active-bg);
+            background-color: var(--nav-button-hover-bg);
+        }
+
+        .llm-modal h3 { 
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--chart-title-color);
+            padding-right: 2rem; 
+            flex-shrink: 0; 
+        }
+
+        @media (min-width: 768px) {
+            .llm-modal h3 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        .llm-main-content-area { /* Used for Questions now */
+            overflow-y: auto;
+            padding-right: 0.5rem; 
+            line-height: 1.6;
+            word-wrap: break-word;
+            font-size: 0.9rem;
+            margin-bottom: 1rem; 
+            /* max-height: 40vh; Let flexbox determine height based on content or remaining space if chat is also visible */
+            flex-shrink: 1; /* Allow shrinking if needed, but also allow growth */
+            min-height: 50px; /* Ensure it has some minimum height */
+        }
+         /* Markdown rendered content styling */
+        .llm-main-content-area h1, .llm-main-content-area h2, .llm-main-content-area h3, .llm-main-content-area h4, .llm-main-content-area h5,
+        .llm-message h1, .llm-message h2, .llm-message h3, .llm-message h4, .llm-message h5  { 
+            color: var(--chart-title-color);
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+            font-weight: 600;
+        }
+        .llm-main-content-area h1, .llm-message h1 { font-size: 1.6em; }
+        .llm-main-content-area h2, .llm-message h2 { font-size: 1.4em; }
+        .llm-main-content-area h3, .llm-message h3 { font-size: 1.2em; }
+        .llm-main-content-area h4, .llm-message h4 { font-size: 1.1em; color: var(--nav-button-active-bg); }
+        .llm-main-content-area p, .llm-message p { margin-bottom: 0.8em; }
+        .llm-main-content-area ul, .llm-main-content-area ol, .llm-message ul, .llm-message ol { margin-left: 1.5em; margin-bottom: 0.8em; list-style-position: outside; }
+        .llm-main-content-area li, .llm-message li { margin-bottom: 0.3em; }
+        .llm-main-content-area code:not(pre code), .llm-message code:not(pre code) { 
+            background-color: var(--section-header-bg);
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+            color: var(--accent-pink);
+        }
+        body.dark-mode .llm-main-content-area code:not(pre code), body.dark-mode .llm-message code:not(pre code) {
+            color: var(--accent-teal); 
+        }
+        .llm-main-content-area pre, .llm-message pre {
+            background-color: var(--section-header-bg);
+            padding: 1em;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 0.8em 0;
+            border: 1px solid var(--border-color);
+        }
+        .llm-main-content-area pre code, .llm-message pre code { 
+            background-color: transparent;
+            padding: 0;
+            color: var(--text-color); 
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+        }
+        body.dark-mode .llm-main-content-area pre code, body.dark-mode .llm-message pre code {
+             color: var(--text-color);
+        }
+        .llm-main-content-area table, .llm-message table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1em 0;
+            box-shadow: var(--shadow-sm);
+        }
+        .llm-main-content-area th, .llm-main-content-area td, .llm-message th, .llm-message td {
+            border: 1px solid var(--border-color);
+            padding: 0.5em 0.75em;
+            text-align: left;
+        }
+        .llm-main-content-area th, .llm-message th {
+            background-color: var(--section-header-bg);
+            font-weight: 600;
+        }
+        .llm-main-content-area blockquote, .llm-message blockquote {
+            border-left: 4px solid var(--nav-button-active-bg);
+            padding-left: 1em;
+            margin: 1em 0 1em 0; 
+            font-style: italic;
+            color: var(--nav-button-color);
+        }
+
+
+        .llm-modal-content { 
+            flex: 1; 
+            overflow: hidden; 
+            display: flex;
+            flex-direction: column;
+            min-height: 0; 
+        }
+        
+        .llm-modal-content .question-text { font-weight: bold; margin-bottom: 1em; font-size: 1.1em; }
+        .llm-modal-content .options-container { margin-bottom: 1em; }
+        .llm-modal-content .options-container label { 
+            display: block; 
+            margin-bottom: 0.75em; 
+            padding: 0.75em 1em; 
+            border-radius: 8px; 
+            background-color: var(--syllabus-item-hover-bg); 
+            cursor: pointer; 
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+        .llm-modal-content .options-container label:hover { background-color: var(--section-header-hover-bg); border-color: var(--nav-button-active-bg); }
+        .llm-modal-content .options-container input[type="radio"] { margin-right: 0.5em; transform: scale(1.1); }
+
+        .llm-modal-content .llm-action-buttons { 
+            margin-top: 1em; 
+            display: flex; 
+            gap: 0.75em; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+        }
+         .llm-modal-content .llm-action-buttons .llm-button { 
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+        .llm-modal-content #llmHintArea, .llm-modal-content #llmAnswerArea {
+            margin-top:1.5em; 
+            padding:1em; 
+            border-radius:8px; 
+            display:none;
+            line-height: 1.5;
+        }
+        .llm-modal-content #llmHintArea { background-color: var(--section-partial-bg); color: var(--section-partial-text); border: 1px solid var(--accent-yellow); }
+        .llm-modal-content #llmAnswerArea { background-color: var(--section-completed-bg); color: var(--section-completed-text); border: 1px solid var(--accent-green); }
+        .llm-modal-content #llmAnswerArea strong { color: var(--accent-green); font-weight: bold; }
+        body.dark-mode .llm-modal-content #llmAnswerArea strong { color: var(--accent-green); } 
+
+
+        /* Chat specific styles */
+        .llm-chat-interface { 
+            /* border-top: 1px solid var(--border-color); No top border if it's the primary content area */
+            /* padding-top: 1rem; */
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; 
+            overflow: hidden; 
+            min-height: 0; 
+        }
+        .llm-chat-interface.has-explanation-header { /* Add this class if explanation was in a separate area */
+             border-top: 1px solid var(--border-color);
+             padding-top: 1rem;
+        }
+
+        .llm-chat-log { 
+            flex-grow: 1; 
+            overflow-y: auto; 
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--bg-color);
+            min-height: 100px; 
+        }
+        /* Custom Scrollbar Styling for .llm-main-content-area and .llm-chat-log */
+        .llm-main-content-area, /* For question area */
+        .llm-chat-log {
+            scrollbar-width: thin;
+            scrollbar-color: var(--nav-button-active-bg) transparent; 
+        }
+        body.dark-mode .llm-main-content-area, 
+        body.dark-mode .llm-chat-log {
+            scrollbar-color: var(--nav-button-active-bg) transparent; 
+        }
+
+        .llm-main-content-area::-webkit-scrollbar,
+        .llm-chat-log::-webkit-scrollbar {
+            width: 6px; 
+        }
+
+        .llm-main-content-area::-webkit-scrollbar-track,
+        .llm-chat-log::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+
+        .llm-main-content-area::-webkit-scrollbar-thumb,
+        .llm-chat-log::-webkit-scrollbar-thumb {
+            background-color: transparent; 
+            border-radius: 3px;
+            transition: background-color 0.2s ease-in-out; 
+        }
+
+        .llm-main-content-area:hover::-webkit-scrollbar-thumb,
+        .llm-chat-log:hover::-webkit-scrollbar-thumb {
+            background-color: var(--nav-button-active-bg); 
+        }
+
+        .llm-main-content-area::-webkit-scrollbar-thumb:hover,
+        .llm-chat-log::-webkit-scrollbar-thumb:hover {
+            background-color: var(--header-bg-end); 
+        }
+        /* END Custom Scrollbar Styling */
+
+
+        .llm-chat-log .user-message, .llm-chat-log .llm-message {
+            padding: 0.6rem 1rem; 
+            border-radius: 12px; 
+            margin-bottom: 0.75rem; 
+            max-width: 85%;
+            word-wrap: break-word;
+            line-height: 1.5; 
+        }
+        .llm-chat-log .user-message {
+            background-color: var(--nav-button-active-bg);
+            color: var(--nav-button-active-color);
+            margin-left: auto;
+            text-align: left; 
+            border-bottom-right-radius: 4px; 
+        }
+        .llm-chat-log .llm-message {
+            background-color: var(--section-header-bg);
+            color: var(--text-color);
+            margin-right: auto;
+            border-bottom-left-radius: 4px; 
+        }
+        .llm-chat-input-area { 
+            display: flex;
+            gap: 0.5rem;
+            padding-top: 0.5rem; 
+            flex-shrink: 0; 
+        }
+        .llm-chat-input-area input {
+            flex-grow: 1;
+            padding: 0.75rem;
+            border: 1px solid var(--input-border-color);
+            border-radius: 8px;
+            background-color: var(--syllabus-item-bg); 
+            color: var(--text-color);
+        }
+        .llm-chat-input-area input:focus {
+            outline: none;
+            border-color: var(--input-focus-border-color);
+            box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+        }
+        .llm-chat-input-area button {
+            padding: 0.75rem 1rem;
+             flex-shrink: 0; 
+        }
+
+
+        @media (min-width: 768px) {
+            .llm-main-content-area { /* For question area */
+                font-size: 1rem;
+            }
+        }
+
+        .congratulations-overlay, .login-congrats-overlay, .user-details-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+            backdrop-filter: blur(5px);
+            padding: 1rem;
+        }
+
+        .congratulations-overlay.show, .login-congrats-overlay.show, .user-details-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .congratulations-modal, .login-congrats-modal, .user-details-modal {
+            background-color: var(--congratulations-modal-bg); 
+            padding: 2rem 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-50px) scale(0.9);
+            opacity: 0;
+            animation: modal-pop-in 0.6s forwards cubic-bezier(0.34, 1.56, 0.64, 1);
+            max-width: 90%;
+            width: 100%;
+            max-width: 500px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+        .user-details-modal {
+             background-color: var(--login-modal-bg);
+             color: var(--login-text-color);
+             text-align: left;
+        }
+        .user-details-modal h2 {
+            color: var(--chart-title-color); 
+            text-align: center;
+        }
+
+
+        @media (min-width: 768px) {
+            .congratulations-modal, .login-congrats-modal, .user-details-modal {
+                padding: 3rem 2rem;
+                border-radius: 20px;
+            }
+        }
+
+        @keyframes modal-pop-in {
+            to {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .congratulations-modal h2, .login-congrats-modal h2 {
+            font-size: 2rem;
+            color: var(--accent-green);
+            margin-bottom: 1rem;
+            animation: party-pop 1.5s infinite alternate ease-in-out;
+        }
+         .user-details-modal h2 { 
+            animation: none;
+         }
+
+
+        @media (min-width: 768px) {
+            .congratulations-modal h2, .login-congrats-modal h2 {
+                font-size: 3rem;
+            }
+             .user-details-modal h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @keyframes party-pop {
+            0% { transform: scale(1) rotate(-2deg); }
+            100% { transform: scale(1.05) rotate(2deg); }
+        }
+
+        .congratulations-modal p, .login-congrats-modal p {
+            font-size: 1rem;
+            color: var(--congratulations-text);
+            margin-bottom: 1.5rem;
+            transition: color 0.3s ease;
+        }
+         .user-details-modal p {
+            color: var(--login-text-color);
+         }
+
+        @media (min-width: 768px) {
+            .congratulations-modal p, .login-congrats-modal p {
+                font-size: 1.25rem;
+                margin-bottom: 2rem;
+            }
+        }
+
+        .congratulations-modal button, .login-congrats-modal button, .user-details-modal button[type="submit"] {
+            background: linear-gradient(135deg, var(--nav-button-active-bg) 0%, var(--header-bg-end) 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            display: block; 
+            margin: 1.5rem auto 0 auto; 
+        }
+        .user-details-modal button[type="submit"] {
+            width: 100%;
+        }
+
+
+        @media (min-width: 768px) {
+            .congratulations-modal button, .login-congrats-modal button, .user-details-modal button[type="submit"] {
+                padding: 1rem 2rem;
+                border-radius: 50px;
+                font-size: 1.1rem;
+            }
+        }
+
+        .congratulations-modal button:hover, .login-congrats-modal button:hover, .user-details-modal button[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.6);
+        }
+        
+        .user-details-modal .form-group {
+            margin-bottom: 1rem;
+        }
+        .user-details-modal label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--login-text-color);
+        }
+        .user-details-modal input[type="text"],
+        .user-details-modal input[type="date"],
+        .user-details-modal input[type="number"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--input-border-color);
+            border-radius: 8px;
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            transition: border-color 0.3s ease;
+            font-size: 1rem;
+        }
+        .user-details-modal input[type="text"]:focus,
+        .user-details-modal input[type="date"]:focus,
+        .user-details-modal input[type="number"]:focus {
+            outline: none;
+            border-color: var(--input-focus-border-color);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2); 
+        }
+        body.dark-mode .user-details-modal input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+        }
+
+
+        .loading-spinner { 
+            display: inline-block;
+            width: 24px; 
+            height: 24px;
+            border: 3px solid var(--border-color);
+            border-radius: 50%;
+            border-top-color: var(--nav-button-active-bg);
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 8px; 
+        }
+        .llm-main-content-area .loading-container, /* For question area loading */
+        .llm-chat-log .loading-container  /* For chat area loading */
+         {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px; 
+            font-size: 1.1em;
+            color: var(--text-color);
+        }
+        .llm-chat-log .loading-container { /* Specific for chat loading message */
+            min-height: auto; 
+            padding: 0.6rem 1rem; /* Match message padding */
+            justify-content: flex-start; /* Align with other messages */
+            background-color: var(--section-header-bg); /* Match LLM message background */
+            border-radius: 12px;
+            border-bottom-left-radius: 4px;
+            margin-bottom: 0.75rem;
+            max-width: 85%;
+        }
+
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .chart-details {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            border-radius: 12px;
+            background-color: var(--chart-details-bg);
+            border: 2px solid var(--chart-details-border);
+            min-height: 120px;
+            transition: all 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .chart-details {
+                margin-top: 2rem;
+                padding: 2rem;
+                border-radius: 16px;
+                min-height: 140px;
+            }
+        }
+
+        .chart-details.active {
+            box-shadow: var(--shadow-lg);
+            border-color: var(--nav-button-active-bg);
+        }
+
+        .chart-details h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+            transition: color 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .chart-details h4 {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        .chart-details-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .chart-details-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+                margin-top: 1.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .chart-details-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+
+        .chart-detail-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .chart-detail-card {
+                padding: 1.5rem;
+                border-radius: 12px;
+            }
+        }
+
+        .chart-detail-card:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--nav-button-active-bg);
+        }
+
+        @media (min-width: 768px) {
+            .chart-detail-card:hover {
+                transform: translateY(-2px);
+            }
+        }
+
+        .chart-detail-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+            opacity: 0.7;
+        }
+
+        @media (min-width: 768px) {
+            .chart-detail-label {
+                font-size: 0.95rem;
+                margin-bottom: 0.75rem;
+            }
+        }
+
+        .chart-detail-value {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        @media (min-width: 768px) {
+            .chart-detail-value {
+                font-size: 1.25rem;
+            }
+        }
+
+        .chart-detail-percentage {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--nav-button-active-bg) 0%, var(--header-bg-end) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @media (min-width: 768px) {
+            .chart-detail-percentage {
+                font-size: 2.5rem;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .syllabus-item-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .syllabus-item-header {
+                flex-wrap: nowrap;
+                gap: 0;
+            }
+        }
+
+        .syllabus-item-title {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            min-width: 200px;
+        }
+         .syllabus-item-title .font-medium { 
+            cursor: pointer;
+        }
+
+        @media (min-width: 768px) {
+            .syllabus-item-title {
+                min-width: auto;
+            }
+        }
+
+        .sub-topic-list {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            margin-top: 0.75rem;
+            padding-left: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .sub-topic-list {
+                margin-top: 1rem;
+                padding-left: 2rem;
+            }
+        }
+
+        .sub-topic-list.expanded {
+            max-height: 1000px;
+            padding: 0.75rem 0 0.75rem 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .sub-topic-list.expanded {
+                padding: 1rem 0 1rem 2rem;
+            }
+        }
+
+        .sub-topic-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .sub-topic-item-clickable-area { 
+            display: flex;
+            align-items: center;
+            flex: 1;
+            cursor: pointer;
+            min-width: 150px; 
+        }
+
+
+        @media (min-width: 768px) {
+            .sub-topic-item {
+                padding: 0.75rem;
+                border-radius: 8px;
+                flex-wrap: nowrap;
+                gap: 0;
+            }
+        }
+
+        body.dark-mode .sub-topic-item {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .sub-topic-item:hover {
+            background-color: rgba(102, 126, 234, 0.1);
+            transform: translateX(4px);
+        }
+
+        @media (min-width: 768px) {
+            .sub-topic-item:hover {
+                transform: translateX(8px);
+            }
+        }
+
+        .sub-topic-item.completed {
+            background-color: rgba(16, 185, 129, 0.2) !important; 
+            border-color: var(--accent-green) !important;
+        }
+
+        .sub-topic-item.partial {
+            background-color: rgba(245, 158, 11, 0.2) !important; 
+            border-color: var(--accent-yellow) !important;
+        }
+
+
+        .content-wrapper {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .content-wrapper {
+                padding: 0 2rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .container {
+                padding: 0.75rem;
+            }
+            
+            .header {
+                margin-bottom: 3rem; 
+            }
+            
+            .section-header h3 {
+                font-size: 1rem;
+                line-height: 1.3;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.75rem;
+            }
+            
+            .timeline-icon {
+                font-size: 1.5rem;
+            }
+            .chart-container .chartjs-legend ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .llm-buttons {
+                justify-content: flex-start; 
+                 width: 100%; 
+                 margin-left: 0; 
+                 margin-top: 0.5rem; 
+            }
+            .sub-topic-item .llm-buttons {
+                margin-left: calc(16px + 0.5rem); 
+            }
+             .llm-modal-content .options-container label {
+                font-size: 0.9em; 
+            }
+            .llm-modal-content .llm-action-buttons .llm-button {
+                padding: 0.4rem 0.8rem; 
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-wrapper">
+        <!-- Header, Nav, Static Page Content remains the same -->
+        <div class="header">
+            <h1 id="mainHeaderTitle">GATE Preparation</h1>
+            <p>Your personalized roadmap to success</p>
+            <button id="themeToggle" class="theme-toggle">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path id="themeIconPath" fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.459 4.577a1 1 0 01-1.39.043l-1.474-1.106a1 1 0 01.043-1.39l1.106-1.474a1 1 0 011.39-.043l1.474 1.106a1 1 0 01-.043 1.39l-1.106 1.474zM5.541 4.423a1 1 0 01.043 1.39L4.478 6.997a1 1 0 01-1.39-.043L1.614 5.48a1 1 0 01.043-1.39l1.106-1.474a1 1 0 011.39.043zm9.418 0a1 1 0 01.043-1.39l1.106-1.474a1 1 0 011.39.043l1.474 1.106a1 1 0 01-.043 1.39l-1.106 1.474a1 1 0 01-1.39-.043zM3 10a1 1 0 01-1-1V8a1 1 0 112 0v1a1 1 0 01-1 1zm15 0a1 1 0 01-1-1V8a1 1 0 112 0v1a1 1 0 01-1 1zM7.05 15.05a1 1 0 011.414 0l.707.707a1 1 0 01-1.414 1.414l-.707-.707a1 1 0 010-1.414zm6.364-.707a1 1 0 010 1.414l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+            <div class="nav-buttons">
+                <button id="navYourPrep" class="nav-button active">📚 Your GATE Prep</button>
+                <button id="navAllAboutGate" class="nav-button">📊 All About GATE</button>
+            </div>
+        </div>
+
+        <div class="container">
+            <div id="yourGatePrepPage" class="page active">
+                <div class="card">
+                    <h2 class="section-title">📊 Overall Progress</h2>
+                    <div class="study-stats">
+                        <div class="stat-card">
+                            <div class="stat-number" id="overallProgress">0%</div>
+                            <div class="stat-label">Completed</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="totalTopics">0</div>
+                            <div class="stat-label">Total Topics</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="completedTopics">0</div>
+                            <div class="stat-label">Finished</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="remainingTopics">0</div>
+                            <div class="stat-label">Remaining</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="section-title">📖 GATE CS Syllabus</h2> 
+                    <div id="syllabus-container">
+                    </div>
+                </div>
+
+                <div class="card">
+                     <div class="section-header"> 
+                        <h2 class="section-title">📊 Progress Analytics</h2>
+                        <button class="toggle-card-content p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-600 focus:outline-none transition-all duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="progressMetricsContent" class="card-content-collapsible expanded">
+                        <div class="responsive-grid two-col">
+                            <div class="chart-container">
+                                <canvas id="completionChart"></canvas>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="durationChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="sectionCompletionChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="allAboutGatePage" class="page">
+                 <div class="card" id="timelinePlanCard"> 
+                    <h2 class="section-title">📅 Timeline Plan</h2>
+                    <div class="timeline-item">
+                        <span class="timeline-icon">🗓️</span>
+                        <div class="timeline-text">
+                            <p class="font-semibold text-lg">Syllabus Completion</p>
+                            <p class="opacity-75" id="syllabusCompletionTime">June YYYY – November YYYY (6 months)</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-icon">📚</span>
+                        <div class="timeline-text">
+                            <p class="font-semibold text-lg">PYQs + Revision</p>
+                            <p class="opacity-75" id="pyqsRevisionTime">December YYYY – January YYYY (2 months)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="section-title">📊 Subject-wise Weightage Analysis</h2>
+                    <div class="table-container">
+                        <table class="weightage-table">
+                            <thead>
+                                <tr>
+                                    <th>Subject</th>
+                                    <th>Weightage (%)</th>
+                                    <th>Difficulty</th>
+                                    <th>Importance</th>
+                                    <th>Expected Days</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Engineering Mathematics</td><td>12-15%</td><td>Medium</td><td>High</td><td>25 days</td></tr>
+                                <tr><td>Algorithms</td><td>10-12%</td><td>High</td><td>Very High</td><td>35 days</td></tr>
+                                <tr><td>Data Structures</td><td>8-10%</td><td>Medium</td><td>Very High</td><td>30 days</td></tr>
+                                <tr><td>Operating Systems</td><td>9-11%</td><td>Medium</td><td>High</td><td>25 days</td></tr>
+                                <tr><td>Computer Networks</td><td>8-10%</td><td>Medium</td><td>High</td><td>22 days</td></tr>
+                                <tr><td>Theory of Computation</td><td>7-9%</td><td>High</td><td>High</td><td>20 days</td></tr>
+                                <tr><td>Databases</td><td>7-9%</td><td>Medium</td><td>High</td><td>20 days</td></tr>
+                                <tr><td>Computer Organization</td><td>7-9%</td><td>High</td><td>Medium</td><td>18 days</td></tr>
+                                <tr><td>Compiler Design</td><td>5-7%</td><td>Medium</td><td>Medium</td><td>15 days</td></tr>
+                                <tr><td>Digital Logic</td><td>4-6%</td><td>Medium</td><td>Medium</td><td>12 days</td></tr>
+                                <tr><td>General Aptitude</td><td>15%</td><td>Low</td><td>High</td><td>10 days</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="responsive-grid two-col">
+                        <div class="chart-container">
+                            <canvas id="weightageBarChart"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="weightagePieChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div id="chartDetailsContainer" class="chart-details">
+                        <h4>📈 Subject Analysis</h4>
+                        <p class="text-center opacity-75 mb-4">Click on any section of the charts to see detailed breakdown</p>
+                        <div id="chartDetailsContent" class="chart-details-grid">
+                            <div class="chart-detail-card">
+                                <div class="chart-detail-label">Total Subjects</div>
+                                <div class="chart-detail-value">11</div>
+                            </div>
+                            <div class="chart-detail-card">
+                                <div class="chart-detail-label">High Priority</div>
+                                <div class="chart-detail-value">6 Subjects</div>
+                            </div>
+                            <div class="chart-detail-card">
+                                <div class="chart-detail-label">Technical Weight</div>
+                                <div class="chart-detail-value">70%</div>
+                            </div>
+                            <div class="chart-detail-card">
+                                <div class="chart-detail-label">Mathematics + Aptitude</div>
+                                <div class="chart-detail-value">30%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="section-title">⏱️ Expected Study Duration by Subject</h2>
+                    <div class="chart-container">
+                        <canvas id="expectedDurationChart"></canvas>
+                    </div>
+                    <div class="mt-4 p-4 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-xl">
+                        <h3 class="font-bold text-lg mb-3">📝 Duration Guidelines</h3>
+                        <div class="responsive-grid two-col text-sm">
+                            <div>
+                                <p><strong>High Priority (30+ days):</strong> Algorithms, Data Structures, Operating Systems</p>
+                                <p><strong>Medium Priority (20-25 days):</strong> Mathematics, Networks, Databases</p>
+                            </div>
+                            <div>
+                                <p><strong>Standard Priority (15-20 days):</strong> TOC, Computer Org, Compiler Design</p>
+                                <p><strong>Quick Review (10-15 days):</strong> Digital Logic, General Aptitude</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="section-title">📝 Recommended Study Flow</h2>
+                    <div class="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 p-6 rounded-xl">
+                        <div class="responsive-grid two-col">
+                            <div>
+                                <h3 class="font-bold text-lg mb-3 text-blue-700 dark:text-blue-300">📚 Phase 1: Foundation</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3 flex-shrink-0"></span>Engineering Mathematics</li>
+                                    <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3 flex-shrink-0"></span>Programming & Data Structures</li>
+                                    <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3 flex-shrink-0"></span>Digital Logic</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-3 text-purple-700 dark:text-purple-300">🏗️ Phase 2: Core Systems</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-center"><span class="w-2 h-2 bg-purple-500 rounded-full mr-3 flex-shrink-0"></span>Computer Organization & Architecture</li>
+                                    <li class="flex items-center"><span class="w-2 h-2 bg-purple-500 rounded-full mr-3 flex-shrink-0"></span>Operating Systems</li>
+                                    <li class="flex items-center"><span class="w-2 h-2 bg-purple-500 rounded-full mr-3 flex-shrink-0"></span>Computer Networks</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-3 text-green-700 dark:text-green-300">🚀 Phase 3: Advanced</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-3 flex-shrink-0"></span>Algorithms</li>
+                                    <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-3 flex-shrink-0"></span>Theory of Computation</li>
+                                    <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-3 flex-shrink-0"></span>Databases</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-3 text-orange-700 dark:text-orange-300">🎯 Phase 4: Specialization</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-center"><span class="w-2 h-2 bg-orange-500 rounded-full mr-3 flex-shrink-0"></span>Compiler Design</li>
+                                    <li class="flex items-center"><span class="w-2 h-2 bg-orange-500 rounded-full mr-3 flex-shrink-0"></span>General Aptitude</li>
+                                    <li class="flex items-center"><span class="w-2 h-2 bg-orange-500 rounded-full mr-3 flex-shrink-0"></span>Revision & PYQs</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="section-title">🎯 GATE Exam Details</h2>
+                    <div class="responsive-grid two-col">
+                        <div class="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 p-6 rounded-xl">
+                            <h3 class="font-bold text-lg mb-3">📅 Important Dates</h3>
+                            <ul class="space-y-2 text-sm">
+                                <li id="appStartDate"><strong>Application Start:</strong> August YYYY</li>
+                                <li id="appEndDate"><strong>Application End:</strong> September YYYY</li>
+                                <li id="examDate"><strong>Exam Date:</strong> February YYYY</li>
+                                <li id="resultDate"><strong>Result:</strong> March YYYY</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-6 rounded-xl">
+                            <h3 class="font-bold text-lg mb-3">📝 Exam Pattern</h3>
+                            <ul class="space-y-2 text-sm">
+                                <li><strong>Duration:</strong> 3 hours</li>
+                                <li><strong>Total Marks:</strong> 100</li>
+                                <li><strong>Questions:</strong> 65 (MCQ + NAT)</li>
+                                <li><strong>Negative Marking:</strong> 1/3 for 1-mark, 2/3 for 2-mark</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="userDetailsOverlay" class="user-details-overlay">
+            <div class="user-details-modal">
+                <h2>Welcome! Tell us about yourself.</h2>
+                <p class="text-center opacity-75 mb-6">This will help personalize your preparation plan.</p>
+                <form id="userDetailsForm">
+                    <div class="form-group">
+                        <label for="userName">Full Name</label>
+                        <input type="text" id="userName" name="userName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userDob">Date of Birth</label>
+                        <input type="date" id="userDob" name="userDob" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gatePrepYear">Target GATE Year (e.g., 2025)</label>
+                        <input type="number" id="gatePrepYear" name="gatePrepYear" min="2024" max="2035" placeholder="YYYY" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="graduationYear">Graduation Year</label>
+                        <input type="number" id="graduationYear" name="graduationYear" min="2000" max="2035" placeholder="YYYY" required>
+                    </div>
+                    <button type="submit">Let's Get Started! 🚀</button>
+                </form>
+            </div>
+        </div>
+        
+        <div id="loginCongratsOverlay" class="login-congrats-overlay">
+            <div class="login-congrats-modal">
+                <h2 id="loginCongratsTitle">🎉 Welcome, [User Name]!</h2>
+                <p>Your details are saved. Let's begin your GATE preparation journey!</p>
+                <button id="closeLoginCongrats">Start Preparing! 💪</button>
+            </div>
+        </div>
+
+        <div id="congratulationsOverlay" class="congratulations-overlay">
+            <div class="congratulations-modal">
+                <h2>🎉 Congratulations!</h2>
+                <p>You have successfully completed the entire GATE CS Syllabus!</p>
+                <button id="closeCongratulations">Awesome! 🚀</button>
+            </div>
+        </div>
+
+        <div id="llmResponseOverlay" class="llm-modal-overlay">
+            <div class="llm-modal">
+                <button class="llm-modal-close" id="closeLlmModal">&times;</button>
+                <h3 id="llmModalTitle">LLM Interaction</h3>
+                <div id="llmModalContent" class="llm-modal-content">
+                    <!-- Content dynamically injected -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const GEMINI_API_KEY = "AIz........"; <!-- Replace with your API key -->
+
+        const syllabusData = [ 
+            {
+                section: "Section 1: Engineering Mathematics",
+                topics: [
+                    {
+                        name: "Discrete Mathematics",
+                        subtopics: [
+                            "Propositional and first order logic",
+                            "Sets, relations, functions, partial orders and lattices",
+                            "Monoids, Groups",
+                            "Graphs: connectivity, matching, colouring",
+                            "Combinatorics: counting, recurrence relations, generating functions"
+                        ]
+                    },
+                    {
+                        name: "Linear Algebra",
+                        subtopics: [
+                            "Matrices, determinants, system of linear equations",
+                            "Eigenvalues and eigenvectors",
+                            "LU decomposition"
+                        ]
+                    },
+                    {
+                        name: "Calculus",
+                        subtopics: [
+                            "Limits, continuity and differentiability",
+                            "Maxima and minima",
+                            "Mean value theorem",
+                            "Integration"
+                        ]
+                    },
+                    {
+                        name: "Probability and Statistics",
+                        subtopics: [
+                            "Random variables",
+                            "Uniform, normal, exponential, Poisson and binomial distributions",
+                            "Mean, median, mode and standard deviation",
+                            "Conditional probability and Bayes theorem"
+                        ]
+                    }
+                ]
+            },
+            {
+                section: "Section 2: Digital Logic",
+                topics: [
+                    {
+                        name: "Digital Logic",
+                        subtopics: [
+                            "Boolean algebra",
+                            "Combinational and sequential circuits",
+                            "Minimization",
+                            "Number representations and computer arithmetic (fixed and floating point)"
+                        ]
+                    }
+                ]
+            },
+            {
+                section: "Section 3: Computer Organization and Architecture",
+                topics: [
+                    {
+                        name: "Computer Organization and Architecture",
+                        subtopics: [
+                            "Machine instructions and addressing modes",
+                            "ALU, data-path and control unit",
+                            "Instruction pipelining, pipeline hazards",
+                            "Memory hierarchy: cache, main memory and secondary storage",
+                            "I/O interface (interrupt and DMA mode)"
+                        ]
+                    }
+                ]
+            },
+            {
+                section: "Section 4: Programming and Data Structures",
+                topics: [
+                    {
+                        name: "Programming and Data Structures",
+                        subtopics: [
+                            "Programming in C",
+                            "Recursion",
+                            "Arrays, stacks, queues, linked lists",
+                            "Trees, binary search trees, binary heaps",
+                            "Graphs"
+                        ]
+                    }
+                ]
+            },
+            {
+                section: "Section 5: Algorithms",
+                topics: [
+                    {
+                        name: "Algorithms",
+                        subtopics: [
+                            "Searching, sorting, hashing",
+                            "Asymptotic worst case time and space complexity",
+                            "Algorithm design techniques: greedy, dynamic programming and divide-and-conquer",
+                            "Graph traversals, minimum spanning trees, shortest paths"
+                        ]
+                    }
+                ]
+            },
+            {
+                section: "Section 6: Theory of Computation",
+                topics: [
+                    {
+                        name: "Theory of Computation",
+                        subtopics: [
+                            "Regular expressions and finite automata",
+                            "Context-free grammars and push-down automata",
+                            "Regular and context-free languages, pumping lemma",
+                            "Turing machines and undecidability"
+                        ]
+                    }
+                ]
+            },
+            {
+                section: "Section 7: Compiler Design",
+                topics: [
+                    {
+                        name: "Compiler Design",
+                        subtopics: [
+                            "Lexical analysis, parsing, syntax-directed translation",
+                            "Runtime environments",
+                            "Intermediate code generation",
+                            "Local optimization, data flow analyses"
+                        ]
+                    }
+                ]
+            },
+            {
+                section: "Section 8: Operating System",
+                topics: [
+                    {
+                        name: "Operating System",
+                        subtopics: [
+                            "System calls, processes, threads, inter-process communication",
+                            "Concurrency and synchronization",
+                            "Deadlock",
+                            "CPU and I/O scheduling",
+                            "Memory management and virtual memory",
+                            "File systems"
+                        ]
+                    }
+                ]
+            },
+            {
+                section: "Section 9: Databases",
+                topics: [
+                    {
+                        name: "Databases",
+                        subtopics: [
+                            "ER-model, relational model",
+                            "Relational algebra, tuple calculus, SQL",
+                            "Integrity constraints, normal forms",
+                            "File organization, indexing",
+                            "Transactions and concurrency control"
+                        ]
+                    }
+                ]
+            },
+            {
+                section: "Section 10: Computer Networks",
+                topics: [
+                    {
+                        name: "Computer Networks",
+                        subtopics: [
+                            "Concept of layering: OSI and TCP/IP Protocol Stacks",
+                            "Basics of packet, circuit and virtual circuit-switching",
+                            "Data link layer: framing, error detection, Medium Access Control",
+                            "Ethernet bridging, routing protocols",
+                            "TCP/UDP and sockets, congestion control",
+                            "Application layer protocols: DNS, SMTP, HTTP, FTP, Email"
+                        ]
+                    }
+                ]
+            },
+            {
+                section: "Section 11: General Aptitude",
+                topics: [
+                    {
+                        name: "Verbal Ability",
+                        subtopics: [
+                            "Basic English grammar",
+                            "Sentence completion", 
+                            "Verbal analogies",
+                            "Word groups",
+                            "Critical reasoning and verbal deduction"
+                        ]
+                    },
+                    {
+                        name: "Numerical Ability", 
+                        subtopics: [
+                            "Numerical computation",
+                            "Numerical estimation",
+                            "Numerical reasoning and data interpretation"
+                        ]
+                    }
+                ]
+            }
+        ];
+        const subjectWeightageData = [
+            { subject: "Engineering Mathematics", weightage: 13.5, difficulty: "Medium", importance: "High", days: 25 },
+            { subject: "Algorithms", weightage: 11, difficulty: "High", importance: "Very High", days: 35 },
+            { subject: "Data Structures", weightage: 9, difficulty: "Medium", importance: "Very High", days: 30 },
+            { subject: "Operating Systems", weightage: 10, difficulty: "Medium", importance: "High", days: 25 },
+            { subject: "Computer Networks", weightage: 9, difficulty: "Medium", importance: "High", days: 22 },
+            { subject: "Theory of Computation", weightage: 8, difficulty: "High", importance: "High", days: 20 },
+            { subject: "Databases", weightage: 8, difficulty: "Medium", importance: "High", days: 20 },
+            { subject: "Computer Organization", weightage: 8, difficulty: "High", importance: "Medium", days: 18 },
+            { subject: "Compiler Design", weightage: 6, difficulty: "Medium", importance: "Medium", days: 15 },
+            { subject: "Digital Logic", weightage: 5, difficulty: "Medium", importance: "Medium", days: 12 },
+            { subject: "General Aptitude", weightage: 15, difficulty: "Low", importance: "High", days: 10 }
+        ];
+
+        let currentProgress = {};
+        let charts = {};
+        let originalPieLabels = null; 
+        let userDetails = null; 
+        let currentLlmChatHistory = [];
+        let currentLlmSubtopic = "";
+        let markdownConverter;
+
+
+        const sectionColors = ['#3b82f6', '#10b981', '#8b5cf6', '#f59e0b', '#ef4444', '#ec4899', '#14b8a6', '#6366f1', '#f97316', '#06b6d4', '#84cc16'];
+        const sectionClassNames = ['math-section', 'digital-section', 'computer-org-section', 'programming-section', 'algorithms-section', 'theory-section', 'compiler-section', 'os-section', 'database-section', 'network-section', 'aptitude-section'];
+
+        function lightenDarkenColor(col, amt) {
+            let usePound = false;
+            if (col[0] === "#") {
+                col = col.slice(1);
+                usePound = true;
+            }
+            const num = parseInt(col, 16);
+            let r = (num >> 16) + amt;
+            if (r > 255) r = 255; else if (r < 0) r = 0;
+            let b = ((num >> 8) & 0x00FF) + amt;
+            if (b > 255) b = 255; else if (b < 0) b = 0;
+            let g = (num & 0x0000FF) + amt;
+            if (g > 255) g = 255; else if (g < 0) g = 0;
+            return (usePound ? "#" : "") + ((1 << 24) + (r << 16) + (b << 8) + g).toString(16).slice(1);
+        }
+
+        function loadProgress() { 
+            try {
+                return JSON.parse(localStorage.getItem('gateProgress')) || {}; 
+            } catch (e) {
+                console.error("Error loading progress from localStorage:", e);
+                return {};
+            }
+        }
+        function saveProgress(progress) { 
+            try {
+                localStorage.setItem('gateProgress', JSON.stringify(progress)); 
+            } catch (e) {
+                console.error("Error saving progress to localStorage:", e);
+            }
+        }
+
+        function loadUserDetails() { 
+            try {
+                return JSON.parse(localStorage.getItem('gateUserDetails')) || null; 
+            } catch (e) {
+                console.error("Error loading user details from localStorage:", e);
+                return null;
+            }
+        }
+        function saveUserDetails(details) { 
+            try {
+                localStorage.setItem('gateUserDetails', JSON.stringify(details)); 
+            } catch (e) {
+                console.error("Error saving user details to localStorage:", e);
+            }
+        }
+
+        function calculateProgress() {
+            const progress = loadProgress();
+            let totalItems = 0; let completedItems = 0; let partialItems = 0;
+            syllabusData.forEach(section => section.topics.forEach(topic => topic.subtopics.forEach(subtopic => {
+                totalItems++;
+                if (progress[subtopic] === 'completed') completedItems++;
+                else if (progress[subtopic] === 'partial') partialItems++;
+            })));
+            const percentage = totalItems > 0 ? Math.round(((completedItems + (partialItems * 0.5)) / totalItems) * 100) : 0; 
+            return { completed: completedItems, partial: partialItems, total: totalItems, percentage: percentage };
+        }
+
+        function calculateSectionProgress(section) {
+            const progress = loadProgress();
+            let totalItems = 0; let completedItems = 0; let partialItems = 0;
+            section.topics.forEach(topic => topic.subtopics.forEach(subtopic => {
+                totalItems++;
+                if (progress[subtopic] === 'completed') completedItems++;
+                else if (progress[subtopic] === 'partial') partialItems++;
+            }));
+            const completionRate = totalItems > 0 ? (completedItems + (partialItems * 0.5)) / totalItems : 0; 
+            return { completionRate: completionRate };
+        }
+
+        function updateOverallStats() {
+            const { completed, total, percentage, partial } = calculateProgress();
+            document.getElementById('overallProgress').textContent = `${percentage}%`;
+            document.getElementById('totalTopics').textContent = total;
+            document.getElementById('completedTopics').textContent = completed;
+            document.getElementById('remainingTopics').textContent = total - completed - partial;
+        }
+        
+        function getExpansionStates() {
+            const states = { sections: {}, subtopicLists: {} };
+            document.querySelectorAll('.section-topics-list.expanded').forEach(el => {
+                if (el.id) states.sections[el.id] = true;
+            });
+            document.querySelectorAll('.sub-topic-list.expanded').forEach(el => {
+                if (el.id) states.subtopicLists[el.id] = true;
+            });
+            return states;
+        }
+
+        function applyExpansionStates(states) {
+            if (!states) return;
+            if (states.sections) {
+                Object.keys(states.sections).forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el && states.sections[id]) {
+                        el.classList.add('expanded');
+                        const toggleButton = el.previousElementSibling.querySelector('.toggle-section svg');
+                        if (toggleButton) toggleButton.classList.add('rotate-180');
+                    }
+                });
+            }
+            if (states.subtopicLists) {
+                Object.keys(states.subtopicLists).forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el && states.subtopicLists[id]) {
+                        el.classList.add('expanded');
+                        const toggleButton = el.previousElementSibling.querySelector('.toggle-subtopics svg');
+                        if (toggleButton) toggleButton.classList.add('rotate-180');
+                    }
+                });
+            }
+        }
+
+        function renderSyllabus(gatePrepYear = 2025) {
+            const container = document.getElementById('syllabus-container');
+            const progress = loadProgress();
+            container.innerHTML = ''; 
+
+            const syllabusTitleElement = container.previousElementSibling; 
+            if(syllabusTitleElement && syllabusTitleElement.tagName === 'H2'){
+                 syllabusTitleElement.textContent = `📖 GATE CS ${gatePrepYear} Syllabus`;
+            }
+
+            syllabusData.forEach((section, sectionIndex) => {
+                const sectionProgress = calculateSectionProgress(section);
+                const sectionDiv = document.createElement('div');
+                sectionDiv.className = 'syllabus-section-container';
+                let sectionClass = sectionClassNames[sectionIndex] || '';
+                const isApiKeyEffectivelyMissing = !GEMINI_API_KEY || GEMINI_API_KEY === "YOUR_GEMINI_API_KEY_HERE_OR_LEAVE_EMPTY_FOR_MOCK" || GEMINI_API_KEY === "";
+
+
+                sectionDiv.innerHTML = `
+                    <div class="section-header ${sectionClass}" data-section-index="${sectionIndex}">
+                        <div class="flex items-center flex-1">
+                            <span class="section-number">${sectionIndex + 1}</span>
+                            <h3>${section.section}</h3>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="progress-indicator">
+                                <span>${Math.round(sectionProgress.completionRate * 100)}%</span>
+                                <div class="progress-bar"><div class="progress-fill" style="width: ${sectionProgress.completionRate * 100}%"></div></div>
+                            </div>
+                            <button class="toggle-section p-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="section-topics-list" id="section-${sectionIndex}">
+                        ${section.topics.map((topic, topicIndex) => `
+                            <div class="syllabus-item ${getTopicStatus(topic, progress)}">
+                                <div class="syllabus-item-header">
+                                    <div class="syllabus-item-title" data-section-index="${sectionIndex}" data-topic-index="${topicIndex}">
+                                        <div class="checkbox" data-topic-name="${topic.name}" data-section-index="${sectionIndex}" data-topic-index="${topicIndex}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                                        </div>
+                                        <span class="font-medium">${topic.name}</span>
+                                    </div>
+                                    <button class="toggle-subtopics p-2" data-section-index="${sectionIndex}" data-topic-index="${topicIndex}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+                                    </button>
+                                </div>
+                                <div class="sub-topic-list" id="subtopics-${sectionIndex}-${topicIndex}">
+                                    ${topic.subtopics.map(subtopic => `
+                                        <div class="sub-topic-item ${progress[subtopic] || ''}" data-subtopic-name="${subtopic}">
+                                            <div class="sub-topic-item-clickable-area">
+                                                <div class="checkbox mr-2" style="width: 16px; height: 16px;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg></div>
+                                                <span>${subtopic}</span>
+                                            </div>
+                                            <div class="llm-buttons">
+                                                <button class="llm-button" data-subtopic-name="${subtopic}" data-llm-action="explain" ${isApiKeyEffectivelyMissing ? 'disabled title="API Key not configured"' : ''}>✨ Explain</button>
+                                                <button class="llm-button" data-subtopic-name="${subtopic}" data-llm-action="question" ${isApiKeyEffectivelyMissing ? 'disabled title="API Key not configured"' : ''}>✨ Question</button>
+                                            </div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>`;
+                container.appendChild(sectionDiv);
+            });
+             attachSyllabusEventListeners(); 
+        }
+        
+        function attachSyllabusEventListeners() {
+            document.querySelectorAll('.section-header').forEach(header => {
+                header.addEventListener('click', function(event) {
+                    if (event.target.closest('.progress-indicator') || event.target.closest('.toggle-section')) {
+                        if (event.target.closest('.toggle-section')) { 
+                             const sectionIndex = this.dataset.sectionIndex;
+                             toggleSectionUI(sectionIndex);
+                        }
+                        return;
+                    }
+                    const sectionIndex = this.dataset.sectionIndex;
+                    toggleSectionUI(sectionIndex);
+                });
+            });
+             document.querySelectorAll('.toggle-section').forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.stopPropagation(); 
+                    const sectionIndex = this.closest('.section-header').dataset.sectionIndex;
+                    toggleSectionUI(sectionIndex);
+                });
+            });
+
+
+            document.querySelectorAll('.syllabus-item-title .font-medium').forEach(titleSpan => {
+                 titleSpan.addEventListener('click', function(event) {
+                    event.stopPropagation(); 
+                    const titleDiv = this.closest('.syllabus-item-title');
+                    const sectionIndex = titleDiv.dataset.sectionIndex;
+                    const topicIndex = titleDiv.dataset.topicIndex;
+                    toggleSubtopicsUI(sectionIndex, topicIndex);
+                });
+            });
+
+            document.querySelectorAll('.syllabus-item-title .checkbox').forEach(chk => {
+                chk.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    const topicName = this.dataset.topicName;
+                    const sectionIndex = this.dataset.sectionIndex;
+                    const topicIndex = this.dataset.topicIndex;
+                    toggleTopicCompletion(topicName, parseInt(sectionIndex), parseInt(topicIndex));
+                });
+            });
+
+            document.querySelectorAll('.toggle-subtopics').forEach(btn => {
+                btn.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    const sectionIndex = this.dataset.sectionIndex;
+                    const topicIndex = this.dataset.topicIndex;
+                    toggleSubtopicsUI(sectionIndex, topicIndex);
+                });
+            });
+            
+            document.querySelectorAll('.sub-topic-item-clickable-area').forEach(item => {
+                 item.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    const subtopicName = this.closest('.sub-topic-item').dataset.subtopicName;
+                    toggleSubtopicCompletion(subtopicName);
+                });
+            });
+
+            document.querySelectorAll('.llm-button').forEach(btn => {
+                btn.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    const isApiKeyEffectivelyMissing = !GEMINI_API_KEY || GEMINI_API_KEY === "YOUR_GEMINI_API_KEY_HERE_OR_LEAVE_EMPTY_FOR_MOCK" || GEMINI_API_KEY === "";
+                    if (isApiKeyEffectivelyMissing) { 
+                        alert("LLM feature requires a valid API Key. Please configure it if you are the developer, or contact support.");
+                        return;
+                    }
+                    if (this.disabled && !isApiKeyEffectivelyMissing) { 
+                        return;
+                    }
+                    const subtopicName = this.dataset.subtopicName;
+                    const action = this.dataset.llmAction;
+                    if (action === 'explain') getLLMExplanation(subtopicName, this);
+                    else if (action === 'question') getLLMPracticeQuestion(subtopicName, this);
+                });
+            });
+        }
+
+        function getTopicStatus(topic, progress) {
+            if (!topic.subtopics || topic.subtopics.length === 0) return ''; 
+
+            const completedSubtopics = topic.subtopics.filter(subtopic => progress[subtopic] === 'completed').length;
+            const partialSubtopics = topic.subtopics.filter(subtopic => progress[subtopic] === 'partial').length;
+            
+            if (completedSubtopics === topic.subtopics.length) return 'completed';
+            if (completedSubtopics > 0 || partialSubtopics > 0) return 'partially-completed';
+            return '';
+        }
+
+        function toggleSectionUI(sectionIndex) {
+            const sectionContent = document.getElementById(`section-${sectionIndex}`);
+            const toggleButton = sectionContent.previousElementSibling.querySelector('.toggle-section svg');
+            sectionContent.classList.toggle('expanded');
+            toggleButton.classList.toggle('rotate-180');
+            saveExpansionStates();
+        }
+
+        function toggleSubtopicsUI(sectionIndex, topicIndex) {
+            const subtopicsContent = document.getElementById(`subtopics-${sectionIndex}-${topicIndex}`);
+            const toggleButton = subtopicsContent.previousElementSibling.querySelector('.toggle-subtopics svg'); 
+            subtopicsContent.classList.toggle('expanded');
+            toggleButton.classList.toggle('rotate-180');
+            saveExpansionStates();
+        }
+
+        function saveExpansionStates() {
+            const currentProgressData = loadProgress();
+            currentProgressData.expansionStates = getExpansionStates();
+            saveProgress(currentProgressData);
+        }
+        
+        function toggleSubtopicCompletion(subtopicName) {
+            const currentProgressData = loadProgress();
+            const currentState = currentProgressData[subtopicName];
+
+            if (currentState === 'completed') {
+                currentProgressData[subtopicName] = 'partial';
+            } else if (currentState === 'partial') {
+                delete currentProgressData[subtopicName]; 
+            } else {
+                currentProgressData[subtopicName] = 'completed';
+            }
+            
+            saveProgress(currentProgressData);
+            const expansionStates = currentProgressData.expansionStates || getExpansionStates();
+            
+            renderSyllabus(userDetails ? userDetails.gatePrepYear : 2025);
+            applyExpansionStates(expansionStates);
+            
+            updateCharts(); 
+            updateOverallStats(); 
+            checkCompletion();
+        }
+
+
+        function toggleTopicCompletion(topicName, sectionIndex, topicIndex) {
+            const currentProgressData = loadProgress();
+            const topic = syllabusData[sectionIndex].topics[topicIndex];
+            if (!topic || !topic.subtopics) return;
+
+            const allSubtopicsCompleted = topic.subtopics.every(sub => currentProgressData[sub] === 'completed');
+            const anySubtopicStarted = topic.subtopics.some(sub => currentProgressData[sub]);
+
+            let newStateForAllSubtopics;
+            if (allSubtopicsCompleted) {
+                newStateForAllSubtopics = 'partial'; 
+            } else if (anySubtopicStarted) {
+                 newStateForAllSubtopics = 'completed'; 
+            } else {
+                 newStateForAllSubtopics = 'completed'; 
+            }
+            
+            topic.subtopics.forEach(subtopic => {
+                 if (newStateForAllSubtopics === 'delete') { 
+                    delete currentProgressData[subtopic];
+                } else {
+                    currentProgressData[subtopic] = newStateForAllSubtopics;
+                }
+            });
+
+            saveProgress(currentProgressData);
+            const expansionStates = currentProgressData.expansionStates || getExpansionStates();
+
+            renderSyllabus(userDetails ? userDetails.gatePrepYear : 2025);
+            applyExpansionStates(expansionStates);
+            
+            updateCharts(); 
+            updateOverallStats(); 
+            checkCompletion();
+        }
+        
+        function updateDynamicContent(details) {
+            if (!details) return;
+            const prepYear = parseInt(details.gatePrepYear);
+
+            document.getElementById('mainHeaderTitle').textContent = `GATE ${prepYear} Preparation`;
+            document.title = `GATE ${prepYear} Preparation`;
+
+            const syllabusTitleElement = document.querySelector('#yourGatePrepPage .card h2.section-title');
+            if(syllabusTitleElement && syllabusTitleElement.textContent.includes("Syllabus")){
+                 syllabusTitleElement.textContent = `📖 GATE CS ${prepYear} Syllabus`;
+            }
+            const congratsMsgElement = document.querySelector('#congratulationsOverlay .congratulations-modal p');
+            if(congratsMsgElement) {
+                congratsMsgElement.textContent = `You have successfully completed the entire GATE CS ${prepYear} Syllabus!`;
+            }
+
+            const syllabusStartYear = prepYear - 1;
+            const syllabusEndYear = prepYear - 1;
+            const pyqsStartYear = prepYear - 1;
+            const pyqsEndYear = prepYear;
+
+            document.getElementById('syllabusCompletionTime').textContent = `June ${syllabusStartYear} – November ${syllabusEndYear} (6 months)`;
+            document.getElementById('pyqsRevisionTime').textContent = `December ${pyqsStartYear} – January ${pyqsEndYear} (2 months)`;
+
+            document.getElementById('appStartDate').innerHTML = `<strong>Application Start:</strong> August ${prepYear - 1}`;
+            document.getElementById('appEndDate').innerHTML = `<strong>Application End:</strong> September ${prepYear - 1}`;
+            document.getElementById('examDate').innerHTML = `<strong>Exam Date:</strong> February ${prepYear}`;
+            document.getElementById('resultDate').innerHTML = `<strong>Result:</strong> March ${prepYear}`;
+        }
+
+        function initializeCharts() {
+            initCompletionChart(); initDurationChart(); initSectionCompletionChart();
+            initWeightageCharts(); initExpectedDurationChart();
+        }
+        
+        function createChartBaseOptions(titleText) {
+            const isMobile = window.innerWidth < 768;
+            return {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: titleText,
+                        color: getComputedStyle(document.documentElement).getPropertyValue('--chart-title-color').trim(),
+                        font: { size: isMobile ? 14 : 18, weight: 'bold', family: 'Inter' }
+                    },
+                    legend: { 
+                        position: 'bottom',
+                        labels: {
+                            usePointStyle: true,
+                            padding: isMobile ? 10 : 20,
+                            color: getComputedStyle(document.documentElement).getPropertyValue('--chart-legend-color').trim(),
+                            font: { size: isMobile ? 10 : 12, family: 'Inter' }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: getComputedStyle(document.documentElement).getPropertyValue('--border-color').trim() },
+                        ticks: { color: getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim(), font: {family: 'Inter'} }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: {
+                            color: getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim(),
+                            maxRotation: isMobile ? 75 : 45, 
+                            minRotation: isMobile ? 75 : 45, 
+                            autoSkip: false,
+                            font: { size: isMobile ? 9 : 11, family: 'Inter' } 
+                        }
+                    }
+                }
+            };
+        }
+
+        function initCompletionChart() {
+            const ctx = document.getElementById('completionChart').getContext('2d');
+            const progressData = calculateProgress();
+            const chartOptions = createChartBaseOptions('Overall Progress');
+             if (chartOptions.plugins.legend.labels) {
+                chartOptions.plugins.legend.labels.padding = window.innerWidth < 768 ? 15 : 25;
+                chartOptions.plugins.legend.labels.font.size = window.innerWidth < 768 ? 11 : 14;
+            }
+
+
+            charts.completionChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Completed', 'In Progress', 'Not Started'],
+                    datasets: [{
+                        data: [progressData.completed, progressData.partial, progressData.total - progressData.completed - progressData.partial],
+                        backgroundColor: ['#10b981', '#f59e0b', '#e5e7eb'].map(color => color),
+                        borderColor: [lightenDarkenColor('#10b981', -20), lightenDarkenColor('#f59e0b', -20), lightenDarkenColor('#e5e7eb', -20)],
+                        borderWidth: 2, hoverOffset: 15
+                    }]
+                },
+                options: { ...chartOptions, animation: { animateRotate: true, duration: 1500 } }
+            });
+        }
+
+        function initDurationChart() {
+            const ctx = document.getElementById('durationChart').getContext('2d');
+            const chartOptions = createChartBaseOptions('Study Progress Timeline');
+            if(chartOptions.scales.y) {
+                chartOptions.scales.y.max = 100;
+                chartOptions.scales.y.ticks.callback = value => value + '%';
+            }
+            
+            charts.durationChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Start', 'Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6', 'Month 7', 'Month 8'],
+                    datasets: [{
+                        label: 'Planned Progress', data: [0, 15, 25, 40, 55, 70, 85, 95, 100], // Adjusted to 9 points, starting at 0
+                        borderColor: '#667eea', backgroundColor: 'rgba(102, 126, 234, 0.1)', fill: true, tension: 0.4,
+                        pointRadius: 5, pointHoverRadius: 7
+                    }, {
+                        label: 'Actual Progress', data: [calculateActualProgress()], // Will plot as a single point at the start
+                        borderColor: '#10b981', backgroundColor: 'rgba(16, 185, 129, 0.1)', fill: false, tension: 0.4,
+                        pointRadius: 6, pointHoverRadius: 8
+                    }]
+                },
+                options: chartOptions
+            });
+        }
+
+        function initSectionCompletionChart() {
+            const ctx = document.getElementById('sectionCompletionChart').getContext('2d');
+            const chartOptions = createChartBaseOptions('Section-wise Completion');
+            if(chartOptions.plugins.legend) chartOptions.plugins.legend.display = false;
+            if(chartOptions.scales.y) {
+                chartOptions.scales.y.max = 100;
+                chartOptions.scales.y.ticks.callback = value => value + '%';
+            }
+            
+            const sectionData = syllabusData.map(section => ({
+                section: section.section.replace('Section ', 'S').replace('Engineering Mathematics', 'Eng. Maths').replace('Computer Organization and Architecture', 'COA').replace('Programming and Data Structures', 'Prog & DS'),
+                completion: Math.round(calculateSectionProgress(section).completionRate * 100)
+            }));
+
+            charts.sectionChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: sectionData.map(d => d.section),
+                    datasets: [{
+                        label: 'Completion %', data: sectionData.map(d => d.completion),
+                        backgroundColor: sectionColors.map(color => color),
+                        borderColor: sectionColors.map(color => lightenDarkenColor(color, -40)),
+                        borderWidth: 1.5, borderRadius: 6, borderSkipped: false
+                    }]
+                },
+                options: chartOptions
+            });
+        }
+        
+        function initWeightageCharts() {
+            // Bar Chart
+            const barCtx = document.getElementById('weightageBarChart').getContext('2d');
+            const barOptions = createChartBaseOptions('Subject Weightage (Bar)');
+            if(barOptions.plugins.legend) barOptions.plugins.legend.display = false;
+            if(barOptions.scales.y) barOptions.scales.y.ticks.callback = value => value + '%';
+
+            charts.weightageBar = new Chart(barCtx, {
+                type: 'bar',
+                data: {
+                    labels: subjectWeightageData.map(d => d.subject.length > 15 ? d.subject.substring(0,12) + "..." : d.subject),
+                    datasets: [{
+                        label: 'Weightage %',
+                        data: subjectWeightageData.map(d => d.weightage),
+                        backgroundColor: sectionColors,
+                        borderColor: sectionColors.map(c => lightenDarkenColor(c, -20)),
+                        borderWidth: 1
+                    }]
+                },
+                options: { ...barOptions, onClick: (e, el) => { if (el.length > 0) updateChartDetails(subjectWeightageData[el[0].index]); } }
+            });
+
+            // Pie Chart
+            const pieCtx = document.getElementById('weightagePieChart').getContext('2d');
+            const pieOptions = createChartBaseOptions('Subject Weightage (Pie)');
+            if(pieOptions.plugins.legend) pieOptions.plugins.legend.display = false; // Hide legend for pie chart
+            delete pieOptions.scales;
+
+            charts.weightagePie = new Chart(pieCtx, {
+                type: 'pie',
+                data: {
+                    labels: subjectWeightageData.map(d => d.subject), // Labels still needed for tooltips and onClick
+                    datasets: [{
+                        data: subjectWeightageData.map(d => d.weightage),
+                        backgroundColor: sectionColors,
+                        borderColor: sectionColors.map(c => lightenDarkenColor(c, -20)),
+                        borderWidth: 1,
+                        hoverOffset: 8
+                    }]
+                },
+                options: { ...pieOptions, onClick: (e, el) => { if (el.length > 0) updateChartDetails(subjectWeightageData[el[0].index]); } }
+            });
+        }
+
+        function updatePieChartResponsiveOptions(chartInstance) { // This function might be redundant now for legend
+            if (!chartInstance || !chartInstance.options || !chartInstance.options.plugins || !chartInstance.options.plugins.legend) return;
+            chartInstance.options.plugins.legend.display = false; // Ensure legend is always false
+            chartInstance.update('none');
+        }
+
+
+        function initExpectedDurationChart() {
+            const ctx = document.getElementById('expectedDurationChart').getContext('2d');
+            const chartOptions = createChartBaseOptions('Study Duration Timeline');
+             if(chartOptions.scales.y) chartOptions.scales.y.ticks.callback = value => value + ' days';
+            
+            const cumulativeDays = subjectWeightageData.reduce((acc, curr) => {
+                const lastDay = acc.length > 0 ? acc[acc.length - 1] : 0;
+                acc.push(lastDay + curr.days);
+                return acc;
+            }, []);
+
+            charts.expectedDuration = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: subjectWeightageData.map(d => d.subject.length > 15 ? d.subject.substring(0,12) + "..." : d.subject),
+                    datasets: [{
+                        label: 'Cumulative Days', data: cumulativeDays,
+                        backgroundColor: 'rgba(102, 126, 234, 0.1)', borderColor: '#667eea',
+                        pointBackgroundColor: sectionColors, pointBorderColor: '#ffffff', pointBorderWidth: 2,
+                        pointRadius: 6, pointHoverRadius: 8, fill: true, tension: 0.4
+                    }, {
+                        label: 'Individual Days', data: subjectWeightageData.map(d => d.days),
+                        backgroundColor: '#14b8a6', // Solid teal color (var --accent-teal)
+                        borderColor: lightenDarkenColor('#14b8a6', -20),
+                        borderWidth: 1,
+                        tension: 0.2, type: 'bar' 
+                    }]
+                },
+                options: chartOptions
+            });
+        }
+
+        function updateChartDetails(subject) {
+            const detailsContainer = document.getElementById('chartDetailsContainer');
+            const contentContainer = document.getElementById('chartDetailsContent');
+            detailsContainer.classList.add('active');
+            contentContainer.innerHTML = `
+                <div class="chart-detail-card"><div class="chart-detail-label">Subject</div><div class="chart-detail-value">${subject.subject}</div></div>
+                <div class="chart-detail-card"><div class="chart-detail-label">Weightage</div><div class="chart-detail-percentage">${subject.weightage}%</div></div>
+                <div class="chart-detail-card"><div class="chart-detail-label">Difficulty</div><div class="chart-detail-value">${subject.difficulty}</div></div>
+                <div class="chart-detail-card"><div class="chart-detail-label">Importance</div><div class="chart-detail-value">${subject.importance}</div></div>
+                <div class="chart-detail-card"><div class="chart-detail-label">Study Duration</div><div class="chart-detail-value">${subject.days} days</div></div>
+                <div class="chart-detail-card"><div class="chart-detail-label">Total Questions</div><div class="chart-detail-value">${Math.round(subject.weightage * 0.65)} (~)</div></div>`;
+            detailsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function calculateActualProgress() { return calculateProgress().percentage; }
+
+        function updateCharts() {
+            const { completed, partial, total, percentage } = calculateProgress();
+            if (charts.completionChart) {
+                charts.completionChart.data.datasets[0].data = [completed, partial, total - completed - partial];
+                charts.completionChart.update('active');
+            }
+            if (charts.durationChart) {
+                if (charts.durationChart.data.datasets[1]) { // Actual Progress dataset
+                    // Update the single data point for actual progress
+                     charts.durationChart.data.datasets[1].data = [percentage];
+                }
+                charts.durationChart.update('active');
+            }
+            if (charts.sectionChart) {
+                charts.sectionChart.data.datasets[0].data = syllabusData.map(s => Math.round(calculateSectionProgress(s).completionRate * 100));
+                charts.sectionChart.update('active');
+            }
+            ['weightageBar', 'weightagePie', 'expectedDuration'].forEach(key => {
+                 if (charts[key]) charts[key].update('none'); // 'none' for no animation
+            });
+            if (charts.weightagePie) updatePieChartResponsiveOptions(charts.weightagePie); // Ensure legend state is reapplied
+        }
+        
+        function initThemeToggle() {
+            const themeToggle = document.getElementById('themeToggle');
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                updateThemeIcon(true);
+            }
+            themeToggle.addEventListener('click', () => {
+                const isDark = document.body.classList.toggle('dark-mode');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                updateThemeIcon(isDark);
+                updateChartsForTheme();
+            });
+        }
+
+        function updateThemeIcon(isDark) {
+            document.getElementById('themeIconPath').setAttribute('d', isDark ? 'M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z' : 'M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z');
+        }
+
+        function updateChartsForTheme() {
+            Object.values(charts).forEach(chart => {
+                if (chart && chart.options) {
+                    const newOptions = createChartBaseOptions(chart.options.plugins.title.text); 
+                    
+                    // Specific adjustments based on chart type, if any, beyond base options
+                    if (chart.canvas.id === 'completionChart' && newOptions.plugins.legend.labels) {
+                        newOptions.plugins.legend.labels.padding = window.innerWidth < 768 ? 15 : 25;
+                        newOptions.plugins.legend.labels.font.size = window.innerWidth < 768 ? 11 : 14;
+                    }
+                    if (chart.canvas.id === 'durationChart' && newOptions.scales.y) {
+                         newOptions.scales.y.max = 100;
+                         newOptions.scales.y.ticks.callback = value => value + '%';
+                    }
+                    if (chart.canvas.id === 'sectionCompletionChart') {
+                        if(newOptions.plugins.legend) newOptions.plugins.legend.display = false;
+                        if(newOptions.scales.y) {
+                            newOptions.scales.y.max = 100;
+                            newOptions.scales.y.ticks.callback = value => value + '%';
+                        }
+                    }
+                    if (chart.canvas.id === 'weightageBarChart') {
+                        if(newOptions.plugins.legend) newOptions.plugins.legend.display = false;
+                        if(newOptions.scales.y) newOptions.scales.y.ticks.callback = value => value + '%';
+                    }
+                    if (chart.canvas.id === 'weightagePieChart') {
+                        if(newOptions.plugins.legend) newOptions.plugins.legend.display = false; // Ensure legend is off
+                        delete newOptions.scales;
+                    }
+                    if (chart.canvas.id === 'expectedDurationChart' && newOptions.scales.y) {
+                         newOptions.scales.y.ticks.callback = value => value + ' days';
+                    }
+
+                    chart.options = newOptions;
+                    chart.update('none'); // 'none' for no animation to avoid flicker
+                }
+            });
+        }
+
+        function initNavigation() {
+            const pages = { yourGatePrep: document.getElementById('yourGatePrepPage'), allAboutGate: document.getElementById('allAboutGatePage') };
+            const navButtons = { yourGatePrep: document.getElementById('navYourPrep'), allAboutGate: document.getElementById('navAllAboutGate') };
+            
+            function switchPage(targetPageId) {
+                Object.values(navButtons).forEach(btn => btn.classList.remove('active'));
+                Object.values(pages).forEach(page => page.classList.remove('active'));
+                pages[targetPageId].classList.add('active');
+                navButtons[targetPageId].classList.add('active');
+            }
+            navButtons.yourGatePrep.addEventListener('click', () => switchPage('yourGatePrep'));
+            navButtons.allAboutGate.addEventListener('click', () => switchPage('allAboutGate'));
+        }
+        
+        const API_URL_GEMINI = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${GEMINI_API_KEY}`;
+
+        async function callGeminiAPI(promptContent, isJsonOutput = false) {
+            const isApiKeyEffectivelyMissing = !GEMINI_API_KEY || GEMINI_API_KEY === "YOUR_GEMINI_API_KEY_HERE_OR_LEAVE_EMPTY_FOR_MOCK" || GEMINI_API_KEY === "";
+            if (isApiKeyEffectivelyMissing) {
+                console.warn("Gemini API Key not configured or is a placeholder. Using mock response.");
+                return mockFetchWithGeminiAPI(promptContent, isJsonOutput, "Mock (No API Key): ");
+            }
+
+            try {
+                const payload = {
+                    contents: [{ parts: [{ text: promptContent }] }],
+                    generationConfig: {
+                        temperature: 0.6, topK: 1, topP: 0.95,
+                        maxOutputTokens: isJsonOutput ? 2048 : 8192, 
+                    }
+                };
+                if (isJsonOutput) payload.generationConfig.responseMimeType = "application/json";
+                
+                const response = await fetch(API_URL_GEMINI, {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const responseText = await response.text();
+                if (!response.ok) {
+                    let errorData;
+                    try { errorData = JSON.parse(responseText); } 
+                    catch (e) { errorData = { error: { message: responseText || `HTTP error ${response.status}` }}; }
+                    throw new Error(errorData?.error?.message || `HTTP error ${response.status}`);
+                }
+                const data = JSON.parse(responseText);
+                if (data.candidates?.[0]?.content?.parts?.[0]?.text) {
+                    return data.candidates[0].content.parts[0].text;
+                } else if (data.promptFeedback?.blockReason) {
+                     throw new Error(`Content blocked: ${data.promptFeedback.blockReason} - ${data.promptFeedback.blockReasonMessage || 'Safety settings triggered.'}`);
+                } else { throw new Error("Unexpected API response structure from Gemini."); }
+            } catch (error) {
+                console.error("Gemini API call failed:", error);
+                return mockFetchWithGeminiAPI(promptContent, isJsonOutput, `API Error (${error.message || 'Unknown API error'}). Using fallback: `);
+            }
+        }
+        
+        async function mockFetchWithGeminiAPI(promptContent, isJsonOutput = false, prefix = "") {
+            console.log(`${prefix}Using MOCK response for prompt: ${promptContent.substring(0,100)}...`);
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    let responseText = "";
+                    if (promptContent.includes("Explain the GATE CS subtopic")) {
+                         const subtopicForExplain = promptContent.match(/Explain the GATE CS subtopic: (.*?)\. Provide/)?.[1] || "Unknown Subtopic";
+                        responseText = `### ${prefix}Mock Explanation of: ${subtopicForExplain}\nThis is a **mocked explanation** because the Gemini API is not configured, the call failed, or you're using the placeholder key.\n\n**Key Concepts:**\n*   **Concept A:** The first important idea about *${subtopicForExplain}*.\n*   **Concept B:** Another significant aspect. It often relates to \`some_variable_name\`.\n*   **More Details:** To make this content longer and demonstrate scrolling, here are more details. This subtopic often involves several steps.\n    1.  Initialization: Setting up required variables and structures.\n    2.  Processing Loop: Iterating through data or states.\n    3.  Condition Checks: Evaluating conditions to alter flow.\n    4.  Output Generation: Producing the result.\n*   **Common Pitfalls:**\n    *   Off-by-one errors in loops.\n    *   Not handling edge cases for ${subtopicForExplain}.\n    *   Misunderstanding the core algorithm related to it.\n\n**Example (Pseudocode):**\n\`\`\`c\n// Mock pseudocode for ${subtopicForExplain.replace(/\s+/g, '_').toLowerCase()}\nvoid process_${subtopicForExplain.replace(/\s+/g, '_').toLowerCase()}(dataType data) {\n    if (data.isValid) {\n        printf("Processing ${subtopicForExplain}\\n");\n    }\n}\n\`\`\`\nFor GATE, focus on understanding the *underlying principles*.`;
+                    } else if (promptContent.includes("Generate a practice multiple-choice question")) {
+                        const subtopicForQuestion = promptContent.match(/for the GATE CS subtopic: (.*?)\. Format/)?.[1] || "Unknown Subtopic";
+                        const mockQData = { question_text: `${prefix}Mock Question: What is '${subtopicForQuestion}'?`, options: { A: "Mock A", B: "Mock B (Correct)", C: "Mock C", D: "Mock D" }, correct_answer_key: "B", hint_text: `Mock hint for ${subtopicForQuestion}.`, explanation_text: `${prefix}Mock explanation: B is correct because...` };
+                        responseText = JSON.stringify(mockQData);
+                    } else if (promptContent.includes("You are a helpful AI assistant tutoring a student")) { 
+                        responseText = `${prefix}This is a mocked chat response for "${currentLlmSubtopic}". How else can I assist you?`;
+                    } else { responseText = `${prefix}General mocked response.`; }
+                    resolve(responseText);
+                }, 1200); 
+            });
+        }
+
+        function displayFormattedContent(element, markdownText) {
+            if (!markdownConverter) { 
+                markdownConverter = new showdown.Converter({ simplifiedAutoLink: true, strikethrough: true, tables: true, tasklists: true, ghMentions: false, openLinksInNewWindow: true, emoji: true, underline: true, literalMidWordUnderscores: true, ghCodeBlocks: true });
+            }
+            try {
+                const sanitizedMarkdown = markdownText.replace(/<script.*?>.*?<\/script>/gi, '');
+                element.innerHTML = markdownConverter.makeHtml(sanitizedMarkdown);
+            } catch(e) {
+                console.error("Markdown conversion error:", e);
+                element.textContent = markdownText; 
+            }
+        }
+
+        function scrollToBottom(element) {
+            if (element) requestAnimationFrame(() => { element.scrollTop = element.scrollHeight; });
+        }
+
+        async function showLLMModal(title, subtopic, button, actionType) {
+            const modal = document.getElementById('llmResponseOverlay');
+            const modalTitleEl = document.getElementById('llmModalTitle');
+            const modalContentContainer = document.getElementById('llmModalContent'); 
+
+            document.documentElement.classList.add('modal-open');
+            document.body.classList.add('modal-open');
+
+            modalTitleEl.textContent = title;
+            modalContentContainer.innerHTML = `
+                <div class="llm-main-content-area" id="llmPrimaryDisplayArea" style="display: none;"></div>
+                <div class="llm-chat-interface" id="dynamicChatInterface" style="display: none;">
+                    <div class="llm-chat-log" id="llmChatLog"></div>
+                    <div class="llm-chat-input-area" id="llmChatInputArea">
+                        <input type="text" id="llmChatMessage" placeholder="Ask a follow-up question..." aria-label="Chat message input">
+                        <button id="llmSendChatMessage" class="llm-button">Send</button>
+                    </div>
+                </div>
+            `;
+
+            const primaryDisplayArea = document.getElementById('llmPrimaryDisplayArea');
+            const dynamicChatInterfaceEl = document.getElementById('dynamicChatInterface');
+            const chatLog = document.getElementById('llmChatLog');
+            
+            modal.classList.add('show');
+            const allLLMButtonsForSubtopic = button.closest('.llm-buttons').querySelectorAll('.llm-button');
+            allLLMButtonsForSubtopic.forEach(btn => btn.disabled = true);
+
+            currentLlmSubtopic = subtopic; 
+            currentLlmChatHistory = []; 
+
+            try {
+                let prompt, rawResponse;
+                if (actionType === 'explain') {
+                    primaryDisplayArea.style.display = 'none';
+                    dynamicChatInterfaceEl.style.display = 'flex';
+                    chatLog.innerHTML = `<div class="llm-message loading-container"><div class="loading-spinner"></div> Generating explanation...</div>`;
+                    scrollToBottom(chatLog);
+
+                    prompt = `Explain the GATE CS subtopic: ${subtopic}. Provide a detailed, well-structured explanation suitable for a GATE aspirant. Use Markdown for formatting (e.g., # Heading, ## Subheading, *italic*, **bold**, - bullet point, 1. numbered list, \`inline_code\`, and \`\`\`c\n// code block example\n\`\`\`). Ensure the explanation is comprehensive, easy to understand, and covers key concepts, examples, and potential pitfalls.`;
+                    rawResponse = await callGeminiAPI(prompt);
+                    
+                    chatLog.innerHTML = ''; // Clear loading
+
+                    const explanationMessageDiv = document.createElement('div');
+                    explanationMessageDiv.classList.add('llm-message');
+                    displayFormattedContent(explanationMessageDiv, rawResponse);
+                    chatLog.appendChild(explanationMessageDiv);
+                    currentLlmChatHistory.push({ role: "model", parts: [{ text: rawResponse }] });
+
+                    const followUpPromptDiv = document.createElement('div');
+                    followUpPromptDiv.classList.add('llm-message');
+                    followUpPromptDiv.innerHTML = `How can I help you further with <strong>${subtopic}</strong>?`;
+                    chatLog.appendChild(followUpPromptDiv);
+                    currentLlmChatHistory.push({ role: "model", parts: [{ text: `How can I help you further with ${subtopic}?` }] });
+                    
+                    const sendChatBtn = dynamicChatInterfaceEl.querySelector('#llmSendChatMessage');
+                    const chatMsgInput = dynamicChatInterfaceEl.querySelector('#llmChatMessage');
+                    if (sendChatBtn) sendChatBtn.onclick = () => handleLlmChatSend();
+                    if (chatMsgInput) chatMsgInput.addEventListener('keypress', (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleLlmChatSend(); } });
+                    scrollToBottom(chatLog);
+                    if (chatMsgInput) chatMsgInput.focus();
+
+
+                } else if (actionType === 'question') {
+                    primaryDisplayArea.style.display = 'block';
+                    dynamicChatInterfaceEl.style.display = 'none';
+                    primaryDisplayArea.innerHTML = `<div class="loading-container"><div class="loading-spinner"></div> Generating question...</div>`;
+
+                    prompt = `Generate a practice multiple-choice question (MCQ) with 4 options (labeled A, B, C, D), a single correct answer key (e.g., "B"), a concise hint, and a detailed explanation for the GATE CS subtopic: ${subtopic}. Format the output strictly as a JSON object with these exact keys: "question_text", "options" (an object with A,B,C,D keys whose values are the option strings), "correct_answer_key" (e.g., "B"), "hint_text", and "explanation_text". Do not include any introductory text or markdown formatting around the JSON object itself.`;
+                    rawResponse = await callGeminiAPI(prompt, true); 
+                    try {
+                        const qData = JSON.parse(rawResponse);
+                        if (!qData.question_text || !qData.options || !qData.correct_answer_key || !qData.hint_text || !qData.explanation_text) {
+                            throw new Error("LLM response for question is missing required fields or has incorrect structure.");
+                        }
+                        primaryDisplayArea.innerHTML = `
+                            <div class="question-text">${qData.question_text}</div>
+                            <div class="options-container">
+                                ${Object.entries(qData.options).map(([key, value]) => `
+                                    <label><input type="radio" name="llmOption" value="${key}"> ${key}: ${value}</label>
+                                `).join('')}
+                            </div>
+                            <div class="llm-action-buttons">
+                                <button id="llmShowHint" class="llm-button" style="background-color: var(--accent-yellow); border-color: var(--accent-yellow);">💡 Show Hint</button>
+                                <button id="llmRevealAnswer" class="llm-button" style="background-color: var(--accent-green); border-color: var(--accent-green);">✅ Reveal Answer</button>
+                            </div>
+                            <div id="llmHintArea" style="display:none;"></div>
+                            <div id="llmAnswerArea" style="display:none;"></div>`;
+                        const hintBtn = document.getElementById('llmShowHint');
+                        const answerBtn = document.getElementById('llmRevealAnswer');
+                        const hintArea = document.getElementById('llmHintArea');
+                        const answerArea = document.getElementById('llmAnswerArea');
+
+                        if (hintBtn) hintBtn.onclick = () => { displayFormattedContent(hintArea, `<strong>Hint:</strong> ${qData.hint_text}`); hintArea.style.display = 'block'; };
+                        if (answerBtn) answerBtn.onclick = () => { displayFormattedContent(answerArea, `<strong>Correct Answer: ${qData.correct_answer_key}</strong>\n\n${qData.explanation_text}`); answerArea.style.display = 'block'; };
+                    } catch (parseError) {
+                        console.error("Error parsing LLM question JSON response:", parseError, "Raw JSON:", rawResponse);
+                        primaryDisplayArea.innerHTML = `<p class="text-red-500 font-semibold">Error: Could not parse question data.</p><pre class="mt-2 font-mono text-xs bg-gray-100 dark:bg-gray-800 p-2 rounded overflow-x-auto">Received:\n${rawResponse}</pre>`;
+                    }
+                }
+            } catch (error) {
+                console.error("LLM action failed:", error);
+                const displayErrorArea = actionType === 'explain' ? chatLog : primaryDisplayArea;
+                if (displayErrorArea) { // Ensure area exists
+                    displayErrorArea.innerHTML = `<p class="text-red-500 font-semibold">An error occurred: ${error.message}.</p>`;
+                }
+                if (actionType === 'explain' && dynamicChatInterfaceEl) dynamicChatInterfaceEl.querySelector('#llmChatInputArea').style.display = 'none'; // Hide input on error
+            } finally {
+                 allLLMButtonsForSubtopic.forEach(btn => btn.disabled = false); 
+            }
+        }
+
+        async function handleLlmChatSend() {
+            const dynamicChatInterfaceEl = document.getElementById('dynamicChatInterface');
+            if (!dynamicChatInterfaceEl) return;
+
+            const messageInput = dynamicChatInterfaceEl.querySelector('#llmChatMessage');
+            const chatLog = dynamicChatInterfaceEl.querySelector('#llmChatLog');
+            const sendButton = dynamicChatInterfaceEl.querySelector('#llmSendChatMessage');
+
+            if (!messageInput || !chatLog || !sendButton) { console.error("Chat elements not found."); return; }
+
+            const userMessageText = messageInput.value.trim();
+            if (!userMessageText) return;
+
+            const userMessageDiv = document.createElement('div');
+            userMessageDiv.classList.add('user-message');
+            displayFormattedContent(userMessageDiv, userMessageText); 
+            chatLog.appendChild(userMessageDiv);
+            scrollToBottom(chatLog);
+
+            currentLlmChatHistory.push({ role: "user", parts: [{ text: userMessageText }] });
+            messageInput.value = ""; 
+            messageInput.disabled = true;
+            sendButton.disabled = true;
+
+            const loadingDiv = document.createElement('div');
+            loadingDiv.classList.add('llm-message', 'loading-container'); 
+            loadingDiv.innerHTML = `<div class="loading-spinner"></div> Thinking...`;
+            chatLog.appendChild(loadingDiv);
+            scrollToBottom(chatLog);
+
+            try {
+                let conversationalPrompt = `The user is learning about the GATE CS subtopic: "${currentLlmSubtopic}".\n\n`;
+                if (currentLlmChatHistory.length > 1) { 
+                    conversationalPrompt += "Previous conversation history (last few turns):\n";
+                    currentLlmChatHistory.slice(-6, -1).forEach(msg => { 
+                        conversationalPrompt += `${msg.role === 'user' ? 'User' : 'Assistant'}: ${msg.parts[0].text}\n`;
+                    });
+                }
+                conversationalPrompt += `User's current question: "${userMessageText}"\n\nAssistant (you):`;
+
+                const llmResponseText = await callGeminiAPI(conversationalPrompt);
+
+                if(chatLog.contains(loadingDiv)) chatLog.removeChild(loadingDiv); 
+
+                const llmMessageDiv = document.createElement('div');
+                llmMessageDiv.classList.add('llm-message');
+                displayFormattedContent(llmMessageDiv, llmResponseText); 
+                chatLog.appendChild(llmMessageDiv);
+                scrollToBottom(chatLog);
+                
+                currentLlmChatHistory.push({ role: "model", parts: [{ text: llmResponseText }] });
+
+            } catch (error) {
+                console.error("LLM chat response error:", error);
+                if (chatLog.contains(loadingDiv)) chatLog.removeChild(loadingDiv);
+                const errorDiv = document.createElement('div');
+                errorDiv.classList.add('llm-message');
+                errorDiv.style.color = 'var(--accent-red)'; 
+                errorDiv.textContent = `Sorry, I encountered an error: ${error.message}. Please try again.`;
+                chatLog.appendChild(errorDiv);
+                scrollToBottom(chatLog);
+            } finally {
+                messageInput.disabled = false;
+                sendButton.disabled = false;
+                messageInput.focus();
+            }
+        }
+
+
+        function getLLMExplanation(subtopic, button) { 
+            showLLMModal(`Explanation: ${subtopic}`, subtopic, button, 'explain'); 
+        }
+        function getLLMPracticeQuestion(subtopic, button) { 
+            showLLMModal(`Practice Question: ${subtopic}`, subtopic, button, 'question'); 
+        }
+
+        function closeLLMModal() { 
+            document.getElementById('llmResponseOverlay').classList.remove('show');
+            document.getElementById('llmModalContent').innerHTML = ''; 
+            document.documentElement.classList.remove('modal-open');
+            document.body.classList.remove('modal-open');
+            currentLlmChatHistory = []; 
+            currentLlmSubtopic = "";
+        }
+        
+        function checkCompletion() { if (calculateProgress().percentage === 100) showCongratulations(); }
+        function showCongratulations() { 
+            document.getElementById('congratulationsOverlay').classList.add('show'); 
+            document.documentElement.classList.add('modal-open');
+            document.body.classList.add('modal-open');
+        }
+        function closeCongratulations() { 
+            document.getElementById('congratulationsOverlay').classList.remove('show'); 
+            document.documentElement.classList.remove('modal-open');
+            document.body.classList.remove('modal-open');
+        }
+
+        function showLoginCongratulations(userName) {
+            document.getElementById('loginCongratsTitle').textContent = `🎉 Welcome, ${userName}!`;
+            document.getElementById('loginCongratsOverlay').classList.add('show');
+            document.documentElement.classList.add('modal-open');
+            document.body.classList.add('modal-open');
+        }
+        function closeLoginCongratulations() { 
+            document.getElementById('loginCongratsOverlay').classList.remove('show'); 
+            document.documentElement.classList.remove('modal-open');
+            document.body.classList.remove('modal-open');
+        }
+        
+        function showUserDetailsModal() { 
+            document.getElementById('userDetailsOverlay').classList.add('show'); 
+            document.documentElement.classList.add('modal-open');
+            document.body.classList.add('modal-open');
+        }
+        function hideUserDetailsModal() { 
+            document.getElementById('userDetailsOverlay').classList.remove('show'); 
+        }
+
+        function initUserDetails() {
+            userDetails = loadUserDetails();
+            const userDetailsForm = document.getElementById('userDetailsForm');
+            
+            if (userDetails) {
+                updateDynamicContent(userDetails);
+                renderSyllabus(userDetails.gatePrepYear); 
+                applyExpansionStates((loadProgress()).expansionStates || {}); 
+            } else {
+                showUserDetailsModal();
+                 renderSyllabus(); 
+            }
+
+            userDetailsForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('userName').value.trim();
+                const dob = document.getElementById('userDob').value;
+                const prepYear = document.getElementById('gatePrepYear').value;
+                const gradYear = document.getElementById('graduationYear').value;
+
+                if (!name || !dob || !prepYear || !gradYear) { alert("Please fill in all fields."); return; }
+                if (parseInt(prepYear) < new Date().getFullYear() -1 || parseInt(prepYear) > 2035) { alert("Please enter a valid GATE Preparation Year."); return; }
+                if (parseInt(gradYear) < 1980 || parseInt(gradYear) > 2040) { alert("Please enter a valid Graduation Year."); return; }
+
+                userDetails = { name, dob, gatePrepYear: parseInt(prepYear), graduationYear: parseInt(gradYear) };
+                saveUserDetails(userDetails);
+                updateDynamicContent(userDetails);
+                renderSyllabus(userDetails.gatePrepYear); 
+                applyExpansionStates((loadProgress()).expansionStates || {});
+                hideUserDetailsModal(); 
+                showLoginCongratulations(userDetails.name); 
+            });
+        }
+
+        function initCollapsibleContent() {
+            document.addEventListener('click', (e) => {
+                const button = e.target.closest('.toggle-card-content');
+                if (button) {
+                    const content = button.closest('.card').querySelector('.card-content-collapsible');
+                    const icon = button.querySelector('svg');
+                    if (content && icon) {
+                        content.classList.toggle('expanded');
+                        icon.classList.toggle('rotate-180');
+                    }
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                markdownConverter = new showdown.Converter({
+                    simplifiedAutoLink: true, strikethrough: true, tables: true, tasklists: true,
+                    ghMentions: false, openLinksInNewWindow: true, emoji: true, underline: true, 
+                    literalMidWordUnderscores: true, ghCodeBlocks: true,
+                    requireSpaceBeforeHeadingText: true, tablesHeaderId: true, 
+                });
+                showdown.setFlavor('github'); 
+            } catch (e) {
+                console.error("Failed to initialize Showdown.js.", e);
+                markdownConverter = { makeHtml: (text) => text.replace(/\n/g, '<br>') };
+            }
+
+            currentProgress = loadProgress();
+            initUserDetails(); 
+            updateOverallStats();
+            initializeCharts();
+            initThemeToggle();
+            initNavigation();
+            initCollapsibleContent();
+            
+            document.getElementById('closeCongratulations').addEventListener('click', closeCongratulations);
+            document.getElementById('closeLoginCongrats').addEventListener('click', closeLoginCongratulations);
+            document.getElementById('closeLlmModal').addEventListener('click', closeLLMModal);
+            
+            ['llmResponseOverlay', 'congratulationsOverlay', 'loginCongratsOverlay', 'userDetailsOverlay'].forEach(id => {
+                const overlay = document.getElementById(id);
+                if(overlay) overlay.addEventListener('click', function(e) { 
+                    if (e.target === this) { 
+                        if (id === 'llmResponseOverlay') closeLLMModal();
+                        else if (id === 'congratulationsOverlay') closeCongratulations();
+                        else if (id === 'loginCongratsOverlay') closeLoginCongratulations();
+                        else if (id === 'userDetailsOverlay') {
+                            this.classList.remove('show');
+                            if (!document.querySelector('.llm-modal-overlay.show, .congratulations-overlay.show, .login-congrats-overlay.show')) {
+                                document.documentElement.classList.remove('modal-open');
+                                document.body.classList.remove('modal-open');
+                            }
+                        }
+                    }
+                });
+            });
+
+            handleResponsiveDesign();
+            window.addEventListener('resize', () => {
+                handleResponsiveDesign();
+                if(charts.weightagePie) updatePieChartResponsiveOptions(charts.weightagePie); // Re-check legend for pie
+                Object.values(charts).forEach(chart => { // General update for responsiveness
+                    if (chart && chart.options) {
+                        const isMobile = window.innerWidth < 768;
+                        if (chart.options.scales?.x?.ticks) {
+                            chart.options.scales.x.ticks.maxRotation = isMobile ? 75 : 45;
+                            chart.options.scales.x.ticks.minRotation = isMobile ? 75 : 45;
+                            chart.options.scales.x.ticks.font.size = isMobile ? 9 : 11;
+                        }
+                        if (chart.options.plugins?.title?.font) chart.options.plugins.title.font.size = isMobile ? 14 : 18;
+                        if (chart.options.plugins?.legend?.labels?.font) chart.options.plugins.legend.labels.font.size = isMobile ? 10:12;
+                        
+                        if (chart.canvas.id === 'completionChart' && chart.options.plugins?.legend?.labels) {
+                            chart.options.plugins.legend.labels.padding = isMobile ? 15 : 25;
+                        }
+                        chart.update('none');
+                    }
+                });
+            });
+        });
+
+        function handleResponsiveDesign() {
+            document.querySelectorAll('.chart-container canvas').forEach(el => Chart.getChart(el)?.resize());
+        }
+    </script>
+</body>
+</html>
