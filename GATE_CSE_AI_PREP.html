@@ -2931,1613 +2931,1606 @@
     </div>
 
        <script>
-        const syllabusData = [ 
+const syllabusData = [ 
+    {
+        section: "Section 1: Engineering Mathematics",
+        topics: [
             {
-                section: "Section 1: Engineering Mathematics",
-                topics: [
-                    {
-                        name: "Discrete Mathematics",
-                        subtopics: ["Propositional and first order logic", "Sets, relations, functions, partial orders and lattices", "Monoids, Groups", "Graphs: connectivity, matching, colouring", "Combinatorics: counting, recurrence relations, generating functions"]
-                    },
-                    {
-                        name: "Linear Algebra",
-                        subtopics: ["Matrices, determinants, system of linear equations", "Eigenvalues and eigenvectors", "LU decomposition"]
-                    },
-                    {
-                        name: "Calculus",
-                        subtopics: ["Limits, continuity and differentiability", "Maxima and minima", "Mean value theorem", "Integration"]
-                    },
-                    {
-                        name: "Probability and Statistics",
-                        subtopics: ["Random variables", "Uniform, normal, exponential, Poisson and binomial distributions", "Mean, median, mode and standard deviation", "Conditional probability and Bayes theorem"]
-                    }
-                ]
+                name: "Discrete Mathematics",
+                subtopics: ["Propositional and first order logic", "Sets, relations, functions, partial orders and lattices", "Monoids, Groups", "Graphs: connectivity, matching, colouring", "Combinatorics: counting, recurrence relations, generating functions"]
             },
             {
-                section: "Section 2: Digital Logic",
-                topics: [
-                    {
-                        name: "Digital Logic",
-                        subtopics: ["Boolean algebra", "Combinational and sequential circuits", "Minimization", "Number representations and computer arithmetic (fixed and floating point)"]
-                    }
-                ]
+                name: "Linear Algebra",
+                subtopics: ["Matrices, determinants, system of linear equations", "Eigenvalues and eigenvectors", "LU decomposition"]
             },
             {
-                section: "Section 3: Computer Organization and Architecture",
-                topics: [
-                    {
-                        name: "Computer Organization and Architecture",
-                        subtopics: ["Machine instructions and addressing modes", "ALU, data-path and control unit", "Instruction pipelining, pipeline hazards", "Memory hierarchy: cache, main memory and secondary storage", "I/O interface (interrupt and DMA mode)"]
-                    }
-                ]
+                name: "Calculus",
+                subtopics: ["Limits, continuity and differentiability", "Maxima and minima", "Mean value theorem", "Integration"]
             },
             {
-                section: "Section 4: Programming and Data Structures",
-                topics: [
-                    {
-                        name: "Programming and Data Structures",
-                        subtopics: ["Programming in C", "Recursion", "Arrays, stacks, queues, linked lists", "Trees, binary search trees, binary heaps", "Graphs"]
-                    }
-                ]
-            },
-            {
-                section: "Section 5: Algorithms",
-                topics: [
-                    {
-                        name: "Algorithms",
-                        subtopics: ["Searching, sorting, hashing", "Asymptotic worst case time and space complexity", "Algorithm design techniques: greedy, dynamic programming and divide-and-conquer", "Graph traversals, minimum spanning trees, shortest paths"]
-                    }
-                ]
-            },
-            {
-                section: "Section 6: Theory of Computation",
-                topics: [
-                    {
-                        name: "Theory of Computation",
-                        subtopics: ["Regular expressions and finite automata", "Context-free grammars and push-down automata", "Regular and context-free languages, pumping lemma", "Turing machines and undecidability"]
-                    }
-                ]
-            },
-            {
-                section: "Section 7: Compiler Design",
-                topics: [
-                    {
-                        name: "Compiler Design",
-                        subtopics: ["Lexical analysis, parsing, syntax-directed translation", "Runtime environments", "Intermediate code generation", "Local optimization, data flow analyses"]
-                    }
-                ]
-            },
-            {
-                section: "Section 8: Operating System",
-                topics: [
-                    {
-                        name: "Operating System",
-                        subtopics: ["System calls, processes, threads, inter-process communication", "Concurrency and synchronization", "Deadlock", "CPU and I/O scheduling", "Memory management and virtual memory", "File systems"]
-                    }
-                ]
-            },
-            {
-                section: "Section 9: Databases",
-                topics: [
-                    {
-                        name: "Databases",
-                        subtopics: ["ER-model, relational model", "Relational algebra, tuple calculus, SQL", "Integrity constraints, normal forms", "File organization, indexing", "Transactions and concurrency control"]
-                    }
-                ]
-            },
-            {
-                section: "Section 10: Computer Networks",
-                topics: [
-                    {
-                        name: "Computer Networks",
-                        subtopics: ["Concept of layering: OSI and TCP/IP Protocol Stacks", "Basics of packet, circuit and virtual circuit-switching", "Data link layer: framing, error detection, Medium Access Control", "Ethernet bridging, routing protocols", "TCP/UDP and sockets, congestion control", "Application layer protocols: DNS, SMTP, HTTP, FTP, Email"]
-                    }
-                ]
-            },
-            {
-                section: "Section 11: General Aptitude",
-                topics: [
-                    {
-                        name: "Verbal Ability",
-                        subtopics: ["Basic English grammar", "Sentence completion", "Verbal analogies", "Word groups", "Critical reasoning and verbal deduction"]
-                    },
-                    {
-                        name: "Numerical Ability", 
-                        subtopics: ["Numerical computation", "Numerical estimation", "Numerical reasoning and data interpretation"]
-                    }
-                ]
+                name: "Probability and Statistics",
+                subtopics: ["Random variables", "Uniform, normal, exponential, Poisson and binomial distributions", "Mean, median, mode and standard deviation", "Conditional probability and Bayes theorem"]
             }
-        ];
-        const subjectWeightageData = [
-            { subject: "Engineering Mathematics", weightage: 13.5, difficulty: "Medium", importance: "High", days: 25 },
-            { subject: "Algorithms", weightage: 11, difficulty: "High", importance: "Very High", days: 35 },
-            { subject: "Data Structures", weightage: 9, difficulty: "Medium", importance: "Very High", days: 30 },
-            { subject: "Operating Systems", weightage: 10, difficulty: "Medium", importance: "High", days: 25 },
-            { subject: "Computer Networks", weightage: 9, difficulty: "Medium", importance: "High", days: 22 },
-            { subject: "Theory of Computation", weightage: 8, difficulty: "High", importance: "High", days: 20 },
-            { subject: "Databases", weightage: 8, difficulty: "Medium", importance: "High", days: 20 },
-            { subject: "Computer Organization", weightage: 8, difficulty: "High", importance: "Medium", days: 18 },
-            { subject: "Compiler Design", weightage: 6, difficulty: "Medium", importance: "Medium", days: 15 },
-            { subject: "Digital Logic", weightage: 5, difficulty: "Medium", importance: "Medium", days: 12 },
-            { subject: "General Aptitude", weightage: 15, difficulty: "Low", importance: "High", days: 10 }
-        ];
-
-        let charts = {};
-        let userDetails = null; 
-        let currentLlmChatHistory = [];
-        let currentLlmSubtopic = "";
-        let currentLlmSectionName = "";
-        let currentQuestionData = null;
-        let markdownConverter;
-        let currentVideoChatResource = null;
-
-        const sectionColors = ['#3b82f6', '#10b981', '#8b5cf6', '#f59e0b', '#ef4444', '#ec4899', '#14b8a6', '#6366f1', '#f97316', '#06b6d4', '#84cc16'];
-        const sectionClassNames = ['math-section', 'digital-section', 'computer-org-section', 'programming-section', 'algorithms-section', 'theory-section', 'compiler-section', 'os-section', 'database-section', 'network-section', 'aptitude-section'];
-
-        function lightenDarkenColor(col, amt) {
-            let usePound = false;
-            if (col[0] === "#") {
-                col = col.slice(1);
-                usePound = true;
+        ]
+    },
+    {
+        section: "Section 2: Digital Logic",
+        topics: [
+            {
+                name: "Digital Logic",
+                subtopics: ["Boolean algebra", "Combinational and sequential circuits", "Minimization", "Number representations and computer arithmetic (fixed and floating point)"]
             }
-            const num = parseInt(col, 16);
-            let r = (num >> 16) + amt;
-            if (r > 255) r = 255; else if (r < 0) r = 0;
-            let b = ((num >> 8) & 0x00FF) + amt;
-            if (b > 255) b = 255; else if (b < 0) b = 0;
-            let g = (num & 0x0000FF) + amt;
-            if (g > 255) g = 255; else if (g < 0) g = 0;
-            return (usePound ? "#" : "") + ((1 << 24) + (r << 16) + (b << 8) + g).toString(16).slice(1);
-        }
-
-        function loadData(key) {
-            try {
-                const data = localStorage.getItem(key);
-                return data ? JSON.parse(data) : null;
-            } catch (e) {
-                console.error(`Error loading ${key} from localStorage:`, e);
-                return null;
+        ]
+    },
+    {
+        section: "Section 3: Computer Organization and Architecture",
+        topics: [
+            {
+                name: "Computer Organization and Architecture",
+                subtopics: ["Machine instructions and addressing modes", "ALU, data-path and control unit", "Instruction pipelining, pipeline hazards", "Memory hierarchy: cache, main memory and secondary storage", "I/O interface (interrupt and DMA mode)"]
             }
-        }
-        function saveData(key, data) {
-            try {
-                localStorage.setItem(key, JSON.stringify(data));
-            } catch (e) {
-                console.error(`Error saving ${key} to localStorage:`, e);
+        ]
+    },
+    {
+        section: "Section 4: Programming and Data Structures",
+        topics: [
+            {
+                name: "Programming and Data Structures",
+                subtopics: ["Programming in C", "Recursion", "Arrays, stacks, queues, linked lists", "Trees, binary search trees, binary heaps", "Graphs"]
             }
-        }
-        function loadApiKey() { return localStorage.getItem('geminiApiKey'); }
-        function saveApiKey(key) { localStorage.setItem('geminiApiKey', key); }
-
-        function calculateSyllabusProgress() {
-            const progress = loadData('gateProgress') || {};
-            let totalItems = 0; let completedItems = 0; let partialItems = 0;
-            syllabusData.forEach(section => section.topics.forEach(topic => topic.subtopics.forEach(subtopic => {
-                totalItems++;
-                if (progress[subtopic] === 'completed') completedItems++;
-                else if (progress[subtopic] === 'partial') partialItems++;
-            })));
-            const percentage = totalItems > 0 ? Math.round(((completedItems + (partialItems * 0.5)) / totalItems) * 100) : 0; 
-            return { completed: completedItems, partial: partialItems, total: totalItems, percentage: percentage };
-        }
-
-        function calculateSectionSyllabusProgress(section) {
-            const progress = loadData('gateProgress') || {};
-            let totalItems = 0; let completedItems = 0; let partialItems = 0;
-            section.topics.forEach(topic => topic.subtopics.forEach(subtopic => {
-                totalItems++;
-                if (progress[subtopic] === 'completed') completedItems++;
-                else if (progress[subtopic] === 'partial') partialItems++;
-            }));
-            const completionRate = totalItems > 0 ? (completedItems + (partialItems * 0.5)) / totalItems : 0; 
-            return { completionRate: completionRate };
-        }
-
-        function updateOverallStats() {
-            const syllabusProgress = calculateSyllabusProgress();
-            const questionHistory = loadData('gateQuestionHistory') || {};
-            const totalQuestionsAnswered = questionHistory ? Object.values(questionHistory).flat().length : 0;
-
-            document.getElementById('overallProgress').textContent = `${syllabusProgress.percentage}%`;
-            document.getElementById('totalTopics').textContent = syllabusProgress.total;
-            document.getElementById('completedTopics').textContent = syllabusProgress.completed;
-            document.getElementById('questionsAnswered').textContent = totalQuestionsAnswered;
-        }
-        
-        function getExpansionStates() {
-            const states = { sections: {}, subtopicLists: {} };
-            document.querySelectorAll('.section-topics-list.expanded').forEach(el => {
-                if (el.id) states.sections[el.id] = true;
-            });
-            document.querySelectorAll('.sub-topic-list.expanded').forEach(el => {
-                if (el.id) states.subtopicLists[el.id] = true;
-            });
-            return states;
-        }
-
-        function applyExpansionStates(states) {
-            if (!states) return;
-            if (states.sections) {
-                Object.keys(states.sections).forEach(id => {
-                    const el = document.getElementById(id);
-                    if (el) {
-                        el.classList.add('expanded');
-                        const header = el.previousElementSibling;
-                        if(header){
-                            const toggleButton = header.querySelector('.toggle-section svg');
-                            if (toggleButton) toggleButton.classList.add('rotate-180');
-                        }
-                    }
-                });
+        ]
+    },
+    {
+        section: "Section 5: Algorithms",
+        topics: [
+            {
+                name: "Algorithms",
+                subtopics: ["Searching, sorting, hashing", "Asymptotic worst case time and space complexity", "Algorithm design techniques: greedy, dynamic programming and divide-and-conquer", "Graph traversals, minimum spanning trees, shortest paths"]
             }
-            if (states.subtopicLists) {
-                Object.keys(states.subtopicLists).forEach(id => {
-                    const el = document.getElementById(id);
-                    if (el) {
-                        el.classList.add('expanded');
-                         const header = el.closest('.syllabus-item')?.querySelector('.syllabus-item-header');
-                        if(header){
-                            const toggleButton = header.querySelector('.toggle-subtopics svg');
-                            if (toggleButton) toggleButton.classList.add('rotate-180');
-                        }
-                    }
-                });
+        ]
+    },
+    {
+        section: "Section 6: Theory of Computation",
+        topics: [
+            {
+                name: "Theory of Computation",
+                subtopics: ["Regular expressions and finite automata", "Context-free grammars and push-down automata", "Regular and context-free languages, pumping lemma", "Turing machines and undecidability"]
             }
-        }
-
-        function renderSyllabus(gatePrepYear = 2025) {
-            const container = document.getElementById('syllabus-container');
-            const progress = loadData('gateProgress') || {};
-            container.innerHTML = ''; 
-
-            const syllabusTitleElement = container.previousElementSibling; 
-            if(syllabusTitleElement && syllabusTitleElement.tagName === 'H2'){
-                 syllabusTitleElement.textContent = `📖 GATE CS ${gatePrepYear} Syllabus`;
+        ]
+    },
+    {
+        section: "Section 7: Compiler Design",
+        topics: [
+            {
+                name: "Compiler Design",
+                subtopics: ["Lexical analysis, parsing, syntax-directed translation", "Runtime environments", "Intermediate code generation", "Local optimization, data flow analyses"]
             }
+        ]
+    },
+    {
+        section: "Section 8: Operating System",
+        topics: [
+            {
+                name: "Operating System",
+                subtopics: ["System calls, processes, threads, inter-process communication", "Concurrency and synchronization", "Deadlock", "CPU and I/O scheduling", "Memory management and virtual memory", "File systems"]
+            }
+        ]
+    },
+    {
+        section: "Section 9: Databases",
+        topics: [
+            {
+                name: "Databases",
+                subtopics: ["ER-model, relational model", "Relational algebra, tuple calculus, SQL", "Integrity constraints, normal forms", "File organization, indexing", "Transactions and concurrency control"]
+            }
+        ]
+    },
+    {
+        section: "Section 10: Computer Networks",
+        topics: [
+            {
+                name: "Computer Networks",
+                subtopics: ["Concept of layering: OSI and TCP/IP Protocol Stacks", "Basics of packet, circuit and virtual circuit-switching", "Data link layer: framing, error detection, Medium Access Control", "Ethernet bridging, routing protocols", "TCP/UDP and sockets, congestion control", "Application layer protocols: DNS, SMTP, HTTP, FTP, Email"]
+            }
+        ]
+    },
+    {
+        section: "Section 11: General Aptitude",
+        topics: [
+            {
+                name: "Verbal Ability",
+                subtopics: ["Basic English grammar", "Sentence completion", "Verbal analogies", "Word groups", "Critical reasoning and verbal deduction"]
+            },
+            {
+                name: "Numerical Ability", 
+                subtopics: ["Numerical computation", "Numerical estimation", "Numerical reasoning and data interpretation"]
+            }
+        ]
+    }
+];
+const subjectWeightageData = [
+    { subject: "Engineering Mathematics", weightage: 13.5, difficulty: "Medium", importance: "High", days: 25 },
+    { subject: "Algorithms", weightage: 11, difficulty: "High", importance: "Very High", days: 35 },
+    { subject: "Data Structures", weightage: 9, difficulty: "Medium", importance: "Very High", days: 30 },
+    { subject: "Operating Systems", weightage: 10, difficulty: "Medium", importance: "High", days: 25 },
+    { subject: "Computer Networks", weightage: 9, difficulty: "Medium", importance: "High", days: 22 },
+    { subject: "Theory of Computation", weightage: 8, difficulty: "High", importance: "High", days: 20 },
+    { subject: "Databases", weightage: 8, difficulty: "Medium", importance: "High", days: 20 },
+    { subject: "Computer Organization", weightage: 8, difficulty: "High", importance: "Medium", days: 18 },
+    { subject: "Compiler Design", weightage: 6, difficulty: "Medium", importance: "Medium", days: 15 },
+    { subject: "Digital Logic", weightage: 5, difficulty: "Medium", importance: "Medium", days: 12 },
+    { subject: "General Aptitude", weightage: 15, difficulty: "Low", importance: "High", days: 10 }
+];
+let charts = {};
+let userDetails = null; 
+let currentLlmChatHistory = [];
+let currentLlmSubtopic = "";
+let currentLlmSectionName = "";
+let currentQuestionData = null;
+let markdownConverter;
+let currentVideoChatResource = null;
 
-            const apiKey = loadApiKey();
+const sectionColors = ['#3b82f6', '#10b981', '#8b5cf6', '#f59e0b', '#ef4444', '#ec4899', '#14b8a6', '#6366f1', '#f97316', '#06b6d4', '#84cc16'];
+const sectionClassNames = ['math-section', 'digital-section', 'computer-org-section', 'programming-section', 'algorithms-section', 'theory-section', 'compiler-section', 'os-section', 'database-section', 'network-section', 'aptitude-section'];
 
-            syllabusData.forEach((section, sectionIndex) => {
-                const sectionProgress = calculateSectionSyllabusProgress(section);
-                const sectionDiv = document.createElement('div');
-                sectionDiv.className = 'syllabus-section-container';
-                let sectionClass = sectionClassNames[sectionIndex] || '';
+function lightenDarkenColor(col, amt) {
+    let usePound = false;
+    if (col[0] === "#") {
+        col = col.slice(1);
+        usePound = true;
+    }
+    const num = parseInt(col, 16);
+    let r = (num >> 16) + amt;
+    if (r > 255) r = 255; else if (r < 0) r = 0;
+    let b = ((num >> 8) & 0x00FF) + amt;
+    if (b > 255) b = 255; else if (b < 0) b = 0;
+    let g = (num & 0x0000FF) + amt;
+    if (g > 255) g = 255; else if (g < 0) g = 0;
+    return (usePound ? "#" : "") + ((1 << 24) + (r << 16) + (b << 8) + g).toString(16).slice(1);
+}
 
-                sectionDiv.innerHTML = `
-                    <div class="section-header ${sectionClass}" data-section-index="${sectionIndex}">
-                        <div class="flex items-center flex-1">
-                            <span class="section-number">${sectionIndex + 1}</span>
-                            <h3>${section.section}</h3>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <div class="progress-indicator">
-                                <span>${Math.round(sectionProgress.completionRate * 100)}%</span>
-                                <div class="progress-bar"><div class="progress-fill" style="width: ${sectionProgress.completionRate * 100}%"></div></div>
+function loadData(key) {
+    try {
+        const data = localStorage.getItem(key);
+        return data ? JSON.parse(data) : null;
+    } catch (e) {
+        console.error(`Error loading ${key} from localStorage:`, e);
+        return null;
+    }
+}
+function saveData(key, data) {
+    try {
+        localStorage.setItem(key, JSON.stringify(data));
+    } catch (e) {
+        console.error(`Error saving ${key} to localStorage:`, e);
+    }
+}
+function loadApiKey() { return localStorage.getItem('geminiApiKey'); }
+function saveApiKey(key) { localStorage.setItem('geminiApiKey', key); }
+function calculateSyllabusProgress() {
+    const progress = loadData('gateProgress') || {};
+    let totalItems = 0; let completedItems = 0; let partialItems = 0;
+    syllabusData.forEach(section => section.topics.forEach(topic => topic.subtopics.forEach(subtopic => {
+        totalItems++;
+        if (progress[subtopic] === 'completed') completedItems++;
+        else if (progress[subtopic] === 'partial') partialItems++;
+    })));
+    const percentage = totalItems > 0 ? Math.round(((completedItems + (partialItems * 0.5)) / totalItems) * 100) : 0; 
+    return { completed: completedItems, partial: partialItems, total: totalItems, percentage: percentage };
+}
+
+function calculateSectionSyllabusProgress(section) {
+    const progress = loadData('gateProgress') || {};
+    let totalItems = 0; let completedItems = 0; let partialItems = 0;
+    section.topics.forEach(topic => topic.subtopics.forEach(subtopic => {
+        totalItems++;
+        if (progress[subtopic] === 'completed') completedItems++;
+        else if (progress[subtopic] === 'partial') partialItems++;
+    }));
+    const completionRate = totalItems > 0 ? (completedItems + (partialItems * 0.5)) / totalItems : 0; 
+    return { completionRate: completionRate };
+}
+
+function updateOverallStats() {
+    const syllabusProgress = calculateSyllabusProgress();
+    const questionHistory = loadData('gateQuestionHistory') || {};
+    const totalQuestionsAnswered = questionHistory ? Object.values(questionHistory).flat().length : 0;
+
+    document.getElementById('overallProgress').textContent = `${syllabusProgress.percentage}%`;
+    document.getElementById('totalTopics').textContent = syllabusProgress.total;
+    document.getElementById('completedTopics').textContent = syllabusProgress.completed;
+    document.getElementById('questionsAnswered').textContent = totalQuestionsAnswered;
+}
+
+function getExpansionStates() {
+    const states = { sections: {}, subtopicLists: {} };
+    document.querySelectorAll('.section-topics-list.expanded').forEach(el => {
+        if (el.id) states.sections[el.id] = true;
+    });
+    document.querySelectorAll('.sub-topic-list.expanded').forEach(el => {
+        if (el.id) states.subtopicLists[el.id] = true;
+    });
+    return states;
+}
+
+function applyExpansionStates(states) {
+    if (!states) return;
+    if (states.sections) {
+        Object.keys(states.sections).forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.classList.add('expanded');
+                const header = el.previousElementSibling;
+                if(header){
+                    const toggleButton = header.querySelector('.toggle-section svg');
+                    if (toggleButton) toggleButton.classList.add('rotate-180');
+                }
+            }
+        });
+    }
+    if (states.subtopicLists) {
+        Object.keys(states.subtopicLists).forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.classList.add('expanded');
+                 const header = el.closest('.syllabus-item')?.querySelector('.syllabus-item-header');
+                if(header){
+                    const toggleButton = header.querySelector('.toggle-subtopics svg');
+                    if (toggleButton) toggleButton.classList.add('rotate-180');
+                }
+            }
+        });
+    }
+}
+
+function renderSyllabus(gatePrepYear = 2025) {
+    const container = document.getElementById('syllabus-container');
+    const progress = loadData('gateProgress') || {};
+    container.innerHTML = ''; 
+
+    const syllabusTitleElement = container.previousElementSibling; 
+    if(syllabusTitleElement && syllabusTitleElement.tagName === 'H2'){
+         syllabusTitleElement.textContent = `📖 GATE CS ${gatePrepYear} Syllabus`;
+    }
+
+    const apiKey = loadApiKey();
+
+    syllabusData.forEach((section, sectionIndex) => {
+        const sectionProgress = calculateSectionSyllabusProgress(section);
+        const sectionDiv = document.createElement('div');
+        sectionDiv.className = 'syllabus-section-container';
+        let sectionClass = sectionClassNames[sectionIndex] || '';
+        sectionDiv.innerHTML = `
+            <div class="section-header ${sectionClass}" data-section-index="${sectionIndex}">
+                <div class="flex items-center flex-1">
+                    <span class="section-number">${sectionIndex + 1}</span>
+                    <h3>${section.section}</h3>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="progress-indicator">
+                        <span>${Math.round(sectionProgress.completionRate * 100)}%</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: ${sectionProgress.completionRate * 100}%"></div></div>
+                    </div>
+                    <button class="toggle-section p-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="section-topics-list" id="section-${sectionIndex}">
+                ${section.topics.map((topic, topicIndex) => `
+                    <div class="syllabus-item ${getTopicStatus(topic, progress)}">
+                        <div class="syllabus-item-header">
+                            <div class="syllabus-item-title" data-section-index="${sectionIndex}" data-topic-index="${topicIndex}">
+                                <div class="checkbox" data-topic-name="${topic.name}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                                </div>
+                                <span class="font-medium">${topic.name}</span>
                             </div>
-                            <button class="toggle-section p-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
-                            </button>
+                            <div class="topic-actions">
+                                <button class="resource-button" data-topic-name="${topic.name}" title="Manage Resources">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" /><path fill-rule="evenodd" d="M4 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3z" clip-rule="evenodd" /></svg>
+                                </button>
+                                <button class="toggle-subtopics p-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="sub-topic-list" id="subtopics-${sectionIndex}-${topicIndex}">
+                            ${topic.subtopics.map(subtopic => `
+                                <div class="sub-topic-item ${progress[subtopic] || ''}" data-subtopic-name="${subtopic}">
+                                    <div class="sub-topic-item-clickable-area">
+                                        <div class="checkbox mr-2" style="width: 16px; height: 16px;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg></div>
+                                        <span>${subtopic}</span>
+                                    </div>
+                                    <div class="llm-buttons">
+                                        <button class="llm-button ${!apiKey ? 'disabled' : ''}" data-subtopic-name="${subtopic}" data-section-name="${section.section}" data-llm-action="explain" title="${!apiKey ? 'API Key not configured' : 'Explain with AI'}">✨ Explain</button>
+                                        <button class="llm-button ${!apiKey ? 'disabled' : ''}" data-subtopic-name="${subtopic}" data-section-name="${section.section}" data-llm-action="question" data-question-type="mcq" title="${!apiKey ? 'API Key not configured' : 'Practice MCQ'}">🎯 MCQ</button>
+                                        <button class="llm-button ${!apiKey ? 'disabled' : ''}" data-subtopic-name="${subtopic}" data-section-name="${section.section}" data-llm-action="question" data-question-type="nat" title="${!apiKey ? 'API Key not configured' : 'Practice NAT'}">🔢 NAT</button>
+                                    </div>
+                                </div>
+                            `).join('')}
                         </div>
                     </div>
-                    <div class="section-topics-list" id="section-${sectionIndex}">
-                        ${section.topics.map((topic, topicIndex) => `
-                            <div class="syllabus-item ${getTopicStatus(topic, progress)}">
-                                <div class="syllabus-item-header">
-                                    <div class="syllabus-item-title" data-section-index="${sectionIndex}" data-topic-index="${topicIndex}">
-                                        <div class="checkbox" data-topic-name="${topic.name}">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                                        </div>
-                                        <span class="font-medium">${topic.name}</span>
-                                    </div>
-                                    <div class="topic-actions">
-                                        <button class="resource-button" data-topic-name="${topic.name}" title="Manage Resources">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" /><path fill-rule="evenodd" d="M4 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3z" clip-rule="evenodd" /></svg>
-                                        </button>
-                                        <button class="toggle-subtopics p-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="sub-topic-list" id="subtopics-${sectionIndex}-${topicIndex}">
-                                    ${topic.subtopics.map(subtopic => `
-                                        <div class="sub-topic-item ${progress[subtopic] || ''}" data-subtopic-name="${subtopic}">
-                                            <div class="sub-topic-item-clickable-area">
-                                                <div class="checkbox mr-2" style="width: 16px; height: 16px;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg></div>
-                                                <span>${subtopic}</span>
-                                            </div>
-                                            <div class="llm-buttons">
-                                                <button class="llm-button ${!apiKey ? 'disabled' : ''}" data-subtopic-name="${subtopic}" data-section-name="${section.section}" data-llm-action="explain" title="${!apiKey ? 'API Key not configured' : 'Explain with AI'}">✨ Explain</button>
-                                                <button class="llm-button ${!apiKey ? 'disabled' : ''}" data-subtopic-name="${subtopic}" data-section-name="${section.section}" data-llm-action="question" data-question-type="mcq" title="${!apiKey ? 'API Key not configured' : 'Practice MCQ'}">🎯 MCQ</button>
-                                                <button class="llm-button ${!apiKey ? 'disabled' : ''}" data-subtopic-name="${subtopic}" data-section-name="${section.section}" data-llm-action="question" data-question-type="nat" title="${!apiKey ? 'API Key not configured' : 'Practice NAT'}">🔢 NAT</button>
-                                            </div>
-                                        </div>
-                                    `).join('')}
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>`;
-                container.appendChild(sectionDiv);
-            });
-        }
-        
-        function attachSyllabusEventListeners() {
-            const syllabusContainer = document.getElementById('syllabus-container');
-            if (!syllabusContainer) return;
-            
-            syllabusContainer.addEventListener('click', (e) => {
-                const target = e.target;
-                const sectionHeader = target.closest('.section-header');
-                const toggleSectionButton = target.closest('.toggle-section');
-                const topicTitle = target.closest('.syllabus-item-title .font-medium');
-                const topicCheckbox = target.closest('.syllabus-item-title .checkbox');
-                const toggleSubtopicsButton = target.closest('.toggle-subtopics');
-                const subtopicArea = target.closest('.sub-topic-item-clickable-area');
-                const llmButton = target.closest('.llm-button');
-                const resourceButton = target.closest('.resource-button');
+                `).join('')}
+            </div>`;
+        container.appendChild(sectionDiv);
+    });
+}
 
-                e.stopPropagation();
+function attachSyllabusEventListeners() {
+    const syllabusContainer = document.getElementById('syllabus-container');
+    if (!syllabusContainer) return;
+    
+    syllabusContainer.addEventListener('click', (e) => {
+        const target = e.target;
+        const sectionHeader = target.closest('.section-header');
+        const toggleSectionButton = target.closest('.toggle-section');
+        const topicTitle = target.closest('.syllabus-item-title .font-medium');
+        const topicCheckbox = target.closest('.syllabus-item-title .checkbox');
+        const toggleSubtopicsButton = target.closest('.toggle-subtopics');
+        const subtopicArea = target.closest('.sub-topic-item-clickable-area');
+        const llmButton = target.closest('.llm-button');
+        const resourceButton = target.closest('.resource-button');
+        e.stopPropagation();
 
-                if (toggleSectionButton || sectionHeader && !target.closest('button')) {
-                    toggleSectionUI(sectionHeader);
-                } else if (topicTitle || toggleSubtopicsButton) {
-                    const topicItem = target.closest('.syllabus-item');
-                    const subtopicList = topicItem.querySelector('.sub-topic-list');
-                    const icon = topicItem.querySelector('.toggle-subtopics svg');
-                    if(subtopicList && icon) {
-                        subtopicList.classList.toggle('expanded');
-                        icon.classList.toggle('rotate-180');
-                        saveExpansionStates();
-                    }
-                } else if (topicCheckbox) {
-                    toggleTopicCompletion(topicCheckbox);
-                } else if (subtopicArea) {
-                    toggleSubtopicCompletion(subtopicArea.closest('.sub-topic-item'));
-                } else if (llmButton) {
-                    if (llmButton.classList.contains('disabled')) { 
-                        showApiKeyInfoModal();
-                        return;
-                    }
-                    currentLlmSubtopic = llmButton.dataset.subtopicName;
-                    currentLlmSectionName = llmButton.dataset.sectionName;
-                    const action = llmButton.dataset.llmAction;
-                    if (action === 'explain') {
-                        getLLMExplanation();
-                    } else if (action === 'question') {
-                        const questionType = llmButton.dataset.questionType;
-                        showLLMQuestionModal(questionType);
-                    }
-                } else if (resourceButton) {
-                     showResourcesModal(resourceButton.dataset.topicName);
-                }
-            });
-        }
-
-        function getTopicStatus(topic, progress) {
-            if (!topic.subtopics || topic.subtopics.length === 0) return ''; 
-            const subtopicProgress = loadData('gateProgress') || {};
-            const completedSubtopics = topic.subtopics.filter(subtopic => subtopicProgress[subtopic] === 'completed').length;
-            const partialSubtopics = topic.subtopics.filter(subtopic => subtopicProgress[subtopic] === 'partial').length;
-            
-            if (completedSubtopics === topic.subtopics.length) return 'completed';
-            if (completedSubtopics > 0 || partialSubtopics > 0) return 'partially-completed';
-            return '';
-        }
-
-        function toggleSectionUI(headerElement) {
-            if (!headerElement) return;
-            const sectionContent = headerElement.nextElementSibling;
-            const toggleButton = headerElement.querySelector('.toggle-section svg');
-            if (sectionContent && toggleButton) {
-                sectionContent.classList.toggle('expanded');
-                toggleButton.classList.toggle('rotate-180');
+        if (toggleSectionButton || sectionHeader && !target.closest('button')) {
+            toggleSectionUI(sectionHeader);
+        } else if (topicTitle || toggleSubtopicsButton) {
+            const topicItem = target.closest('.syllabus-item');
+            const subtopicList = topicItem.querySelector('.sub-topic-list');
+            const icon = topicItem.querySelector('.toggle-subtopics svg');
+            if(subtopicList && icon) {
+                subtopicList.classList.toggle('expanded');
+                icon.classList.toggle('rotate-180');
                 saveExpansionStates();
             }
-        }
-
-        function updateUIForTopicChange(element) {
-            const progressData = loadData('gateProgress') || {};
-            const topicItemElement = element.closest('.syllabus-item');
-            if (!topicItemElement) return;
-
-            const subtopicElements = topicItemElement.querySelectorAll('.sub-topic-item');
-            subtopicElements.forEach(subEl => {
-                const subName = subEl.dataset.subtopicName;
-                subEl.classList.remove('completed', 'partial');
-                if (progressData[subName] === 'completed') subEl.classList.add('completed');
-                else if (progressData[subName] === 'partial') subEl.classList.add('partial');
-            });
-
-            const topicTitleElement = topicItemElement.querySelector('.syllabus-item-title');
-            const sectionIndex = topicTitleElement.dataset.sectionIndex;
-            const topicIndex = topicTitleElement.dataset.topicIndex;
-            const topicData = syllabusData[sectionIndex].topics[topicIndex];
-            const newTopicStatus = getTopicStatus(topicData, progressData);
-
-            topicItemElement.classList.remove('completed', 'partially-completed');
-            if (newTopicStatus) topicItemElement.classList.add(newTopicStatus);
-            
-            const sectionContainer = topicItemElement.closest('.syllabus-section-container');
-            const sectionHeader = sectionContainer.querySelector('.section-header');
-            const sectionData = syllabusData[sectionIndex];
-            const sectionProgress = calculateSectionSyllabusProgress(sectionData);
-            
-            sectionHeader.querySelector('.progress-fill').style.width = `${sectionProgress.completionRate * 100}%`;
-            sectionHeader.querySelector('.progress-indicator span').textContent = `${Math.round(sectionProgress.completionRate * 100)}%`;
-
-            updateOverallStats();
-            updateAllCharts();
-            checkCompletion();
-        }
-        
-        function toggleSubtopicCompletion(subtopicElement) {
-            const subtopicName = subtopicElement.dataset.subtopicName;
-            const progressData = loadData('gateProgress') || {};
-            const currentState = progressData[subtopicName];
-
-            if (currentState === 'completed') progressData[subtopicName] = 'partial';
-            else if (currentState === 'partial') delete progressData[subtopicName];
-            else progressData[subtopicName] = 'completed';
-            
-            saveData('gateProgress', progressData);
-            updateUIForTopicChange(subtopicElement);
-        }
-
-        function toggleTopicCompletion(topicCheckboxElement) {
-            const topicTitleElement = topicCheckboxElement.closest('.syllabus-item-title');
-            const sectionIndex = topicTitleElement.dataset.sectionIndex;
-            const topicIndex = topicTitleElement.dataset.topicIndex;
-            const topicData = syllabusData[sectionIndex].topics[topicIndex];
-            
-            const progressData = loadData('gateProgress') || {};
-            const currentStatus = getTopicStatus(topicData, progressData);
-
-            const markAsCompleted = currentStatus !== 'completed';
-            
-            topicData.subtopics.forEach(subtopic => {
-                if (markAsCompleted) progressData[subtopic] = 'completed';
-                else delete progressData[subtopic];
-            });
-
-            saveData('gateProgress', progressData);
-            updateUIForTopicChange(topicCheckboxElement);
-        }
-        
-        function updateDynamicContent(details) {
-            if (!details) return;
-            const prepYear = parseInt(details.gatePrepYear);
-
-            document.getElementById('mainHeaderTitle').textContent = `GATE ${prepYear} Preparation`;
-            document.title = `GATE ${prepYear} Preparation`;
-
-            const congratsMsgElement = document.querySelector('#congratulationsOverlay .congratulations-modal p');
-            if(congratsMsgElement) {
-                congratsMsgElement.textContent = `You have successfully completed the entire GATE CS ${prepYear} Syllabus!`;
-            }
-
-            const syllabusStartYear = prepYear - 1;
-            document.getElementById('syllabusCompletionTime').textContent = `June ${syllabusStartYear} – November ${syllabusStartYear} (6 months)`;
-            document.getElementById('pyqsRevisionTime').textContent = `December ${syllabusStartYear} – January ${prepYear} (2 months)`;
-            document.getElementById('appStartDate').innerHTML = `<strong>Application Start:</strong> August ${syllabusStartYear}`;
-            document.getElementById('appEndDate').innerHTML = `<strong>Application End:</strong> September ${syllabusStartYear}`;
-            document.getElementById('examDate').innerHTML = `<strong>Exam Date:</strong> February ${prepYear}`;
-            document.getElementById('resultDate').innerHTML = `<strong>Result:</strong> March ${prepYear}`;
-        }
-
-        function initializeCharts() {
-            initCompletionChart(); 
-            initDurationChart(); 
-            initSectionCompletionChart();
-            initQuestionAccuracyChart();
-            initWeightageCharts(); 
-        }
-        
-        function createChartBaseOptions(titleText) {
-            const isMobile = window.innerWidth < 768;
-            return {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: titleText,
-                        color: getComputedStyle(document.documentElement).getPropertyValue('--chart-title-color').trim(),
-                        font: { size: isMobile ? 14 : 18, weight: 'bold', family: 'Inter' }
-                    },
-                    legend: { 
-                        position: 'bottom',
-                        labels: {
-                            usePointStyle: true,
-                            padding: isMobile ? 10 : 20,
-                            color: getComputedStyle(document.documentElement).getPropertyValue('--chart-legend-color').trim(),
-                            font: { size: isMobile ? 10 : 12, family: 'Inter' }
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        grid: { color: getComputedStyle(document.documentElement).getPropertyValue('--border-color').trim() },
-                        ticks: { color: getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim(), font: {family: 'Inter'} }
-                    },
-                    x: {
-                        grid: { display: false },
-                        ticks: {
-                            color: getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim(),
-                            maxRotation: isMobile ? 90 : 45, 
-                            minRotation: isMobile ? 90 : 45, 
-                            autoSkip: false,
-                            font: { size: isMobile ? 9 : 11, family: 'Inter' } 
-                        }
-                    }
-                }
-            };
-        }
-
-        function initCompletionChart() {
-            const ctx = document.getElementById('completionChart').getContext('2d');
-            const progressData = calculateSyllabusProgress();
-            const chartOptions = createChartBaseOptions('Syllabus Progress');
-             if (chartOptions.plugins.legend.labels) {
-                chartOptions.plugins.legend.labels.padding = window.innerWidth < 768 ? 15 : 25;
-                chartOptions.plugins.legend.labels.font.size = window.innerWidth < 768 ? 11 : 14;
-            }
-
-            charts.completionChart = new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Completed', 'In Progress', 'Not Started'],
-                    datasets: [{
-                        data: [progressData.completed, progressData.partial, progressData.total - progressData.completed - progressData.partial],
-                        backgroundColor: ['#10b981', '#f59e0b', '#e5e7eb'],
-                        borderColor: [lightenDarkenColor('#10b981', -20), lightenDarkenColor('#f59e0b', -20), lightenDarkenColor('#e5e7eb', -20)],
-                        borderWidth: 2, hoverOffset: 15
-                    }]
-                },
-                options: { ...chartOptions, animation: { animateRotate: true, duration: 1500 } }
-            });
-        }
-
-        function initDurationChart() {
-            const ctx = document.getElementById('durationChart').getContext('2d');
-            const chartOptions = createChartBaseOptions('Study Progress Timeline');
-            if(chartOptions.scales.y) {
-                chartOptions.scales.y.max = 100;
-                chartOptions.scales.y.ticks.callback = value => value + '%';
-            }
-            
-            charts.durationChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: ['Start', 'M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8'],
-                    datasets: [{
-                        label: 'Planned Progress', data: [0, 15, 25, 40, 55, 70, 85, 95, 100],
-                        borderColor: '#667eea', backgroundColor: 'rgba(102, 126, 234, 0.1)', fill: true, tension: 0.4,
-                        pointRadius: 5, pointHoverRadius: 7
-                    }, {
-                        label: 'Actual Progress', data: [calculateSyllabusProgress().percentage],
-                        borderColor: '#10b981', backgroundColor: 'rgba(16, 185, 129, 0.1)', fill: false, tension: 0.4,
-                        pointRadius: 6, pointHoverRadius: 8
-                    }]
-                },
-                options: chartOptions
-            });
-        }
-
-        function initSectionCompletionChart() {
-            const ctx = document.getElementById('sectionCompletionChart').getContext('2d');
-            const chartOptions = createChartBaseOptions('Section-wise Syllabus Completion');
-            if(chartOptions.plugins.legend) chartOptions.plugins.legend.display = false;
-            if(chartOptions.scales.y) {
-                chartOptions.scales.y.max = 100;
-                chartOptions.scales.y.ticks.callback = value => value + '%';
-            }
-            
-            const sectionData = syllabusData.map(section => ({
-                section: section.section.replace('Section ', 'S').replace('Engineering Mathematics', 'Eng. Maths').replace('Computer Organization and Architecture', 'COA').replace('Programming and Data Structures', 'Prog & DS'),
-                completion: Math.round(calculateSectionSyllabusProgress(section).completionRate * 100)
-            }));
-
-            charts.sectionChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: sectionData.map(d => d.section),
-                    datasets: [{
-                        label: 'Completion %', data: sectionData.map(d => d.completion),
-                        backgroundColor: sectionColors,
-                        borderColor: sectionColors.map(color => lightenDarkenColor(color, -40)),
-                        borderWidth: 1.5, borderRadius: 6, borderSkipped: false
-                    }]
-                },
-                options: chartOptions
-            });
-        }
-
-        function initQuestionAccuracyChart() {
-            const ctx = document.getElementById('questionAccuracyChart').getContext('2d');
-            const chartOptions = createChartBaseOptions('Question Accuracy by Subject');
-            
-            chartOptions.scales.x.stacked = true;
-            chartOptions.scales.y.stacked = true;
-            if(chartOptions.scales.y.ticks) chartOptions.scales.y.ticks.stepSize = 1;
-
-            const accuracyData = getQuestionAccuracyData();
-
-            charts.questionAccuracyChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: accuracyData.labels,
-                    datasets: [
-                        {
-                            label: 'Correct',
-                            data: accuracyData.correct,
-                            backgroundColor: '#10b981',
-                        },
-                        {
-                            label: 'Incorrect',
-                            data: accuracyData.incorrect,
-                            backgroundColor: '#ef4444',
-                        }
-                    ]
-                },
-                options: chartOptions
-            });
-        }
-        
-        function initWeightageCharts() {
-            const barCtx = document.getElementById('weightageBarChart').getContext('2d');
-            const barOptions = createChartBaseOptions('Subject Weightage (Bar)');
-            if(barOptions.plugins.legend) barOptions.plugins.legend.display = false;
-            if(barOptions.scales.y) barOptions.scales.y.ticks.callback = value => value + '%';
-
-            charts.weightageBar = new Chart(barCtx, {
-                type: 'bar',
-                data: {
-                    labels: subjectWeightageData.map(d => d.subject.length > 15 ? d.subject.substring(0,12) + "..." : d.subject),
-                    datasets: [{
-                        label: 'Weightage %',
-                        data: subjectWeightageData.map(d => d.weightage),
-                        backgroundColor: sectionColors,
-                        borderColor: sectionColors.map(c => lightenDarkenColor(c, -20)),
-                        borderWidth: 1
-                    }]
-                },
-                options: { ...barOptions, onClick: (e, el) => { if (el.length > 0) updateChartDetails(subjectWeightageData[el[0].index]); } }
-            });
-
-            const pieCtx = document.getElementById('weightagePieChart').getContext('2d');
-            const pieOptions = createChartBaseOptions('Subject Weightage (Pie)');
-            if(pieOptions.plugins.legend) pieOptions.plugins.legend.display = false;
-            delete pieOptions.scales;
-
-            charts.weightagePie = new Chart(pieCtx, {
-                type: 'pie',
-                data: {
-                    labels: subjectWeightageData.map(d => d.subject),
-                    datasets: [{
-                        data: subjectWeightageData.map(d => d.weightage),
-                        backgroundColor: sectionColors,
-                        borderColor: sectionColors.map(c => lightenDarkenColor(c, -20)),
-                        borderWidth: 1,
-                        hoverOffset: 8
-                    }]
-                },
-                options: { ...pieOptions, onClick: (e, el) => { if (el.length > 0) updateChartDetails(subjectWeightageData[el[0].index]); } }
-            });
-        }
-
-        function updateChartDetails(subject) {
-            const detailsContainer = document.getElementById('chartDetailsContainer');
-            const contentContainer = document.getElementById('chartDetailsContent');
-            detailsContainer.classList.add('active');
-            contentContainer.innerHTML = `
-                <div class="chart-detail-card"><div class="chart-detail-label">Subject</div><div class="chart-detail-value">${subject.subject}</div></div>
-                <div class="chart-detail-card"><div class="chart-detail-label">Weightage</div><div class="chart-detail-percentage">${subject.weightage}%</div></div>
-                <div class="chart-detail-card"><div class="chart-detail-label">Difficulty</div><div class="chart-detail-value">${subject.difficulty}</div></div>
-                <div class="chart-detail-card"><div class="chart-detail-label">Importance</div><div class="chart-detail-value">${subject.importance}</div></div>
-                <div class="chart-detail-card"><div class="chart-detail-label">Study Duration</div><div class="chart-detail-value">${subject.days} days</div></div>
-                <div class="chart-detail-card"><div class="chart-detail-label">Total Questions</div><div class="chart-detail-value">${Math.round(subject.weightage * 0.65)} (~)</div></div>`;
-            detailsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-
-        function updateAllCharts() {
-            const syllabusProgress = calculateSyllabusProgress();
-            if (charts.completionChart) {
-                charts.completionChart.data.datasets[0].data = [syllabusProgress.completed, syllabusProgress.partial, syllabusProgress.total - syllabusProgress.completed - syllabusProgress.partial];
-                charts.completionChart.update('active');
-            }
-            if (charts.durationChart) {
-                if (charts.durationChart.data.datasets[1]) {
-                     charts.durationChart.data.datasets[1].data = [syllabusProgress.percentage];
-                }
-                charts.durationChart.update('active');
-            }
-            if (charts.sectionChart) {
-                charts.sectionChart.data.datasets[0].data = syllabusData.map(s => Math.round(calculateSectionSyllabusProgress(s).completionRate * 100));
-                charts.sectionChart.update('active');
-            }
-            if (charts.questionAccuracyChart) {
-                const accuracyData = getQuestionAccuracyData();
-                charts.questionAccuracyChart.data.labels = accuracyData.labels;
-                charts.questionAccuracyChart.data.datasets[0].data = accuracyData.correct;
-                charts.questionAccuracyChart.data.datasets[1].data = accuracyData.incorrect;
-                charts.questionAccuracyChart.update('active');
-            }
-
-            ['weightageBar', 'weightagePie'].forEach(key => {
-                 if (charts[key]) charts[key].update('none');
-            });
-        }
-        
-        // --- Theme Management ---
-        function initThemeToggle() {
-            const themeToggle = document.getElementById('themeToggle');
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            if (savedTheme === 'dark') {
-                document.body.classList.add('dark-mode');
-                updateThemeIcon(true);
-            }
-            themeToggle.addEventListener('click', () => {
-                const isDark = document.body.classList.toggle('dark-mode');
-                localStorage.setItem('theme', isDark ? 'dark' : 'light');
-                updateThemeIcon(isDark);
-                updateChartsForTheme();
-            });
-        }
-
-        function updateThemeIcon(isDark) {
-            document.getElementById('themeIconPath').setAttribute('d', isDark ? 'M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z' : 'M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z');
-        }
-
-        function updateChartsForTheme() {
-            Object.values(charts).forEach(chart => {
-                if (chart && chart.options) {
-                    const newOptions = createChartBaseOptions(chart.options.plugins.title.text); 
-                    chart.options.plugins.title.color = newOptions.plugins.title.color;
-                    chart.options.plugins.legend.labels.color = newOptions.plugins.legend.labels.color;
-                    if (chart.options.scales) {
-                       Object.keys(chart.options.scales).forEach(axis => {
-                           if(chart.options.scales[axis].grid) chart.options.scales[axis].grid.color = newOptions.scales[axis].grid.color;
-                           if(chart.options.scales[axis].ticks) chart.options.scales[axis].ticks.color = newOptions.scales[axis].ticks.color;
-                       });
-                    }
-                    chart.update('none');
-                }
-            });
-        }
-
-        function initNavigation() {
-            const pages = { 
-                navYourPrep: document.getElementById('yourGatePrepPage'),
-                navProgressAnalytics: document.getElementById('progressAnalyticsPage'),
-                navAllAboutGate: document.getElementById('allAboutGatePage')
-            };
-            const navButtons = document.querySelectorAll('.nav-button');
-            
-            navButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const targetPageId = button.id;
-                    navButtons.forEach(btn => btn.classList.remove('active'));
-                    Object.values(pages).forEach(page => page.classList.remove('active'));
-                    
-                    pages[targetPageId].classList.add('active');
-                    button.classList.add('active');
-                });
-            });
-        }
-
-        function extractJson(text) {
-            if (!text) return null;
-            const jsonInMarkdown = text.match(/```json\s*([\s\S]*?)\s*```/);
-            if (jsonInMarkdown && jsonInMarkdown[1]) {
-                return jsonInMarkdown[1];
-            }
-            const firstBracket = text.indexOf('{');
-            const firstSqBracket = text.indexOf('[');
-            let startIndex = -1;
-            if (firstBracket === -1) { startIndex = firstSqBracket; } 
-            else if (firstSqBracket === -1) { startIndex = firstBracket; } 
-            else { startIndex = Math.min(firstBracket, firstSqBracket); }
-            if (startIndex === -1) return null;
-
-            const lastBracket = text.lastIndexOf('}');
-            const lastSqBracket = text.lastIndexOf(']');
-            const endIndex = Math.max(lastBracket, lastSqBracket);
-            if (endIndex > startIndex) { return text.substring(startIndex, endIndex + 1); }
-            
-            return null;
-        }
-        
-        // --- Gemini API and LLM Logic ---
-        async function callGeminiAPI(promptContent, isJsonOutput = false) {
-            const apiKey = loadApiKey();
-            if (!apiKey) {
+        } else if (topicCheckbox) {
+            toggleTopicCompletion(topicCheckbox);
+        } else if (subtopicArea) {
+            toggleSubtopicCompletion(subtopicArea.closest('.sub-topic-item'));
+        } else if (llmButton) {
+            if (llmButton.classList.contains('disabled')) { 
                 showApiKeyInfoModal();
-                throw new Error("API Key is not set.");
+                return;
             }
+            currentLlmSubtopic = llmButton.dataset.subtopicName;
+            currentLlmSectionName = llmButton.dataset.sectionName;
+            const action = llmButton.dataset.llmAction;
+            if (action === 'explain') {
+                getLLMExplanation();
+            } else if (action === 'question') {
+                const questionType = llmButton.dataset.questionType;
+                showLLMQuestionModal(questionType);
+            }
+        } else if (resourceButton) {
+             showResourcesModal(resourceButton.dataset.topicName);
+        }
+    });
+}
+
+function getTopicStatus(topic, progress) {
+    if (!topic.subtopics || topic.subtopics.length === 0) return ''; 
+    const subtopicProgress = loadData('gateProgress') || {};
+    const completedSubtopics = topic.subtopics.filter(subtopic => subtopicProgress[subtopic] === 'completed').length;
+    const partialSubtopics = topic.subtopics.filter(subtopic => subtopicProgress[subtopic] === 'partial').length;
+    
+    if (completedSubtopics === topic.subtopics.length) return 'completed';
+    if (completedSubtopics > 0 || partialSubtopics > 0) return 'partially-completed';
+    return '';
+}
+
+function toggleSectionUI(headerElement) {
+    if (!headerElement) return;
+    const sectionContent = headerElement.nextElementSibling;
+    const toggleButton = headerElement.querySelector('.toggle-section svg');
+    if (sectionContent && toggleButton) {
+        sectionContent.classList.toggle('expanded');
+        toggleButton.classList.toggle('rotate-180');
+        saveExpansionStates();
+    }
+}
+
+function updateUIForTopicChange(element) {
+    const progressData = loadData('gateProgress') || {};
+    const topicItemElement = element.closest('.syllabus-item');
+    if (!topicItemElement) return;
+    const subtopicElements = topicItemElement.querySelectorAll('.sub-topic-item');
+    subtopicElements.forEach(subEl => {
+        const subName = subEl.dataset.subtopicName;
+        subEl.classList.remove('completed', 'partial');
+        if (progressData[subName] === 'completed') subEl.classList.add('completed');
+        else if (progressData[subName] === 'partial') subEl.classList.add('partial');
+    });
+
+    const topicTitleElement = topicItemElement.querySelector('.syllabus-item-title');
+    const sectionIndex = topicTitleElement.dataset.sectionIndex;
+    const topicIndex = topicTitleElement.dataset.topicIndex;
+    const topicData = syllabusData[sectionIndex].topics[topicIndex];
+    const newTopicStatus = getTopicStatus(topicData, progressData);
+
+    topicItemElement.classList.remove('completed', 'partially-completed');
+    if (newTopicStatus) topicItemElement.classList.add(newTopicStatus);
+    
+    const sectionContainer = topicItemElement.closest('.syllabus-section-container');
+    const sectionHeader = sectionContainer.querySelector('.section-header');
+    const sectionData = syllabusData[sectionIndex];
+    const sectionProgress = calculateSectionSyllabusProgress(sectionData);
+    
+    sectionHeader.querySelector('.progress-fill').style.width = `${sectionProgress.completionRate * 100}%`;
+    sectionHeader.querySelector('.progress-indicator span').textContent = `${Math.round(sectionProgress.completionRate * 100)}%`;
+
+    updateOverallStats();
+    updateAllCharts();
+    checkCompletion();
+}
+
+function toggleSubtopicCompletion(subtopicElement) {
+    const subtopicName = subtopicElement.dataset.subtopicName;
+    const progressData = loadData('gateProgress') || {};
+    const currentState = progressData[subtopicName];
+
+    if (currentState === 'completed') progressData[subtopicName] = 'partial';
+    else if (currentState === 'partial') delete progressData[subtopicName];
+    else progressData[subtopicName] = 'completed';
+    
+    saveData('gateProgress', progressData);
+    updateUIForTopicChange(subtopicElement);
+}
+
+function toggleTopicCompletion(topicCheckboxElement) {
+    const topicTitleElement = topicCheckboxElement.closest('.syllabus-item-title');
+    const sectionIndex = topicTitleElement.dataset.sectionIndex;
+    const topicIndex = topicTitleElement.dataset.topicIndex;
+    const topicData = syllabusData[sectionIndex].topics[topicIndex];
+    
+    const progressData = loadData('gateProgress') || {};
+    const currentStatus = getTopicStatus(topicData, progressData);
+
+    const markAsCompleted = currentStatus !== 'completed';
+    
+    topicData.subtopics.forEach(subtopic => {
+        if (markAsCompleted) progressData[subtopic] = 'completed';
+        else delete progressData[subtopic];
+    });
+
+    saveData('gateProgress', progressData);
+    updateUIForTopicChange(topicCheckboxElement);
+}
+
+function updateDynamicContent(details) {
+    if (!details) return;
+    const prepYear = parseInt(details.gatePrepYear);
+
+    document.getElementById('mainHeaderTitle').textContent = `GATE ${prepYear} Preparation`;
+    document.title = `GATE ${prepYear} Preparation`;
+
+    const congratsMsgElement = document.querySelector('#congratulationsOverlay .congratulations-modal p');
+    if(congratsMsgElement) {
+        congratsMsgElement.textContent = `You have successfully completed the entire GATE CS ${prepYear} Syllabus!`;
+    }
+
+    const syllabusStartYear = prepYear - 1;
+    document.getElementById('syllabusCompletionTime').textContent = `June ${syllabusStartYear} – November ${syllabusStartYear} (6 months)`;
+    document.getElementById('pyqsRevisionTime').textContent = `December ${syllabusStartYear} – January ${prepYear} (2 months)`;
+    document.getElementById('appStartDate').innerHTML = `<strong>Application Start:</strong> August ${syllabusStartYear}`;
+    document.getElementById('appEndDate').innerHTML = `<strong>Application End:</strong> September ${syllabusStartYear}`;
+    document.getElementById('examDate').innerHTML = `<strong>Exam Date:</strong> February ${prepYear}`;
+    document.getElementById('resultDate').innerHTML = `<strong>Result:</strong> March ${prepYear}`;
+}
+
+function initializeCharts() {
+    initCompletionChart(); 
+    initDurationChart(); 
+    initSectionCompletionChart();
+    initQuestionAccuracyChart();
+    initWeightageCharts(); 
+}
+
+function createChartBaseOptions(titleText) {
+    const isMobile = window.innerWidth < 768;
+    return {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            title: {
+                display: true,
+                text: titleText,
+                color: getComputedStyle(document.documentElement).getPropertyValue('--chart-title-color').trim(),
+                font: { size: isMobile ? 14 : 18, weight: 'bold', family: 'Inter' }
+            },
+            legend: { 
+                position: 'bottom',
+                labels: {
+                    usePointStyle: true,
+                    padding: isMobile ? 10 : 20,
+                    color: getComputedStyle(document.documentElement).getPropertyValue('--chart-legend-color').trim(),
+                    font: { size: isMobile ? 10 : 12, family: 'Inter' }
+                }
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                grid: { color: getComputedStyle(document.documentElement).getPropertyValue('--border-color').trim() },
+                ticks: { color: getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim(), font: {family: 'Inter'} }
+            },
+            x: {
+                grid: { display: false },
+                ticks: {
+                    color: getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim(),
+                    maxRotation: isMobile ? 90 : 45, 
+                    minRotation: isMobile ? 90 : 45, 
+                    autoSkip: false,
+                    font: { size: isMobile ? 9 : 11, family: 'Inter' } 
+                }
+            }
+        }
+    };
+}
+function initCompletionChart() {
+    const ctx = document.getElementById('completionChart').getContext('2d');
+    const progressData = calculateSyllabusProgress();
+    const chartOptions = createChartBaseOptions('Syllabus Progress');
+     if (chartOptions.plugins.legend.labels) {
+        chartOptions.plugins.legend.labels.padding = window.innerWidth < 768 ? 15 : 25;
+        chartOptions.plugins.legend.labels.font.size = window.innerWidth < 768 ? 11 : 14;
+    }
+
+    charts.completionChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Completed', 'In Progress', 'Not Started'],
+            datasets: [{
+                data: [progressData.completed, progressData.partial, progressData.total - progressData.completed - progressData.partial],
+                backgroundColor: ['#10b981', '#f59e0b', '#e5e7eb'],
+                borderColor: [lightenDarkenColor('#10b981', -20), lightenDarkenColor('#f59e0b', -20), lightenDarkenColor('#e5e7eb', -20)],
+                borderWidth: 2, hoverOffset: 15
+            }]
+        },
+        options: { ...chartOptions, animation: { animateRotate: true, duration: 1500 } }
+    });
+}
+
+function initDurationChart() {
+    const ctx = document.getElementById('durationChart').getContext('2d');
+    const chartOptions = createChartBaseOptions('Study Progress Timeline');
+    if(chartOptions.scales.y) {
+        chartOptions.scales.y.max = 100;
+        chartOptions.scales.y.ticks.callback = value => value + '%';
+    }
+    
+    charts.durationChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Start', 'M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8'],
+            datasets: [{
+                label: 'Planned Progress', data: [0, 15, 25, 40, 55, 70, 85, 95, 100],
+                borderColor: '#667eea', backgroundColor: 'rgba(102, 126, 234, 0.1)', fill: true, tension: 0.4,
+                pointRadius: 5, pointHoverRadius: 7
+            }, {
+                label: 'Actual Progress', data: [calculateSyllabusProgress().percentage],
+                borderColor: '#10b981', backgroundColor: 'rgba(16, 185, 129, 0.1)', fill: false, tension: 0.4,
+                pointRadius: 6, pointHoverRadius: 8
+            }]
+        },
+        options: chartOptions
+    });
+}
+function initSectionCompletionChart() {
+    const ctx = document.getElementById('sectionCompletionChart').getContext('2d');
+    const chartOptions = createChartBaseOptions('Section-wise Syllabus Completion');
+    if(chartOptions.plugins.legend) chartOptions.plugins.legend.display = false;
+    if(chartOptions.scales.y) {
+        chartOptions.scales.y.max = 100;
+        chartOptions.scales.y.ticks.callback = value => value + '%';
+    }
+    
+    const sectionData = syllabusData.map(section => ({
+        section: section.section.replace('Section ', 'S').replace('Engineering Mathematics', 'Eng. Maths').replace('Computer Organization and Architecture', 'COA').replace('Programming and Data Structures', 'Prog & DS'),
+        completion: Math.round(calculateSectionSyllabusProgress(section).completionRate * 100)
+    }));
+
+    charts.sectionChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: sectionData.map(d => d.section),
+            datasets: [{
+                label: 'Completion %', data: sectionData.map(d => d.completion),
+                backgroundColor: sectionColors,
+                borderColor: sectionColors.map(color => lightenDarkenColor(color, -40)),
+                borderWidth: 1.5, borderRadius: 6, borderSkipped: false
+            }]
+        },
+        options: chartOptions
+    });
+}
+
+function initQuestionAccuracyChart() {
+    const ctx = document.getElementById('questionAccuracyChart').getContext('2d');
+    const chartOptions = createChartBaseOptions('Question Accuracy by Subject');
+    
+    chartOptions.scales.x.stacked = true;
+    chartOptions.scales.y.stacked = true;
+    if(chartOptions.scales.y.ticks) chartOptions.scales.y.ticks.stepSize = 1;
+
+    const accuracyData = getQuestionAccuracyData();
+
+    charts.questionAccuracyChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: accuracyData.labels,
+            datasets: [
+                {
+                    label: 'Correct',
+                    data: accuracyData.correct,
+                    backgroundColor: '#10b981',
+                },
+                {
+                    label: 'Incorrect',
+                    data: accuracyData.incorrect,
+                    backgroundColor: '#ef4444',
+                }
+            ]
+        },
+        options: chartOptions
+    });
+}
+
+function initWeightageCharts() {
+    const barCtx = document.getElementById('weightageBarChart').getContext('2d');
+    const barOptions = createChartBaseOptions('Subject Weightage (Bar)');
+    if(barOptions.plugins.legend) barOptions.plugins.legend.display = false;
+    if(barOptions.scales.y) barOptions.scales.y.ticks.callback = value => value + '%';
+
+    charts.weightageBar = new Chart(barCtx, {
+        type: 'bar',
+        data: {
+            labels: subjectWeightageData.map(d => d.subject.length > 15 ? d.subject.substring(0,12) + "..." : d.subject),
+            datasets: [{
+                label: 'Weightage %',
+                data: subjectWeightageData.map(d => d.weightage),
+                backgroundColor: sectionColors,
+                borderColor: sectionColors.map(c => lightenDarkenColor(c, -20)),
+                borderWidth: 1
+            }]
+        },
+        options: { ...barOptions, onClick: (e, el) => { if (el.length > 0) updateChartDetails(subjectWeightageData[el[0].index]); } }
+    });
+
+    const pieCtx = document.getElementById('weightagePieChart').getContext('2d');
+    const pieOptions = createChartBaseOptions('Subject Weightage (Pie)');
+    if(pieOptions.plugins.legend) pieOptions.plugins.legend.display = false;
+    delete pieOptions.scales;
+
+    charts.weightagePie = new Chart(pieCtx, {
+        type: 'pie',
+        data: {
+            labels: subjectWeightageData.map(d => d.subject),
+            datasets: [{
+                data: subjectWeightageData.map(d => d.weightage),
+                backgroundColor: sectionColors,
+                borderColor: sectionColors.map(c => lightenDarkenColor(c, -20)),
+                borderWidth: 1,
+                hoverOffset: 8
+            }]
+        },
+        options: { ...pieOptions, onClick: (e, el) => { if (el.length > 0) updateChartDetails(subjectWeightageData[el[0].index]); } }
+    });
+}
+
+function updateChartDetails(subject) {
+    const detailsContainer = document.getElementById('chartDetailsContainer');
+    const contentContainer = document.getElementById('chartDetailsContent');
+    detailsContainer.classList.add('active');
+    contentContainer.innerHTML = `
+        <div class="chart-detail-card"><div class="chart-detail-label">Subject</div><div class="chart-detail-value">${subject.subject}</div></div>
+        <div class="chart-detail-card"><div class="chart-detail-label">Weightage</div><div class="chart-detail-percentage">${subject.weightage}%</div></div>
+        <div class="chart-detail-card"><div class="chart-detail-label">Difficulty</div><div class="chart-detail-value">${subject.difficulty}</div></div>
+        <div class="chart-detail-card"><div class="chart-detail-label">Importance</div><div class="chart-detail-value">${subject.importance}</div></div>
+        <div class="chart-detail-card"><div class="chart-detail-label">Study Duration</div><div class="chart-detail-value">${subject.days} days</div></div>
+        <div class="chart-detail-card"><div class="chart-detail-label">Total Questions</div><div class="chart-detail-value">${Math.round(subject.weightage * 0.65)} (~)</div></div>`;
+    detailsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+function updateAllCharts() {
+    const syllabusProgress = calculateSyllabusProgress();
+    if (charts.completionChart) {
+        charts.completionChart.data.datasets[0].data = [syllabusProgress.completed, syllabusProgress.partial, syllabusProgress.total - syllabusProgress.completed - syllabusProgress.partial];
+        charts.completionChart.update('active');
+    }
+    if (charts.durationChart) {
+        if (charts.durationChart.data.datasets[1]) {
+             charts.durationChart.data.datasets[1].data = [syllabusProgress.percentage];
+        }
+        charts.durationChart.update('active');
+    }
+    if (charts.sectionChart) {
+        charts.sectionChart.data.datasets[0].data = syllabusData.map(s => Math.round(calculateSectionSyllabusProgress(s).completionRate * 100));
+        charts.sectionChart.update('active');
+    }
+    if (charts.questionAccuracyChart) {
+        const accuracyData = getQuestionAccuracyData();
+        charts.questionAccuracyChart.data.labels = accuracyData.labels;
+        charts.questionAccuracyChart.data.datasets[0].data = accuracyData.correct;
+        charts.questionAccuracyChart.data.datasets[1].data = accuracyData.incorrect;
+        charts.questionAccuracyChart.update('active');
+    }
+
+    ['weightageBar', 'weightagePie'].forEach(key => {
+         if (charts[key]) charts[key].update('none');
+    });
+}
+
+// --- Theme Management ---
+function initThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        updateThemeIcon(true);
+    }
+    themeToggle.addEventListener('click', () => {
+        const isDark = document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        updateThemeIcon(isDark);
+        updateChartsForTheme();
+    });
+}
+function updateThemeIcon(isDark) {
+    document.getElementById('themeIconPath').setAttribute('d', isDark ? 'M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z' : 'M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z');
+}
+
+function updateChartsForTheme() {
+    Object.values(charts).forEach(chart => {
+        if (chart && chart.options) {
+            const newOptions = createChartBaseOptions(chart.options.plugins.title.text); 
+            chart.options.plugins.title.color = newOptions.plugins.title.color;
+            chart.options.plugins.legend.labels.color = newOptions.plugins.legend.labels.color;
+            if (chart.options.scales) {
+               Object.keys(chart.options.scales).forEach(axis => {
+                   if(chart.options.scales[axis].grid) chart.options.scales[axis].grid.color = newOptions.scales[axis].grid.color;
+                   if(chart.options.scales[axis].ticks) chart.options.scales[axis].ticks.color = newOptions.scales[axis].ticks.color;
+               });
+            }
+            chart.update('none');
+        }
+    });
+}
+
+function initNavigation() {
+    const pages = { 
+        navYourPrep: document.getElementById('yourGatePrepPage'),
+        navProgressAnalytics: document.getElementById('progressAnalyticsPage'),
+        navAllAboutGate: document.getElementById('allAboutGatePage')
+    };
+    const navButtons = document.querySelectorAll('.nav-button');
+    
+    navButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const targetPageId = button.id;
+            navButtons.forEach(btn => btn.classList.remove('active'));
+            Object.values(pages).forEach(page => page.classList.remove('active'));
             
-            const API_URL_GEMINI = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
-
-            try {
-                const payload = {
-                    contents: promptContent,
-                    generationConfig: {
-                        temperature: 0.5,
-                        topK: 1,
-                        topP: 1,
-                        maxOutputTokens: isJsonOutput ? 2048 : 4096, 
-                    }
-                };
-                if (isJsonOutput) { payload.generationConfig.responseMimeType = "application/json"; }
-                
-                const response = await fetch(API_URL_GEMINI, {
-                    method: 'POST', headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                const responseText = await response.text();
-                if (!response.ok) {
-                    let errorData;
-                    try { errorData = JSON.parse(responseText); } 
-                    catch (e) { errorData = { error: { message: responseText || `HTTP error ${response.status}` }}; }
-                    const errorMessage = errorData?.error?.message || `HTTP error ${response.status}`;
-                    showToast(errorMessage, 'error');
-                    throw new Error(errorMessage);
-                }
-                const data = JSON.parse(responseText);
-                if (data.candidates?.[0]?.content?.parts?.[0]?.text) {
-                    return data.candidates[0].content.parts[0].text;
-                } else if (data.promptFeedback?.blockReason) {
-                     const blockMessage = `Content blocked: ${data.promptFeedback.blockReason} - ${data.promptFeedback.blockReasonMessage || 'Safety settings triggered.'}`;
-                     showToast(blockMessage, 'error');
-                     throw new Error(blockMessage);
-                } else { throw new Error("Unexpected API response structure from Gemini."); }
-            } catch (error) {
-                console.error("Gemini API call failed:", error);
-                showToast(error.message, 'error');
-                throw error;
-            }
-        }
-        
-        function displayFormattedContent(element, markdownText) {
-            if (!markdownConverter) { 
-                markdownConverter = new showdown.Converter({ simplifiedAutoLink: true, strikethrough: true, tables: true, tasklists: true, ghMentions: false, openLinksInNewWindow: true, emoji: true, underline: true, literalMidWordUnderscores: true, ghCodeBlocks: true });
-            }
-            try {
-                const sanitizedMarkdown = markdownText.replace(/<script.*?>.*?<\/script>/gi, '');
-                element.innerHTML = markdownConverter.makeHtml(sanitizedMarkdown);
-            } catch(e) {
-                console.error("Markdown conversion error:", e);
-                element.textContent = markdownText; 
-            }
-        }
-        
-        function displayAndRenderMath(element, text) {
-            displayFormattedContent(element, text);
-            try {
-                if (window.renderMathInElement) {
-                    renderMathInElement(element, {
-                        delimiters: [
-                            {left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false},
-                            {left: "\\(", right: "\\)", display: false}, {left: "\\[", right: "\\]", display: true}
-                        ], throwOnError: false
-                    });
-                }
-            } catch (e) { console.error("KaTeX rendering error:", e); }
-        }
-
-        function scrollToBottom(element) {
-            if (element) requestAnimationFrame(() => { element.scrollTop = element.scrollHeight; });
-        }
-
-        async function getLLMExplanation() { 
-            const modal = document.getElementById('llmResponseOverlay');
-            const modalTitleEl = document.getElementById('llmModalTitle');
-            const modalContentContainer = document.getElementById('llmModalContent'); 
-
-            openModal(modal);
-
-            modalTitleEl.textContent = `Explanation: ${currentLlmSubtopic}`;
-            modalContentContainer.innerHTML = `
-                <div class="llm-chat-interface" id="dynamicChatInterface">
-                    <div class="llm-chat-log" id="llmChatLog"></div>
-                    <div class="llm-chat-input-area" id="llmChatInputArea">
-                        <input type="text" id="llmChatMessage" placeholder="Ask a follow-up question..." aria-label="Chat message input" class="form-input">
-                        <button id="llmSendChatMessage" class="llm-button">Send</button>
-                    </div>
-                </div>`;
-
-            const chatLog = document.getElementById('llmChatLog');
-            currentLlmChatHistory = [];
-
-            try {
-                chatLog.innerHTML = `<div class="llm-message loading-container"><div class="loading-spinner"></div> Generating explanation...</div>`;
-                scrollToBottom(chatLog);
-
-                const prompt = `Explain the GATE CS subtopic: "${currentLlmSubtopic}" from the subject "${currentLlmSectionName}". Provide a detailed, well-structured explanation suitable for a GATE aspirant. Use Markdown for formatting. For all mathematical notations, use KaTeX syntax: wrap inline math with single dollar signs (e.g., $E=mc^2$) and block-level math with double dollar signs (e.g., $$x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}$$). Highlight key terms using **bold** markdown.`;
-                
-                const initialPayload = [{ role: "user", parts: [{ text: prompt }] }];
-                const rawResponse = await callGeminiAPI(initialPayload);
-                
-                chatLog.innerHTML = ''; 
-                const explanationMessageDiv = document.createElement('div');
-                explanationMessageDiv.classList.add('llm-message');
-                displayAndRenderMath(explanationMessageDiv, rawResponse);
-                chatLog.appendChild(explanationMessageDiv);
-                
-                currentLlmChatHistory = [
-                    ...initialPayload,
-                    { role: "model", parts: [{ text: rawResponse }] }
-                ];
-
-                const followUpPromptDiv = document.createElement('div');
-                followUpPromptDiv.classList.add('llm-message');
-                followUpPromptDiv.innerHTML = `How can I help you further with <strong>${currentLlmSubtopic}</strong>?`;
-                chatLog.appendChild(followUpPromptDiv);
-                
-                const sendChatBtn = document.getElementById('llmSendChatMessage');
-                const chatMsgInput = document.getElementById('llmChatMessage');
-                if (sendChatBtn) sendChatBtn.onclick = () => handleLlmChatSend();
-                if (chatMsgInput) chatMsgInput.addEventListener('keypress', (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleLlmChatSend(); } });
-                scrollToBottom(chatLog);
-                if (chatMsgInput) chatMsgInput.focus();
-
-            } catch (error) {
-                console.error("LLM explanation failed:", error);
-                if (chatLog) chatLog.innerHTML = `<p class="p-4 text-red-500 font-semibold">An error occurred: ${error.message}. Please check your API key in settings or try again.</p>`;
-            }
-        }
-
-        async function showLLMQuestionModal(questionType = 'mcq') {
-            const modal = document.getElementById('llmResponseOverlay');
-            const modalTitleEl = document.getElementById('llmModalTitle');
-            const modalContentContainer = document.getElementById('llmModalContent'); 
-
-            openModal(modal);
-
-            modalTitleEl.textContent = `Practice ${questionType.toUpperCase()}: ${currentLlmSubtopic}`;
-            modalContentContainer.innerHTML = `
-                <div class="difficulty-selector">
-                    <button class="difficulty-button easy" data-difficulty="Easy">Easy</button>
-                    <button class="difficulty-button moderate active" data-difficulty="Moderate">Moderate</button>
-                    <button class="difficulty-button hard" data-difficulty="Hard">Hard</button>
-                </div>
-                <div id="questionDisplayArea" class="flex-grow min-h-[200px] overflow-y-auto markdown-content"></div>`;
-            
-            const difficultyButtons = modalContentContainer.querySelectorAll('.difficulty-button');
-            difficultyButtons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    difficultyButtons.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    getLLMPracticeQuestion(btn.dataset.difficulty, questionType);
-                });
-            });
-
-            getLLMPracticeQuestion('Moderate', questionType);
-        }
-
-        async function getLLMPracticeQuestion(difficulty, type = 'mcq') {
-            const questionArea = document.getElementById('questionDisplayArea');
-            if (!questionArea) return;
-
-            questionArea.innerHTML = `<div class="loading-container"><div class="loading-spinner"></div> Generating ${difficulty} ${type.toUpperCase()} question...</div>`;
-            currentQuestionData = null;
-
-            let prompt;
-            if (type === 'nat') {
-                prompt = `Generate a Numerical Answer Type (NAT) question of ${difficulty} difficulty for the GATE CS subtopic: "${currentLlmSubtopic}". The answer must be a single number. The output must be a single JSON object. For all text values, use KaTeX for math ($...$ and $$...$$) and markdown for formatting. In the explanation, highlight key terms with **bold** markdown. The JSON structure must be: {"question_text": "...", "correct_answer": 12.34, "explanation_text": "..."}`;
-            } else { // MCQ
-                prompt = `Generate a practice MCQ of ${difficulty} difficulty for the GATE CS subtopic: "${currentLlmSubtopic}". The output must be a single JSON object. For all text values, use KaTeX for math ($...$ and $$...$$) and markdown for formatting. In the explanation, highlight key terms with **bold** markdown. The JSON structure must be: {"question_text": "...", "options": {"A":"...", "B":"...", "C":"...", "D":"..."}, "correct_answer_key": "A", "explanation_text": "..."}`;
-            }
-
-            try {
-                const rawResponse = await callGeminiAPI([{ role: "user", parts: [{ text: prompt }] }], true); 
-                const jsonString = extractJson(rawResponse);
-                if (!jsonString) { throw new Error("The model did not return a valid JSON object."); }
-
-                const qData = JSON.parse(jsonString);
-                currentQuestionData = { ...qData, difficulty, type };
-
-                if (type === 'mcq' && (!qData.options || Object.keys(qData.options).length !== 4 || !qData.correct_answer_key)) {
-                    throw new Error("MCQ data from API is malformed.");
-                }
-                if (type === 'nat' && typeof qData.correct_answer !== 'number') {
-                    throw new Error("NAT data from API is malformed (correct_answer is not a number).");
-                }
-
-                let answerAreaHtml = (type === 'mcq') 
-                    ? `<div class="options-container"></div>`
-                    : `<div class="nat-input-container"><input type="number" id="natAnswerInput" class="nat-input" placeholder="Enter your answer" step="any"></div>`;
-
-                questionArea.innerHTML = `
-                    <div class="question-text"></div>
-                    ${answerAreaHtml}
-                    <div class="llm-action-buttons">
-                        <button id="llmSubmitAnswer" class="llm-button" style="background-color: var(--accent-blue); border-color: var(--accent-blue);">Submit Answer</button>
-                        <button id="llmNextQuestion" class="llm-button hidden" style="background-color: var(--accent-purple); border-color: var(--accent-purple);">Next Question ➡️</button>
-                    </div>
-                    <div id="llmAnswerArea"></div>`;
-                
-                displayAndRenderMath(questionArea.querySelector('.question-text'), qData.question_text);
-                
-                if (type === 'mcq') {
-                    const optionsContainerEl = questionArea.querySelector('.options-container');
-                    Object.entries(qData.options).forEach(([key, value]) => {
-                        const label = document.createElement('label');
-                        const radio = document.createElement('input');
-                        radio.type = 'radio'; radio.name = 'llmOption'; radio.value = key;
-                        label.appendChild(radio);
-                        const optionTextSpan = document.createElement('span');
-                        displayAndRenderMath(optionTextSpan, ` ${value}`);
-                        label.appendChild(optionTextSpan);
-                        optionsContainerEl.appendChild(label);
-                    });
-                }
-
-                document.getElementById('llmSubmitAnswer').addEventListener('click', handleAnswerSubmission);
-                document.getElementById('llmNextQuestion').addEventListener('click', () => getLLMPracticeQuestion(difficulty, type));
-
-            } catch (error) {
-                console.error("Error getting or parsing LLM question:", error);
-                questionArea.innerHTML = `<p class="text-red-500 font-semibold text-center">Error: Could not generate question.</p><p class="text-center text-sm opacity-75">${error.message}. Please try again.</p>`;
-            }
-        }
-
-        function handleAnswerSubmission() {
-            if (!currentQuestionData) return;
-
-            let isCorrect = false;
-            const type = currentQuestionData.type;
-
-            if (type === 'mcq') {
-                const selectedOption = document.querySelector('input[name="llmOption"]:checked');
-                if (!selectedOption) {
-                    showToast("Please select an answer.", "error");
-                    return;
-                }
-                const userAnswer = selectedOption.value;
-                isCorrect = userAnswer === currentQuestionData.correct_answer_key;
-
-                document.querySelectorAll('.options-container label').forEach(label => {
-                    const radio = label.querySelector('input');
-                    radio.disabled = true;
-                    if (radio.value === currentQuestionData.correct_answer_key) label.classList.add('correct');
-                    else if (radio.value === userAnswer) label.classList.add('incorrect');
-                });
-
-            } else { // NAT
-                const natInput = document.getElementById('natAnswerInput');
-                if (natInput.value === '') {
-                    showToast("Please enter a numerical answer.", "error");
-                    return;
-                }
-                const userAnswer = parseFloat(natInput.value);
-                const correctAnswer = currentQuestionData.correct_answer;
-                const TOLERANCE = 1e-4;
-                isCorrect = Math.abs(userAnswer - correctAnswer) < TOLERANCE;
-                
-                natInput.disabled = true;
-                natInput.style.borderColor = isCorrect ? 'var(--accent-green)' : 'var(--accent-red)';
-                natInput.style.color = isCorrect ? 'var(--accent-green)' : 'var(--accent-red)';
-            }
-            
-            if (isCorrect && window.confetti) {
-                confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
-            }
-
-            const answerArea = document.getElementById('llmAnswerArea');
-            const explanationHeader = type === 'nat' ? `### Explanation (Correct Answer: ${currentQuestionData.correct_answer})\n\n` : `### Explanation\n\n`;
-            displayAndRenderMath(answerArea, `${explanationHeader}${currentQuestionData.explanation_text}`);
-            answerArea.style.display = 'block';
-
-            document.getElementById('llmSubmitAnswer').classList.add('hidden');
-            document.getElementById('llmNextQuestion').classList.remove('hidden');
-
-            saveQuestionAttempt(isCorrect, type);
-            updateAllCharts();
-            updateOverallStats();
-            showToast(isCorrect ? "Correct!" : "Incorrect!", isCorrect ? "success" : "error");
-        }
-        
-        function saveQuestionAttempt(isCorrect, type) {
-            const history = loadData('gateQuestionHistory') || {};
-            if (!history[currentLlmSectionName]) history[currentLlmSectionName] = [];
-            
-            history[currentLlmSectionName].push({
-                subtopic: currentLlmSubtopic,
-                difficulty: currentQuestionData.difficulty,
-                type: type,
-                isCorrect: isCorrect,
-                timestamp: new Date().toISOString()
-            });
-            saveData('gateQuestionHistory', history);
-        }
-
-        function getQuestionAccuracyData() {
-            const history = loadData('gateQuestionHistory') || {};
-            const accuracy = {};
-
-            syllabusData.forEach(section => {
-                accuracy[section.section] = { correct: 0, incorrect: 0 };
-            });
-
-            if(history){
-                for (const sectionName in history) {
-                    if (accuracy[sectionName]) {
-                        history[sectionName].forEach(attempt => {
-                            if (attempt.isCorrect) accuracy[sectionName].correct++;
-                            else accuracy[sectionName].incorrect++;
-                        });
-                    }
-                }
-            }
-            
-            const labels = Object.keys(accuracy).map(name => name.replace('Section ', 'S').replace('Engineering Mathematics', 'Eng. Maths').replace('Computer Organization and Architecture', 'COA').replace('Programming and Data Structures', 'Prog & DS'));
-            const correct = Object.values(accuracy).map(data => data.correct);
-            const incorrect = Object.values(accuracy).map(data => data.incorrect);
-
-            return { labels, correct, incorrect };
-        }
-
-        async function handleLlmChatSend() {
-            const messageInput = document.getElementById('llmChatMessage');
-            const chatLog = document.getElementById('llmChatLog');
-            const sendButton = document.getElementById('llmSendChatMessage');
-            if (!messageInput || !chatLog || !sendButton) return;
-
-            const userMessageText = messageInput.value.trim();
-            if (!userMessageText) return;
-
-            const userMessageDiv = document.createElement('div');
-            userMessageDiv.classList.add('user-message');
-            displayAndRenderMath(userMessageDiv, userMessageText); 
-            chatLog.appendChild(userMessageDiv);
-            scrollToBottom(chatLog);
-            
-            currentLlmChatHistory.push({ role: "user", parts: [{ text: userMessageText }] });
-            messageInput.value = ""; messageInput.disabled = true; sendButton.disabled = true;
-
-            const loadingDiv = document.createElement('div');
-            loadingDiv.classList.add('llm-message', 'loading-container'); 
-            loadingDiv.innerHTML = `<div class="loading-spinner"></div> Thinking...`;
-            chatLog.appendChild(loadingDiv);
-            scrollToBottom(chatLog);
-
-            try {
-                const llmResponseText = await callGeminiAPI(currentLlmChatHistory);
-                if(chatLog.contains(loadingDiv)) chatLog.removeChild(loadingDiv); 
-
-                const llmMessageDiv = document.createElement('div');
-                llmMessageDiv.classList.add('llm-message');
-                displayAndRenderMath(llmMessageDiv, llmResponseText); 
-                chatLog.appendChild(llmMessageDiv);
-                scrollToBottom(chatLog);
-                
-                currentLlmChatHistory.push({ role: "model", parts: [{ text: llmResponseText }] });
-
-            } catch (error) {
-                console.error("LLM chat response error:", error);
-                if (chatLog.contains(loadingDiv)) chatLog.removeChild(loadingDiv);
-                const errorDiv = document.createElement('div');
-                errorDiv.classList.add('llm-message');
-                errorDiv.style.color = 'var(--accent-red)'; 
-                errorDiv.textContent = `Sorry, I encountered an error: ${error.message}. Please try again.`;
-                chatLog.appendChild(errorDiv);
-                currentLlmChatHistory.pop();
-            } finally {
-                messageInput.disabled = false; sendButton.disabled = false; messageInput.focus();
-            }
-        }
-
-        function closeLLMModal() { 
-            closeModal(document.getElementById('llmResponseOverlay'));
-            document.getElementById('llmModalContent').innerHTML = ''; 
-            currentLlmChatHistory = []; currentLlmSubtopic = "";
-            currentLlmSectionName = ""; currentQuestionData = null;
-        }
-        
-        function openModal(modalOverlay) {
-            if(modalOverlay) {
-                modalOverlay.classList.add('show');
-                document.documentElement.classList.add('modal-open');
-                document.body.classList.add('modal-open');
-            }
-        }
-        function closeModal(modalOverlay) {
-             if(modalOverlay) {
-                modalOverlay.classList.remove('show');
-                document.documentElement.classList.remove('modal-open');
-                document.body.classList.remove('modal-open');
-            }
-        }
-        
-        function checkCompletion() { if (calculateSyllabusProgress().percentage === 100) openModal(document.getElementById('congratulationsOverlay')); }
-        
-        function showApiKeyInfoModal() { 
-            const overlay = document.getElementById('apiKeyInfoOverlay');
-            const apiKeyInput = document.getElementById('infoApiKey');
-            apiKeyInput.value = loadApiKey() || '';
-            openModal(overlay);
-        }
-
-        function initUserDetails() {
-            userDetails = loadData('gateUserDetails');
-            const userDetailsForm = document.getElementById('userDetailsForm');
-            
-            if (userDetails) {
-                updateDynamicContent(userDetails);
-                renderSyllabus(); 
-                applyExpansionStates((loadData('gateProgress') || {}).expansionStates || {}); 
-            } else {
-                openModal(document.getElementById('userDetailsOverlay'));
-                const currentYear = new Date().getFullYear();
-                document.getElementById('gatePrepYear').value = currentYear + 1;
-                document.getElementById('graduationYear').value = currentYear;
-                renderSyllabus(); 
-            }
-
-            userDetailsForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const name = document.getElementById('userName').value.trim();
-                const dob = document.getElementById('userDob').value;
-                const prepYear = document.getElementById('gatePrepYear').value;
-                const gradYear = document.getElementById('graduationYear').value;
-
-                if (!name || !dob || !prepYear || !gradYear) { showToast("Please fill in all fields.", "error"); return; }
-                if (parseInt(prepYear) < new Date().getFullYear() - 1 || parseInt(prepYear) > 2035) { showToast("Please enter a valid GATE Preparation Year.", "error"); return; }
-                if (parseInt(gradYear) < 1980 || parseInt(gradYear) > 2040) { showToast("Please enter a valid Graduation Year.", "error"); return; }
-
-                userDetails = { name, dob, gatePrepYear: parseInt(prepYear), graduationYear: parseInt(gradYear) };
-                saveData('gateUserDetails', userDetails);
-                updateDynamicContent(userDetails);
-                renderSyllabus(); 
-                applyExpansionStates((loadData('gateProgress') || {}).expansionStates || {});
-                closeModal(document.getElementById('userDetailsOverlay')); 
-                document.getElementById('loginCongratsTitle').textContent = `🎉 Welcome, ${userDetails.name}!`;
-                openModal(document.getElementById('loginCongratsOverlay'));
-            });
-        }
-        
-        function initUserSettings() {
-            const settingsButton = document.getElementById('userSettingsButton');
-            const settingsOverlay = document.getElementById('userSettingsOverlay');
-            const settingsForm = document.getElementById('userSettingsForm');
-
-            settingsButton.addEventListener('click', () => {
-                const currentUser = loadData('gateUserDetails');
-                if (currentUser) {
-                    document.getElementById('settingUserName').value = currentUser.name;
-                    document.getElementById('settingUserDob').value = currentUser.dob;
-                    document.getElementById('settingGatePrepYear').value = currentUser.gatePrepYear;
-                    document.getElementById('settingGraduationYear').value = currentUser.graduationYear;
-                    openModal(settingsOverlay);
-                } else {
-                    showToast("Please set your initial details first.", "error");
-                    openModal(document.getElementById('userDetailsOverlay'));
-                }
-            });
-
-            settingsForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const name = document.getElementById('settingUserName').value.trim();
-                const dob = document.getElementById('settingUserDob').value;
-                const prepYear = document.getElementById('settingGatePrepYear').value;
-                const gradYear = document.getElementById('settingGraduationYear').value;
-
-                userDetails = { name, dob, gatePrepYear: parseInt(prepYear), graduationYear: parseInt(gradYear) };
-                saveData('gateUserDetails', userDetails);
-                updateDynamicContent(userDetails);
-                renderSyllabus();
-                closeModal(settingsOverlay);
-                showToast('Profile updated successfully!');
-            });
-        }
-        
-        function initApiKeyInfo() {
-            const apiKeyButton = document.getElementById('apiKeyButton');
-            apiKeyButton.addEventListener('click', showApiKeyInfoModal);
-
-            const infoForm = document.getElementById('apiKeyInfoForm');
-            infoForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const apiKeyInput = document.getElementById('infoApiKey');
-                const newApiKey = apiKeyInput.value.trim();
-                if (newApiKey) {
-                    saveApiKey(newApiKey);
-                    const expansionStates = getExpansionStates();
-                    renderSyllabus();
-                    applyExpansionStates(expansionStates);
-                    closeModal(document.getElementById('apiKeyInfoOverlay'));
-                    showToast('API Key saved! AI features are now enabled.');
-                } else {
-                    showToast('API Key cannot be empty.', 'error');
-                }
-            });
-        }
-
-        function initCollapsibleContent() {
-            document.addEventListener('click', (e) => {
-                const button = e.target.closest('.toggle-card-content');
-                if (button) {
-                    const content = button.closest('.card').querySelector('.card-content-collapsible');
-                    const icon = button.querySelector('svg');
-                    if (content && icon) {
-                        content.classList.toggle('expanded');
-                        icon.classList.toggle('rotate-180');
-                    }
-                }
-            });
-        }
-        
-        function showToast(message, type = 'success') {
-            const toast = document.createElement('div');
-            toast.className = `toast-notification ${type}`;
-            toast.textContent = message;
-            document.body.appendChild(toast);
-
-            setTimeout(() => { toast.classList.add('show'); }, 100);
-            setTimeout(() => {
-                toast.classList.remove('show');
-                toast.addEventListener('transitionend', () => toast.remove());
-            }, 3000);
-        }
-
-        // --- [REFACTORED] Resource Management Functions ---
-        function getYouTubeVideoId(url) {
-            let videoId = null;
-            try {
-                const urlObj = new URL(url);
-                if (urlObj.hostname === 'youtu.be') videoId = urlObj.pathname.slice(1).split('/')[0];
-                else if (urlObj.hostname.includes('youtube.com')) videoId = urlObj.searchParams.get('v');
-            } catch (e) { /* Fallback */ }
-
-            if (!videoId) {
-                const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-                const match = url.match(regExp);
-                if (match && match[2] && match[2].length === 11) videoId = match[2];
-            }
-            return (videoId && /^[a-zA-Z0-9_-]{11}$/.test(videoId)) ? videoId : null;
-        }
-
-        async function fetchYouTubeVideoInfo(videoUrl) {
-            const endpoint = `https://noembed.com/embed?url=${encodeURIComponent(videoUrl)}`;
-            try {
-                const response = await fetch(endpoint, { mode: 'cors' });
-                if (!response.ok) return null;
-                const data = await response.json();
-                return { title: data?.title || "Untitled Video", author: data?.author_name || "Unknown Author" };
-            } catch (error) {
-                console.error("Failed to fetch YouTube info:", error);
-                return null;
-            }
-        }
-
-        function showResourcesModal(topicName) {
-            const overlay = document.getElementById('resourcesOverlay');
-            const titleEl = document.getElementById('resourcesModalTitle');
-            const contentEl = document.getElementById('resourcesModalContent');
-
-            titleEl.textContent = `Resources for ${topicName}`;
-
-            const render = () => {
-                const allKnownResources = loadData('gateResources') || {};
-                const resources = allKnownResources[topicName] || [];
-                let listHTML = '';
-
-                if (resources.length > 0) {
-                    resources.forEach((res, index) => {
-                        const thumbnailHtml = res.videoId
-                            ? `<img src="https://img.youtube.com/vi/${res.videoId}/mqdefault.jpg" alt="Video thumbnail" loading="lazy">`
-                            : `<div class="link-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" /></svg></div>`;
-
-                        listHTML += `
-                            <div class="resource-stack-item" data-index="${index}">
-                                <div class="thumbnail-container">
-                                    ${thumbnailHtml}
-                                </div>
-                                <div class="info-container">
-                                    <h4 class="title">${res.title}</h4>
-                                    <p class="author">${res.author || new URL(res.url).hostname}</p>
-                                </div>
-                                <button class="delete-btn" title="Remove resource">×</button>
-                            </div>`;
-                    });
-                } else {
-                    listHTML = `<p class="text-center opacity-70 my-4">No resources added for this topic yet. Add one to get started!</p>`;
-                }
-
-                contentEl.innerHTML = `<div class="resource-stack">${listHTML}</div>`;
-                
-                contentEl.querySelector('.resource-stack').addEventListener('click', (e) => {
-                    const item = e.target.closest('.resource-stack-item');
-                    if (!item) return;
-
-                    const index = parseInt(item.dataset.index, 10);
-                    const resource = resources[index];
-
-                    if (e.target.closest('.delete-btn')) {
-                        if (confirm(`Are you sure you want to remove "${resource.title}"?`)) {
-                            resources.splice(index, 1);
-                            saveData('gateResources', allKnownResources);
-                            render();
-                        }
-                    } else {
-                        if(resource.videoId) showVideoChatModal(resource);
-                        else window.open(resource.url, '_blank');
-                    }
-                });
-            };
-
-            render();
-            openModal(overlay);
-        }
-
-        async function showVideoChatModal(resource) {
-            currentVideoChatResource = resource;
-            const overlay = document.getElementById('videoChatOverlay');
-            const playerContainer = document.getElementById('videoPlayerContainer');
-            const chatContainer = document.getElementById('videoChatContainer');
-            
-            playerContainer.innerHTML = `<div class="video-container"><iframe src="https://www.youtube.com/embed/${resource.videoId}?autoplay=1&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
-            
-            chatContainer.innerHTML = `
-                <div class="llm-chat-interface">
-                    <div class="llm-chat-log" id="llmChatLog"></div>
-                    <div class="llm-chat-input-area" id="llmChatInputArea">
-                        <input type="text" id="llmChatMessage" placeholder="Ask about this video..." class="form-input">
-                        <button id="llmSendChatMessage" class="llm-button">Send</button>
-                    </div>
-                </div>`;
-            
-            overlay.classList.remove('chat-hidden');
-            openModal(overlay);
-
-            const chatLog = document.getElementById('llmChatLog');
-            const sendButton = document.getElementById('llmSendChatMessage');
-            const messageInput = document.getElementById('llmChatMessage');
-            
-            currentLlmChatHistory = [{
-                role: "user",
-                parts: [{ text: `System instruction: You are a helpful assistant for a GATE aspirant. The user is watching a YouTube video titled "${resource.title}". Your task is to answer the user's questions strictly related to the likely content of this video, based on its title. Keep your answers concise and relevant to the GATE syllabus. Start the conversation by introducing yourself and asking the user what they would like to discuss about the video.` }]
-            }];
-
-            sendButton.disabled = true; messageInput.disabled = true;
-            chatLog.innerHTML = `<div class="llm-message loading-container"><div class="loading-spinner"></div> Preparing chat...</div>`;
-
-            try {
-                const initialResponse = await callGeminiAPI(currentLlmChatHistory);
-                currentLlmChatHistory.push({ role: "model", parts: [{ text: initialResponse }] });
-                
-                chatLog.innerHTML = ''; 
-                const llmMessageDiv = document.createElement('div');
-                llmMessageDiv.classList.add('llm-message');
-                displayAndRenderMath(llmMessageDiv, initialResponse); 
-                chatLog.appendChild(llmMessageDiv);
-                scrollToBottom(chatLog);
-            } catch (error) {
-                chatLog.innerHTML = `<p class="p-4 text-red-500 font-semibold">Could not start chat: ${error.message}</p>`;
-            } finally {
-                sendButton.disabled = false; messageInput.disabled = false; messageInput.focus();
-                sendButton.onclick = () => handleLlmChatSend();
-                messageInput.onkeypress = (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendButton.click(); } };
-            }
-        }
-        
-        function initModalCloseButtons() {
-            document.getElementById('closeCongratulations').addEventListener('click', () => closeModal(document.getElementById('congratulationsOverlay')));
-            document.getElementById('closeLoginCongrats').addEventListener('click', () => closeModal(document.getElementById('loginCongratsOverlay')));
-            document.getElementById('closeLlmModal').addEventListener('click', closeLLMModal);
-            document.getElementById('closeUserSettingsModal').addEventListener('click', () => closeModal(document.getElementById('userSettingsOverlay')));
-            document.getElementById('closeApiKeyInfoModal').addEventListener('click', () => closeModal(document.getElementById('apiKeyInfoOverlay')));
-            document.getElementById('closeResourcesModal').addEventListener('click', () => closeModal(document.getElementById('resourcesOverlay')));
-            document.getElementById('closeAddResourceUrlModal').addEventListener('click', () => closeModal(document.getElementById('addResourceUrlOverlay')));
-            document.getElementById('closeVideoChatModal').addEventListener('click', () => {
-                closeModal(document.getElementById('videoChatOverlay'));
-                document.getElementById('videoPlayerContainer').innerHTML = '';
-                currentVideoChatResource = null;
-            });
-
-            document.querySelectorAll('.modal-overlay').forEach(overlay => {
-                overlay.addEventListener('click', function(e) {
-                    if (e.target === this) {
-                        if (this.id !== 'userDetailsOverlay') {
-                            closeModal(this);
-                            if (this.id === 'llmResponseOverlay') closeLLMModal();
-                            if (this.id === 'videoChatOverlay') {
-                                document.getElementById('videoPlayerContainer').innerHTML = '';
-                                currentVideoChatResource = null;
-                            }
-                        }
-                    }
-                });
-            });
-
-            document.getElementById('toggleChatBtn').addEventListener('click', () => {
-                document.getElementById('videoChatModalBox').classList.toggle('chat-hidden');
-            });
-
-            document.getElementById('showAddResourceModalBtn').addEventListener('click', () => {
-                const titleGroup = document.getElementById('resourceTitleGroup');
-                const urlInput = document.getElementById('newResourceUrl');
-                const titleInput = document.getElementById('newResourceTitle');
-                
-                urlInput.oninput = () => {
-                    const isYouTube = getYouTubeVideoId(urlInput.value);
-                    titleGroup.style.display = isYouTube ? 'none' : 'block';
-                    titleInput.required = !isYouTube;
-                };
-                urlInput.oninput();
-                openModal(document.getElementById('addResourceUrlOverlay'));
-            });
-
-            document.getElementById('addResourceUrlForm').onsubmit = async (e) => {
-                e.preventDefault();
-                const urlInput = document.getElementById('newResourceUrl');
-                const titleInput = document.getElementById('newResourceTitle');
-                const topicName = document.getElementById('resourcesModalTitle').textContent.replace('Resources for ', '');
-                
-                const url = urlInput.value.trim();
-                const videoId = getYouTubeVideoId(url);
-                
-                const button = e.target.querySelector('button');
-                button.disabled = true; button.textContent = 'Adding...';
-
-                try {
-                    let newResource;
-                    if (videoId) {
-                        const info = await fetchYouTubeVideoInfo(url);
-                        if (!info) throw new Error("Could not fetch video information.");
-                        newResource = { videoId, url, ...info };
-                    } else {
-                        const title = titleInput.value.trim();
-                        if (!title) throw new Error("Title is required for non-YouTube links.");
-                        newResource = { url, title, author: new URL(url).hostname };
-                    }
-
-                    const allResources = loadData('gateResources') || {};
-                    if (!allResources[topicName]) allResources[topicName] = [];
-                    allResources[topicName].push(newResource);
-                    saveData('gateResources', allResources);
-                    
-                    showToast("Resource added successfully!", "success");
-                    showResourcesModal(topicName);
-                    closeModal(document.getElementById('addResourceUrlOverlay'));
-                    e.target.reset();
-
-                } catch (error) {
-                    showToast(error.message, 'error');
-                } finally {
-                    button.disabled = false; button.textContent = 'Add Resource';
-                }
-            };
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            try {
-                markdownConverter = new showdown.Converter({
-                    simplifiedAutoLink: true, strikethrough: true, tables: true, tasklists: true,
-                    ghMentions: false, openLinksInNewWindow: true, emoji: true, underline: true,
-                    literalMidWordUnderscores: true, ghCodeBlocks: true,
-                });
-                showdown.setFlavor('github');
-            } catch (e) {
-                console.error("Failed to initialize Showdown.js.", e);
-                markdownConverter = { makeHtml: (text) => text.replace(/</g, '<').replace(/>/g, '>').replace(/\n/g, '<br>') };
-            }
-
-            initUserDetails();
-            initUserSettings();
-            initApiKeyInfo();
-            updateOverallStats();
-            initializeCharts();
-            initThemeToggle();
-            initNavigation();
-            initCollapsibleContent();
-            attachSyllabusEventListeners();
-            initModalCloseButtons();
-
-            window.addEventListener('resize', () => {
-                Object.values(charts).forEach(chart => chart?.resize());
-            });
+            pages[targetPageId].classList.add('active');
+            button.classList.add('active');
         });
+    });
+}
+
+function extractJson(text) {
+    if (!text) return null;
+    const jsonInMarkdown = text.match(/``````/);
+    if (jsonInMarkdown && jsonInMarkdown[1]) {
+        return jsonInMarkdown[1];
+    }
+    const firstBracket = text.indexOf('{');
+    const firstSqBracket = text.indexOf('[');
+    let startIndex = -1;
+    if (firstBracket === -1) { startIndex = firstSqBracket; } 
+    else if (firstSqBracket === -1) { startIndex = firstBracket; } 
+    else { startIndex = Math.min(firstBracket, firstSqBracket); }
+    if (startIndex === -1) return null;
+
+    const lastBracket = text.lastIndexOf('}');
+    const lastSqBracket = text.lastIndexOf(']');
+    const endIndex = Math.max(lastBracket, lastSqBracket);
+    if (endIndex > startIndex) { return text.substring(startIndex, endIndex + 1); }
+    
+    return null;
+}
+
+// --- Gemini API and LLM Logic (Optimized for Token Usage) ---
+const MAX_HISTORY_LENGTH = 10; // Limit chat history to last 10 messages to reduce tokens
+
+async function callGeminiAPI(promptContent, isJsonOutput = false) {
+    const apiKey = loadApiKey();
+    if (!apiKey) {
+        showApiKeyInfoModal();
+        throw new Error("API Key is not set.");
+    }
+    
+    const API_URL_GEMINI = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
+    try {
+        // Optimize: Truncate history if too long
+        if (Array.isArray(promptContent) && promptContent.length > MAX_HISTORY_LENGTH) {
+            promptContent = promptContent.slice(-MAX_HISTORY_LENGTH);
+        }
+
+        const payload = {
+            contents: promptContent,
+            generationConfig: {
+                temperature: 0.5,
+                topK: 1,
+                topP: 1,
+                maxOutputTokens: isJsonOutput ? 512 : 1024, // Reduced max tokens for optimization
+            }
+        };
+        if (isJsonOutput) { payload.generationConfig.responseMimeType = "application/json"; }
+        
+        const response = await fetch(API_URL_GEMINI, {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        const responseText = await response.text();
+        if (!response.ok) {
+            let errorData;
+            try { errorData = JSON.parse(responseText); } 
+            catch (e) { errorData = { error: { message: responseText || `HTTP error ${response.status}` }}; }
+            const errorMessage = errorData?.error?.message || `HTTP error ${response.status}`;
+            showToast(errorMessage, 'error');
+            throw new Error(errorMessage);
+        }
+        const data = JSON.parse(responseText);
+        if (data.candidates?.[0]?.content?.parts?.[0]?.text) {
+            return data.candidates[0].content.parts[0].text;
+        } else if (data.promptFeedback?.blockReason) {
+             const blockMessage = `Content blocked: ${data.promptFeedback.blockReason} - ${data.promptFeedback.blockReasonMessage || 'Safety settings triggered.'}`;
+             showToast(blockMessage, 'error');
+             throw new Error(blockMessage);
+        } else { throw new Error("Unexpected API response structure from Gemini."); }
+    } catch (error) {
+        console.error("Gemini API call failed:", error);
+        showToast(error.message, 'error');
+        throw error;
+    }
+}
+
+function displayFormattedContent(element, markdownText) {
+    if (!markdownConverter) { 
+        markdownConverter = new showdown.Converter({ simplifiedAutoLink: true, strikethrough: true, tables: true, tasklists: true, ghMentions: false, openLinksInNewWindow: true, emoji: true, underline: true, literalMidWordUnderscores: true, ghCodeBlocks: true });
+    }
+    try {
+        const sanitizedMarkdown = markdownText.replace(/<script.*?>.*?<\/script>/gi, '');
+        element.innerHTML = markdownConverter.makeHtml(sanitizedMarkdown);
+    } catch(e) {
+        console.error("Markdown conversion error:", e);
+        element.textContent = markdownText; 
+    }
+}
+
+function displayAndRenderMath(element, text) {
+    displayFormattedContent(element, text);
+    try {
+        if (window.renderMathInElement) {
+            renderMathInElement(element, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false},
+                    {left: "\\(", right: "\\)", display: false}, {left: "\\[", right: "\\]", display: true}
+                ], throwOnError: false
+            });
+        }
+    } catch (e) { console.error("KaTeX rendering error:", e); }
+}
+
+function scrollToBottom(element) {
+    if (element) requestAnimationFrame(() => { element.scrollTop = element.scrollHeight; });
+}
+
+async function getLLMExplanation() { 
+    const modal = document.getElementById('llmResponseOverlay');
+    const modalTitleEl = document.getElementById('llmModalTitle');
+    const modalContentContainer = document.getElementById('llmModalContent'); 
+
+    openModal(modal);
+
+    modalTitleEl.textContent = `Explanation: ${currentLlmSubtopic}`;
+    modalContentContainer.innerHTML = `
+        <div class="llm-chat-interface" id="dynamicChatInterface">
+            <div class="llm-chat-log" id="llmChatLog"></div>
+            <div class="llm-chat-input-area" id="llmChatInputArea">
+                <input type="text" id="llmChatMessage" placeholder="Ask a follow-up question..." aria-label="Chat message input" class="form-input">
+                <button id="llmSendChatMessage" class="llm-button">Send</button>
+            </div>
+        </div>`; 
+    const chatLog = document.getElementById('llmChatLog');
+    currentLlmChatHistory = [];
+
+    try {
+        chatLog.innerHTML = `<div class="llm-message loading-container"><div class="loading-spinner"></div> Generating explanation...</div>`;
+        scrollToBottom(chatLog);
+
+        // Optimized prompt: Made more concise to reduce tokens
+        const prompt = `Explain "${currentLlmSubtopic}" from "${currentLlmSectionName}" for GATE CS. Use Markdown and KaTeX ($ for inline, $$ for block). Bold key terms.`;
+        
+        const initialPayload = [{ role: "user", parts: [{ text: prompt }] }];
+        const rawResponse = await callGeminiAPI(initialPayload);
+        
+        chatLog.innerHTML = ''; 
+        const explanationMessageDiv = document.createElement('div');
+        explanationMessageDiv.classList.add('llm-message');
+        displayAndRenderMath(explanationMessageDiv, rawResponse);
+        chatLog.appendChild(explanationMessageDiv);
+        
+        currentLlmChatHistory = [
+            ...initialPayload,
+            { role: "model", parts: [{ text: rawResponse }] }
+        ];
+
+        const followUpPromptDiv = document.createElement('div');
+        followUpPromptDiv.classList.add('llm-message');
+        followUpPromptDiv.innerHTML = `How can I help you further with <strong>${currentLlmSubtopic}</strong>?`;
+        chatLog.appendChild(followUpPromptDiv);
+        
+        const sendChatBtn = document.getElementById('llmSendChatMessage');
+        const chatMsgInput = document.getElementById('llmChatMessage');
+        if (sendChatBtn) sendChatBtn.onclick = () => handleLlmChatSend();
+        if (chatMsgInput) chatMsgInput.addEventListener('keypress', (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleLlmChatSend(); } });
+        scrollToBottom(chatLog);
+        if (chatMsgInput) chatMsgInput.focus();
+
+    } catch (error) {
+        console.error("LLM explanation failed:", error);
+        if (chatLog) chatLog.innerHTML = `<p class="p-4 text-red-500 font-semibold">An error occurred: ${error.message}. Please check your API key in settings or try again.</p>`;
+    }
+}
+
+async function showLLMQuestionModal(questionType = 'mcq') {
+    const modal = document.getElementById('llmResponseOverlay');
+    const modalTitleEl = document.getElementById('llmModalTitle');
+    const modalContentContainer = document.getElementById('llmModalContent'); 
+
+    openModal(modal);
+
+    modalTitleEl.textContent = `Practice ${questionType.toUpperCase()}: ${currentLlmSubtopic}`;
+    modalContentContainer.innerHTML = `
+        <div class="difficulty-selector">
+            <button class="difficulty-button easy" data-difficulty="Easy">Easy</button>
+            <button class="difficulty-button moderate active" data-difficulty="Moderate">Moderate</button>
+            <button class="difficulty-button hard" data-difficulty="Hard">Hard</button>
+        </div>
+        <div id="questionDisplayArea" class="flex-grow min-h-[200px] overflow-y-auto markdown-content"></div>`;
+    
+    const difficultyButtons = modalContentContainer.querySelectorAll('.difficulty-button');
+    difficultyButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            difficultyButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            getLLMPracticeQuestion(btn.dataset.difficulty, questionType);
+        });
+    });
+
+    getLLMPracticeQuestion('Moderate', questionType);
+}
+
+async function getLLMPracticeQuestion(difficulty, type = 'mcq') {
+    const questionArea = document.getElementById('questionDisplayArea');
+    if (!questionArea) return;
+
+    questionArea.innerHTML = `<div class="loading-container"><div class="loading-spinner"></div> Generating ${difficulty} ${type.toUpperCase()} question...</div>`;
+    currentQuestionData = null;
+
+    let prompt;
+    if (type === 'nat') {
+        // Optimized prompt: Concise version
+        prompt = `Generate NAT question of ${difficulty} for "${currentLlmSubtopic}". Output JSON: {"question_text": "...", "correct_answer": 12.34, "explanation_text": "..."}. Use KaTeX and Markdown.`;
+    } else { // MCQ
+        prompt = `Generate MCQ of ${difficulty} for "${currentLlmSubtopic}". Output JSON: {"question_text": "...", "options": {"A":"...", "B":"...", "C":"...", "D":"..."}, "correct_answer_key": "A", "explanation_text": "..."}. Use KaTeX and Markdown.`;
+    }
+    try {
+        const rawResponse = await callGeminiAPI([{ role: "user", parts: [{ text: prompt }] }], true); 
+        const jsonString = extractJson(rawResponse);
+        if (!jsonString) { throw new Error("The model did not return a valid JSON object."); }
+
+        const qData = JSON.parse(jsonString);
+        currentQuestionData = { ...qData, difficulty, type };
+
+        if (type === 'mcq' && (!qData.options || Object.keys(qData.options).length !== 4 || !qData.correct_answer_key)) {
+            throw new Error("MCQ data from API is malformed.");
+        }
+        if (type === 'nat' && typeof qData.correct_answer !== 'number') {
+            throw new Error("NAT data from API is malformed (correct_answer is not a number).");
+        }
+
+        let answerAreaHtml = (type === 'mcq') 
+            ? `<div class="options-container"></div>`
+            : `<div class="nat-input-container"><input type="number" id="natAnswerInput" class="nat-input" placeholder="Enter your answer" step="any"></div>`;
+
+        questionArea.innerHTML = `
+            <div class="question-text"></div>
+            ${answerAreaHtml}
+            <div class="llm-action-buttons">
+                <button id="llmSubmitAnswer" class="llm-button" style="background-color: var(--accent-blue); border-color: var(--accent-blue);">Submit Answer</button>
+                <button id="llmNextQuestion" class="llm-button hidden" style="background-color: var(--accent-purple); border-color: var(--accent-purple);">Next Question ➡️</button>
+            </div>
+            <div id="llmAnswerArea"></div>`;
+        
+        displayAndRenderMath(questionArea.querySelector('.question-text'), qData.question_text);
+        
+        if (type === 'mcq') {
+            const optionsContainerEl = questionArea.querySelector('.options-container');
+            Object.entries(qData.options).forEach(([key, value]) => {
+                const label = document.createElement('label');
+                const radio = document.createElement('input');
+                radio.type = 'radio'; radio.name = 'llmOption'; radio.value = key;
+                label.appendChild(radio);
+                const optionTextSpan = document.createElement('span');
+                displayAndRenderMath(optionTextSpan, ` ${value}`);
+                label.appendChild(optionTextSpan);
+                optionsContainerEl.appendChild(label);
+            });
+        }
+
+        document.getElementById('llmSubmitAnswer').addEventListener('click', handleAnswerSubmission);
+        document.getElementById('llmNextQuestion').addEventListener('click', () => getLLMPracticeQuestion(difficulty, type));
+
+    } catch (error) {
+        console.error("Error getting or parsing LLM question:", error);
+        questionArea.innerHTML = `<p class="text-red-500 font-semibold text-center">Error: Could not generate question.</p><p class="text-center text-sm opacity-75">${error.message}. Please try again.</p>`;
+    }
+}
+
+function handleAnswerSubmission() {
+    if (!currentQuestionData) return;
+
+    let isCorrect = false;
+    const type = currentQuestionData.type;
+
+    if (type === 'mcq') {
+        const selectedOption = document.querySelector('input[name="llmOption"]:checked');
+        if (!selectedOption) {
+            showToast("Please select an answer.", "error");
+            return;
+        }
+        const userAnswer = selectedOption.value;
+        isCorrect = userAnswer === currentQuestionData.correct_answer_key;
+        document.querySelectorAll('.options-container label').forEach(label => {
+            const radio = label.querySelector('input');
+            radio.disabled = true;
+            if (radio.value === currentQuestionData.correct_answer_key) label.classList.add('correct');
+            else if (radio.value === userAnswer) label.classList.add('incorrect');
+        });
+
+    } else { // NAT
+        const natInput = document.getElementById('natAnswerInput');
+        if (natInput.value === '') {
+            showToast("Please enter a numerical answer.", "error");
+            return;
+        }
+        const userAnswer = parseFloat(natInput.value);
+        const correctAnswer = currentQuestionData.correct_answer;
+        const TOLERANCE = 1e-4;
+        isCorrect = Math.abs(userAnswer - correctAnswer) < TOLERANCE;
+        
+        natInput.disabled = true;
+        natInput.style.borderColor = isCorrect ? 'var(--accent-green)' : 'var(--accent-red)';
+        natInput.style.color = isCorrect ? 'var(--accent-green)' : 'var(--accent-red)';
+    }
+    
+    if (isCorrect && window.confetti) {
+        confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+    }
+
+    const answerArea = document.getElementById('llmAnswerArea');
+    const explanationHeader = type === 'nat' ? `### Explanation (Correct Answer: ${currentQuestionData.correct_answer})\n\n` : `### Explanation\n\n`;
+    displayAndRenderMath(answerArea, `${explanationHeader}${currentQuestionData.explanation_text}`);
+    answerArea.style.display = 'block';
+
+    document.getElementById('llmSubmitAnswer').classList.add('hidden');
+    document.getElementById('llmNextQuestion').classList.remove('hidden');
+
+    saveQuestionAttempt(isCorrect, type);
+    updateAllCharts();
+    updateOverallStats();
+    showToast(isCorrect ? "Correct!" : "Incorrect!", isCorrect ? "success" : "error");
+}
+
+function saveQuestionAttempt(isCorrect, type) {
+    const history = loadData('gateQuestionHistory') || {};
+    if (!history[currentLlmSectionName]) history[currentLlmSectionName] = [];
+    
+    history[currentLlmSectionName].push({
+        subtopic: currentLlmSubtopic,
+        difficulty: currentQuestionData.difficulty,
+        type: type,
+        isCorrect: isCorrect,
+        timestamp: new Date().toISOString()
+    });
+    saveData('gateQuestionHistory', history);
+}
+
+function getQuestionAccuracyData() {
+    const history = loadData('gateQuestionHistory') || {};
+    const accuracy = {};
+
+    syllabusData.forEach(section => {
+        accuracy[section.section] = { correct: 0, incorrect: 0 };
+    });
+
+    if(history){
+        for (const sectionName in history) {
+            if (accuracy[sectionName]) {
+                history[sectionName].forEach(attempt => {
+                    if (attempt.isCorrect) accuracy[sectionName].correct++;
+                    else accuracy[sectionName].incorrect++;
+                });
+            }
+        }
+    }
+    
+    const labels = Object.keys(accuracy).map(name => name.replace('Section ', 'S').replace('Engineering Mathematics', 'Eng. Maths').replace('Computer Organization and Architecture', 'COA').replace('Programming and Data Structures', 'Prog & DS'));
+    const correct = Object.values(accuracy).map(data => data.correct);
+    const incorrect = Object.values(accuracy).map(data => data.incorrect);
+
+    return { labels, correct, incorrect };
+}
+
+async function handleLlmChatSend() {
+    const messageInput = document.getElementById('llmChatMessage');
+    const chatLog = document.getElementById('llmChatLog');
+    const sendButton = document.getElementById('llmSendChatMessage');
+    if (!messageInput || !chatLog || !sendButton) return;
+
+    const userMessageText = messageInput.value.trim();
+    if (!userMessageText) return;
+
+    const userMessageDiv = document.createElement('div');
+    userMessageDiv.classList.add('user-message');
+    displayAndRenderMath(userMessageDiv, userMessageText); 
+    chatLog.appendChild(userMessageDiv);
+    scrollToBottom(chatLog);
+    
+    currentLlmChatHistory.push({ role: "user", parts: [{ text: userMessageText }] });
+    messageInput.value = ""; messageInput.disabled = true; sendButton.disabled = true;
+
+    const loadingDiv = document.createElement('div');
+    loadingDiv.classList.add('llm-message', 'loading-container'); 
+    loadingDiv.innerHTML = `<div class="loading-spinner"></div> Thinking...`;
+    chatLog.appendChild(loadingDiv);
+    scrollToBottom(chatLog);
+
+    try {
+        const llmResponseText = await callGeminiAPI(currentLlmChatHistory);
+        if(chatLog.contains(loadingDiv)) chatLog.removeChild(loadingDiv);
+        const llmMessageDiv = document.createElement('div');
+        llmMessageDiv.classList.add('llm-message');
+        displayAndRenderMath(llmMessageDiv, llmResponseText); 
+        chatLog.appendChild(llmMessageDiv);
+        scrollToBottom(chatLog);
+        
+        currentLlmChatHistory.push({ role: "model", parts: [{ text: llmResponseText }] });
+
+    } catch (error) {
+        console.error("LLM chat response error:", error);
+        if (chatLog.contains(loadingDiv)) chatLog.removeChild(loadingDiv);
+        const errorDiv = document.createElement('div');
+        errorDiv.classList.add('llm-message');
+        errorDiv.style.color = 'var(--accent-red)'; 
+        errorDiv.textContent = `Sorry, I encountered an error: ${error.message}. Please try again.`;
+        chatLog.appendChild(errorDiv);
+        currentLlmChatHistory.pop();
+    } finally {
+        messageInput.disabled = false; sendButton.disabled = false; messageInput.focus();
+    }
+}
+
+function closeLLMModal() { 
+    closeModal(document.getElementById('llmResponseOverlay'));
+    document.getElementById('llmModalContent').innerHTML = ''; 
+    currentLlmChatHistory = []; currentLlmSubtopic = "";
+    currentLlmSectionName = ""; currentQuestionData = null;
+}
+
+function openModal(modalOverlay) {
+    if(modalOverlay) {
+        modalOverlay.classList.add('show');
+        document.documentElement.classList.add('modal-open');
+        document.body.classList.add('modal-open');
+    }
+}
+function closeModal(modalOverlay) {
+     if(modalOverlay) {
+        modalOverlay.classList.remove('show');
+        document.documentElement.classList.remove('modal-open');
+        document.body.classList.remove('modal-open');
+    }
+}
+
+function checkCompletion() { if (calculateSyllabusProgress().percentage === 100) openModal(document.getElementById('congratulationsOverlay')); }
+
+function showApiKeyInfoModal() { 
+    const overlay = document.getElementById('apiKeyInfoOverlay');
+    const apiKeyInput = document.getElementById('infoApiKey');
+    apiKeyInput.value = loadApiKey() || '';
+    openModal(overlay);
+}
+
+function initUserDetails() {
+    userDetails = loadData('gateUserDetails');
+    const userDetailsForm = document.getElementById('userDetailsForm');
+    
+    if (userDetails) {
+        updateDynamicContent(userDetails);
+        renderSyllabus(); 
+        applyExpansionStates((loadData('gateProgress') || {}).expansionStates || {}); 
+    } else {
+        openModal(document.getElementById('userDetailsOverlay'));
+        const currentYear = new Date().getFullYear();
+        document.getElementById('gatePrepYear').value = currentYear + 1;
+        document.getElementById('graduationYear').value = currentYear;
+        renderSyllabus(); 
+    }
+
+    userDetailsForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('userName').value.trim();
+        const dob = document.getElementById('userDob').value;
+        const prepYear = document.getElementById('gatePrepYear').value;
+        const gradYear = document.getElementById('graduationYear').value;
+
+        if (!name || !dob || !prepYear || !gradYear) { showToast("Please fill in all fields.", "error"); return; }
+        if (parseInt(prepYear) < new Date().getFullYear() - 1 || parseInt(prepYear) > 2035) { showToast("Please enter a valid GATE Preparation Year.", "error"); return; }
+        if (parseInt(gradYear) < 1980 || parseInt(gradYear) > 2040) { showToast("Please enter a valid Graduation Year.", "error"); return; }
+        userDetails = { name, dob, gatePrepYear: parseInt(prepYear), graduationYear: parseInt(gradYear) };
+        saveData('gateUserDetails', userDetails);
+        updateDynamicContent(userDetails);
+        renderSyllabus(); 
+        applyExpansionStates((loadData('gateProgress') || {}).expansionStates || {});
+        closeModal(document.getElementById('userDetailsOverlay')); 
+        document.getElementById('loginCongratsTitle').textContent = `🎉 Welcome, ${userDetails.name}!`;
+        openModal(document.getElementById('loginCongratsOverlay'));
+    });
+}
+
+function initUserSettings() {
+    const settingsButton = document.getElementById('userSettingsButton');
+    const settingsOverlay = document.getElementById('userSettingsOverlay');
+    const settingsForm = document.getElementById('userSettingsForm');
+
+    settingsButton.addEventListener('click', () => {
+        const currentUser = loadData('gateUserDetails');
+        if (currentUser) {
+            document.getElementById('settingUserName').value = currentUser.name;
+            document.getElementById('settingUserDob').value = currentUser.dob;
+            document.getElementById('settingGatePrepYear').value = currentUser.gatePrepYear;
+            document.getElementById('settingGraduationYear').value = currentUser.graduationYear;
+            openModal(settingsOverlay);
+        } else {
+            showToast("Please set your initial details first.", "error");
+            openModal(document.getElementById('userDetailsOverlay'));
+        }
+    });
+
+    settingsForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('settingUserName').value.trim();
+        const dob = document.getElementById('settingUserDob').value;
+        const prepYear = document.getElementById('settingGatePrepYear').value;
+        const gradYear = document.getElementById('settingGraduationYear').value;
+
+        userDetails = { name, dob, gatePrepYear: parseInt(prepYear), graduationYear: parseInt(gradYear) };
+        saveData('gateUserDetails', userDetails);
+        updateDynamicContent(userDetails);
+        renderSyllabus();
+        closeModal(settingsOverlay);
+        showToast('Profile updated successfully!');
+    });
+}
+
+function initApiKeyInfo() {
+    const apiKeyButton = document.getElementById('apiKeyButton');
+    apiKeyButton.addEventListener('click', showApiKeyInfoModal);
+
+    const infoForm = document.getElementById('apiKeyInfoForm');
+    infoForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const apiKeyInput = document.getElementById('infoApiKey');
+        const newApiKey = apiKeyInput.value.trim();
+        if (newApiKey) {
+            saveApiKey(newApiKey);
+            const expansionStates = getExpansionStates();
+            renderSyllabus();
+            applyExpansionStates(expansionStates);
+            closeModal(document.getElementById('apiKeyInfoOverlay'));
+            showToast('API Key saved! AI features are now enabled.');
+        } else {
+            showToast('API Key cannot be empty.', 'error');
+        }
+    });
+}
+
+function initCollapsibleContent() {
+    document.addEventListener('click', (e) => {
+        const button = e.target.closest('.toggle-card-content');
+        if (button) {
+            const content = button.closest('.card').querySelector('.card-content-collapsible');
+            const icon = button.querySelector('svg');
+            if (content && icon) {
+                content.classList.toggle('expanded');
+                icon.classList.toggle('rotate-180');
+            }
+        }
+    });
+}
+
+function showToast(message, type = 'success') {
+    const toast = document.createElement('div');
+    toast.className = `toast-notification ${type}`;
+    toast.textContent = message;
+    document.body.appendChild(toast);
+
+    setTimeout(() => { toast.classList.add('show'); }, 100);
+    setTimeout(() => {
+        toast.classList.remove('show');
+        toast.addEventListener('transitionend', () => toast.remove());
+    }, 3000);
+}
+
+// --- [REFACTORED] Resource Management Functions ---
+function getYouTubeVideoId(url) {
+    let videoId = null;
+    try {
+        const urlObj = new URL(url);
+        if (urlObj.hostname === 'youtu.be') videoId = urlObj.pathname.slice(1).split('/')[0];
+        else if (urlObj.hostname.includes('youtube.com')) videoId = urlObj.searchParams.get('v');
+    } catch (e) { /* Fallback */ }
+
+    if (!videoId) {
+        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+        const match = url.match(regExp);
+        if (match && match[2] && match[2].length === 11) videoId = match[2];
+    }
+    return (videoId && /^[a-zA-Z0-9_-]{11}$/.test(videoId)) ? videoId : null;
+}
+async function fetchYouTubeVideoInfo(videoUrl) {
+    const endpoint = `https://noembed.com/embed?url=${encodeURIComponent(videoUrl)}`;
+    try {
+        const response = await fetch(endpoint, { mode: 'cors' });
+        if (!response.ok) return null;
+        const data = await response.json();
+        return { title: data?.title || "Untitled Video", author: data?.author_name || "Unknown Author" };
+    } catch (error) {
+        console.error("Failed to fetch YouTube info:", error);
+        return null;
+    }
+}
+
+function showResourcesModal(topicName) {
+    const overlay = document.getElementById('resourcesOverlay');
+    const titleEl = document.getElementById('resourcesModalTitle');
+    const contentEl = document.getElementById('resourcesModalContent');
+
+    titleEl.textContent = `Resources for ${topicName}`;
+
+    const render = () => {
+        const allKnownResources = loadData('gateResources') || {};
+        const resources = allKnownResources[topicName] || [];
+        let listHTML = '';
+
+        if (resources.length > 0) {
+            resources.forEach((res, index) => {
+                const thumbnailHtml = res.videoId
+                    ? `<img src="https://img.youtube.com/vi/${res.videoId}/mqdefault.jpg" alt="Video thumbnail" loading="lazy">`
+                    : `<div class="link-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" /></svg></div>`;
+
+                listHTML += `
+                    <div class="resource-stack-item" data-index="${index}">
+                        <div class="thumbnail-container">
+                            ${thumbnailHtml}
+                        </div>
+                        <div class="info-container">
+                            <h4 class="title">${res.title}</h4>
+                            <p class="author">${res.author || new URL(res.url).hostname}</p>
+                        </div>
+                        <button class="delete-btn" title="Remove resource">×</button>
+                    </div>`;
+            });
+        } else {
+            listHTML = `<p class="text-center opacity-70 my-4">No resources added for this topic yet. Add one to get started!</p>`;
+        }
+
+        contentEl.innerHTML = `<div class="resource-stack">${listHTML}</div>`;
+        
+        contentEl.querySelector('.resource-stack').addEventListener('click', (e) => {
+            const item = e.target.closest('.resource-stack-item');
+            if (!item) return;
+
+            const index = parseInt(item.dataset.index, 10);
+            const resource = resources[index];
+
+            if (e.target.closest('.delete-btn')) {
+                if (confirm(`Are you sure you want to remove "${resource.title}"?`)) {
+                    resources.splice(index, 1);
+                    saveData('gateResources', allKnownResources);
+                    render();
+                }
+            } else {
+                if(resource.videoId) showVideoChatModal(resource);
+                else window.open(resource.url, '_blank');
+            }
+        });
+    };
+
+    render();
+    openModal(overlay);
+}
+async function showVideoChatModal(resource) {
+    currentVideoChatResource = resource;
+    const overlay = document.getElementById('videoChatOverlay');
+    const playerContainer = document.getElementById('videoPlayerContainer');
+    const chatContainer = document.getElementById('videoChatContainer');
+    
+    playerContainer.innerHTML = `<div class="video-container"><iframe src="https://www.youtube.com/embed/${resource.videoId}?autoplay=1&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
+    
+    chatContainer.innerHTML = `
+        <div class="llm-chat-interface">
+            <div class="llm-chat-log" id="llmChatLog"></div>
+            <div class="llm-chat-input-area" id="llmChatInputArea">
+                <input type="text" id="llmChatMessage" placeholder="Ask about this video..." class="form-input">
+                <button id="llmSendChatMessage" class="llm-button">Send</button>
+            </div>
+        </div>`;
+    
+    overlay.classList.remove('chat-hidden');
+    openModal(overlay);
+
+    const chatLog = document.getElementById('llmChatLog');
+    const sendButton = document.getElementById('llmSendChatMessage');
+    const messageInput = document.getElementById('llmChatMessage');
+    
+    // Optimized: Concise system prompt
+    currentLlmChatHistory = [{
+        role: "user",
+        parts: [{ text: `Helpful GATE assistant for video "${resource.title}". Answer related questions concisely.` }]
+    }];
+
+    sendButton.disabled = true; messageInput.disabled = true;
+    chatLog.innerHTML = `<div class="llm-message loading-container"><div class="loading-spinner"></div> Preparing chat...</div>`;
+
+    try {
+        const initialResponse = await callGeminiAPI(currentLlmChatHistory);
+        currentLlmChatHistory.push({ role: "model", parts: [{ text: initialResponse }] });
+        
+        chatLog.innerHTML = ''; 
+        const llmMessageDiv = document.createElement('div');
+        llmMessageDiv.classList.add('llm-message');
+        displayAndRenderMath(llmMessageDiv, initialResponse); 
+        chatLog.appendChild(llmMessageDiv);
+        scrollToBottom(chatLog);
+    } catch (error) {
+        chatLog.innerHTML = `<p class="p-4 text-red-500 font-semibold">Could not start chat: ${error.message}</p>`;
+    } finally {
+        sendButton.disabled = false; messageInput.disabled = false; messageInput.focus();
+        sendButton.onclick = () => handleLlmChatSend();
+        messageInput.onkeypress = (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendButton.click(); } };
+    }
+}
+
+function initModalCloseButtons() {
+    document.getElementById('closeCongratulations').addEventListener('click', () => closeModal(document.getElementById('congratulationsOverlay')));
+    document.getElementById('closeLoginCongrats').addEventListener('click', () => closeModal(document.getElementById('loginCongratsOverlay')));
+    document.getElementById('closeLlmModal').addEventListener('click', closeLLMModal);
+    document.getElementById('closeUserSettingsModal').addEventListener('click', () => closeModal(document.getElementById('userSettingsOverlay')));
+    document.getElementById('closeApiKeyInfoModal').addEventListener('click', () => closeModal(document.getElementById('apiKeyInfoOverlay')));
+    document.getElementById('closeResourcesModal').addEventListener('click', () => closeModal(document.getElementById('resourcesOverlay')));
+    document.getElementById('closeAddResourceUrlModal').addEventListener('click', () => closeModal(document.getElementById('addResourceUrlOverlay')));
+    document.getElementById('closeVideoChatModal').addEventListener('click', () => {
+        closeModal(document.getElementById('videoChatOverlay'));
+        document.getElementById('videoPlayerContainer').innerHTML = '';
+        currentVideoChatResource = null;
+    });
+
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+        overlay.addEventListener('click', function(e) {
+            if (e.target === this) {
+                if (this.id !== 'userDetailsOverlay') {
+                    closeModal(this);
+                    if (this.id === 'llmResponseOverlay') closeLLMModal();
+                    if (this.id === 'videoChatOverlay') {
+                        document.getElementById('videoPlayerContainer').innerHTML = '';
+                        currentVideoChatResource = null;
+                    }
+                }
+            }
+        });
+    });
+    document.getElementById('toggleChatBtn').addEventListener('click', () => {
+        document.getElementById('videoChatModalBox').classList.toggle('chat-hidden');
+    });
+
+    document.getElementById('showAddResourceModalBtn').addEventListener('click', () => {
+        const titleGroup = document.getElementById('resourceTitleGroup');
+        const urlInput = document.getElementById('newResourceUrl');
+        const titleInput = document.getElementById('newResourceTitle');
+        
+        urlInput.oninput = () => {
+            const isYouTube = getYouTubeVideoId(urlInput.value);
+            titleGroup.style.display = isYouTube ? 'none' : 'block';
+            titleInput.required = !isYouTube;
+        };
+        urlInput.oninput();
+        openModal(document.getElementById('addResourceUrlOverlay'));
+    });
+
+    document.getElementById('addResourceUrlForm').onsubmit = async (e) => {
+        e.preventDefault();
+        const urlInput = document.getElementById('newResourceUrl');
+        const titleInput = document.getElementById('newResourceTitle');
+        const topicName = document.getElementById('resourcesModalTitle').textContent.replace('Resources for ', '');
+        
+        const url = urlInput.value.trim();
+        const videoId = getYouTubeVideoId(url);
+        
+        const button = e.target.querySelector('button');
+        button.disabled = true; button.textContent = 'Adding...';
+
+        try {
+            let newResource;
+            if (videoId) {
+                const info = await fetchYouTubeVideoInfo(url);
+                if (!info) throw new Error("Could not fetch video information.");
+                newResource = { videoId, url, ...info };
+            } else {
+                const title = titleInput.value.trim();
+                if (!title) throw new Error("Title is required for non-YouTube links.");
+                newResource = { url, title, author: new URL(url).hostname };
+            }
+
+            const allResources = loadData('gateResources') || {};
+            if (!allResources[topicName]) allResources[topicName] = [];
+            allResources[topicName].push(newResource);
+            saveData('gateResources', allResources);
+            
+            showToast("Resource added successfully!", "success");
+            showResourcesModal(topicName);
+            closeModal(document.getElementById('addResourceUrlOverlay'));
+            e.target.reset();
+
+        } catch (error) {
+            showToast(error.message, 'error');
+        } finally {
+            button.disabled = false; button.textContent = 'Add Resource';
+        }
+    };
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    try {
+        markdownConverter = new showdown.Converter({
+            simplifiedAutoLink: true, strikethrough: true, tables: true, tasklists: true,
+            ghMentions: false, openLinksInNewWindow: true, emoji: true, underline: true,
+            literalMidWordUnderscores: true, ghCodeBlocks: true,
+        });
+        showdown.setFlavor('github');
+    } catch (e) {
+        console.error("Failed to initialize Showdown.js.", e);
+        markdownConverter = { makeHtml: (text) => text.replace(/</g, '<').replace(/>/g, '>').replace(/\n/g, '<br>') };
+    }
+
+    initUserDetails();
+    initUserSettings();
+    initApiKeyInfo();
+    updateOverallStats();
+    initializeCharts();
+    initThemeToggle();
+    initNavigation();
+    initCollapsibleContent();
+    attachSyllabusEventListeners();
+    initModalCloseButtons();
+
+    window.addEventListener('resize', () => {
+        Object.values(charts).forEach(chart => chart?.resize());
+    });
+});
+
     </script>
 </body>
 </html>
